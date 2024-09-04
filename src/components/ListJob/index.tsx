@@ -1,15 +1,15 @@
 // import SildeBanner from './SildeBanner';
 
+import { Pagination } from '@nextui-org/react';
 import clsx from 'clsx';
 import Image from 'next/image';
 
+import SelectSearch from '@components/UI/SelectSearch';
 import Text from '@components/UI/Text';
 
 import FilterJob from './FilterJob';
 import SearchCustom from './SearchCustom';
-import { Pagination } from '@nextui-org/react';
-import CustomSelect from '@components/UI/CustomSelect';
-import SelectSearch from '@components/UI/SelectSearch';
+
 
 const DataJob = [
   {

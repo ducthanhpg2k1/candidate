@@ -1,9 +1,8 @@
 import { Button } from '@nextui-org/react';
 import Image from 'next/image';
 
-import CustomSelect from '@components/UI/CustomSelect';
-import Text from '@components/UI/Text';
 import SelectSearch from '@components/UI/SelectSearch';
+import Text from '@components/UI/Text';
 
 const SearchCustom = () => {
   return (

@@ -9,12 +9,12 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { appWithTranslation } from 'next-i18next';
 import { PagesProgressBar as ProgressBar } from 'next-nprogress-bar';
+import { DefaultSeo, DefaultSeoProps } from 'next-seo';
 
 import ErrorBoundary from '@components/ErrorBoundary';
 import AppLayout from '@layout/AppLayout';
 
 import nextI18nConfig from '../next-i18next.config';
-import { DefaultSeo, DefaultSeoProps } from 'next-seo';
 
 export type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -59,9 +59,9 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
           content='width=device-width,initial-scale=1,maximum-scale=2,shrink-to-fit=no'
         />
       </Head>
+      <DefaultSeo {...SEO} />
 
       <ErrorBoundary>
-        <DefaultSeo {...SEO} />
         <ProgressBar height='2px' color='#B31E8D' options={{ showSpinner: false }} shallowRouting />
         <AppLayout>{getLayout(<Component {...pageProps} />)}</AppLayout>
       </ErrorBoundary>
