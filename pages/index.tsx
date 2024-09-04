@@ -2,10 +2,11 @@ import { ReactElement } from 'react';
 
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
+import ListJob from '@components/ListJob';
 import MainLayout from '@layout/MainLayout';
 
 const HomePage = () => {
-  return <div></div>;
+  return <ListJob />;
 };
 
 HomePage.getLayout = function getLayout(page: ReactElement) {

@@ -1,5 +1,6 @@
 @import './reset.scss';
 @import './font.scss';
+
 @import './color/color.variables.css';
 @import './space.scss';
 @import './text.scss';
@@ -15,4 +16,9 @@ body {
   font-size: 14px;
   line-height: normal;
   text-rendering: optimizeSpeed;
+  font-family: 'Lato', sans-serif;
+}
+
+.box-shadow-banner {
+  box-shadow: 0px 0px 4.312px 0.862px rgba(0, 0, 0, 0.1);
 }
