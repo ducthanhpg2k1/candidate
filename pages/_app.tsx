@@ -14,12 +14,31 @@ import ErrorBoundary from '@components/ErrorBoundary';
 import AppLayout from '@layout/AppLayout';
 
 import nextI18nConfig from '../next-i18next.config';
+import { DefaultSeo, DefaultSeoProps } from 'next-seo';
 
 export type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
 };
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
+};
+
+export const SEO: DefaultSeoProps = {
+  titleTemplate: 'Aeon Việt Nam',
+  defaultTitle: 'Aeon Việt Nam',
+  description: 'Tuyển dụng', // TODO: Update later
+  openGraph: {
+    title: 'Aeon Việt Nam',
+    description: 'Tuyển dụng', // TODO: Update later
+    images: [
+      {
+        url: 'banner-1.png',
+        width: 800,
+        height: 400,
+        alt: 'Aeon Việt Nam Banner Alt',
+      },
+    ],
+  },
 };
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
@@ -42,6 +61,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
       </Head>
 
       <ErrorBoundary>
+        <DefaultSeo {...SEO} />
         <ProgressBar height='2px' color='#B31E8D' options={{ showSpinner: false }} shallowRouting />
         <AppLayout>{getLayout(<Component {...pageProps} />)}</AppLayout>
       </ErrorBoundary>
