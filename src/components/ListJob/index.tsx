@@ -140,7 +140,7 @@ const ListJob = () => {
           )}
 
           <div className='flex flex-col  border-1 border-solid border-gray-100 rounded-2xl'>
-            <div className='p-5 flex justify-between items-center border-b border-b-gray-100 border-solid'>
+            <div className='p-4 lg:p-5 flex justify-between items-center border-b border-b-gray-100 border-solid'>
               <Text type='font-20-700' className='text-primary'>
                 TẤT CẢ VIỆC LÀM
               </Text>
@@ -153,7 +153,7 @@ const ListJob = () => {
                 <div
                   key={item?.id}
                   className={clsx(
-                    'flex flex-col cursor-pointer gap-2 px-9 border-b border-solid pt-5 pb-5 border-b-gray-100',
+                    'flex flex-col cursor-pointer gap-2 px-6 lg:px-9 border-b border-solid pt-5 pb-5 border-b-gray-100',
                     {
                       'border-b-0': index === DataJob?.length - 1,
                     },
