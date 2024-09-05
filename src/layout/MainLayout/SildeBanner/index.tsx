@@ -4,6 +4,7 @@ import React from 'react';
 import { Button, Image } from '@nextui-org/react';
 import clsx from 'clsx';
 import { ResponsiveContainer, StackedCarousel } from 'react-stacked-center-carousel';
+import { isMobile } from 'react-device-detect';
 
 const data = [
   {
@@ -33,14 +34,14 @@ const SildeBanner = () => {
               ref={carouselRef}
               customScales={[0.7, 0.7, 0.7]}
               slideComponent={Card}
-              slideWidth={1100}
+              slideWidth={isMobile ? 340 : 1100}
               carouselWidth={parentWidth}
               data={data}
               maxVisibleSlide={3}
               currentVisibleSlide={3}
               useGrabCursor
               fadeDistance={0.1}
-              height={400}
+              height={isMobile ? 180 : 400}
               swipeSpeed={0.1}
             />
           );
@@ -51,7 +52,7 @@ const SildeBanner = () => {
           onClick={() => ref.current?.goBack()}
           isIconOnly
           size='md'
-          className='absolute left-32 z-50 bg-white shadow-lg'
+          className='absolute left-20 md:left-32 z-50 bg-white shadow-lg'
           radius='full'
         >
           <Image
@@ -66,7 +67,7 @@ const SildeBanner = () => {
           onClick={() => ref.current?.goNext()}
           isIconOnly
           size='md'
-          className='absolute right-32 z-50 bg-white shadow-lg'
+          className='absolute right-20 md:right-32 z-50 bg-white shadow-lg'
           radius='full'
         >
           <Image
@@ -91,6 +92,9 @@ export const Card = React.memo(function (props: any) {
     <div
       className={clsx(
         'w-full h-[400px] relative transition-colors z-10 flex justify-center items-center',
+        {
+          'h-[180px]': isMobile,
+        },
       )}
     >
       <img

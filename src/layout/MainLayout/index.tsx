@@ -8,11 +8,11 @@ const Footer = dynamic(() => import('../components/Footer'));
 
 const MainLayout = ({ children }: any) => {
   return (
-    <div className='w-full h-screen flex flex-col overflow-auto'>
+    <div className='w-full h-screen overflow-x-auto flex flex-col overflow-auto'>
       <MainHeader />
-      <div className='w-full flex-1 mt-[40px]'>
+      <div className='w-full flex-1 mt-4 md:mt-[40px]'>
         <SildeBanner />
-        <div className='container mx-auto py-[40px]'>{children}</div>
+        <div className='container px-4 md:px-6 mx-auto py-8 md:py-[40px]'>{children}</div>
       </div>
       <Footer />
     </div>

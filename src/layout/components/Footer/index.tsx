@@ -8,7 +8,7 @@ import Text from '@components/UI/Text';
 const Footer = () => {
   return (
     <div className="w-full   min-h-[287px] bg-[url('/static/images/bg-footer.png')]  bg-no-repeat bg-cover">
-      <div className='container mx-auto flex  items-center h-full'>
+      <div className='container px-6 mx-auto flex items-center h-full'>
         <div className='flex flex-col gap-4'>
           <Image
             src={'/static/images/logo-aeon-recruitment.png'}
@@ -76,7 +76,7 @@ const Footer = () => {
             </div>
 
             <div className='flex flex-col gap-[10px]'>
-              <Text className='text-white' type='font-18-700'>
+              <Text className='text-white w-max' type='font-18-700'>
                 Follow Us
               </Text>
               <div className='flex items-center gap-5'>

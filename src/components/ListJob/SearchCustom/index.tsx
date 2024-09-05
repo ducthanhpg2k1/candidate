@@ -17,7 +17,7 @@ const SearchCustom = () => {
         />
 
         <input
-          className='bg-transparent outline-none text-black !font-nunito-sans w-full placeholder:text-gray'
+          className='bg-transparent outline-none text-black !font-nunito-sans w-full text-[16px] placeholder:text-[16px] placeholder:text-gray'
           type='text'
           placeholder='Nhập tên vị trí công việc'
         />

@@ -1,7 +1,7 @@
 import CheckboxCustom from '@components/UI/CheckboxCustom';
 import Text from '@components/UI/Text';
 
-const DataCity = [
+export const DataCity = [
   {
     value: 'hn',
     label: 'Hà nội',
@@ -29,7 +29,7 @@ const DataCity = [
   },
 ];
 
-const DataTime = [
+export const DataTime = [
   {
     value: 'part-time',
     label: 'Toàn thời gian',
@@ -42,7 +42,7 @@ const DataTime = [
   },
 ];
 
-const DataHeadquarters = [
+export const DataHeadquarters = [
   {
     value: 'supermarket',
     label: 'Khối siêu thị',
