@@ -1,7 +1,7 @@
 import { ReactElement } from 'react';
 
-import AuthLayout from '@layout/AuthLayout';
 import ForgotPassword from '@components/Auth/ForgotPassword';
+import AuthLayout from '@layout/AuthLayout';
 
 const ForgotPasswordPage = () => {
   return <ForgotPassword />;

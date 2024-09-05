@@ -1,7 +1,7 @@
 import { ReactElement } from 'react';
 
-import AuthLayout from '@layout/AuthLayout';
 import SignUp from '@components/Auth/SignUp';
+import AuthLayout from '@layout/AuthLayout';
 
 const SignUpPage = () => {
   return <SignUp />;

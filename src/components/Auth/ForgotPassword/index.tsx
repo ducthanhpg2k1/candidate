@@ -1,12 +1,12 @@
-import InputText from '@components/UI/InputText';
-import Text from '@components/UI/Text';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button } from '@nextui-org/react';
 import { CaretLeft } from '@phosphor-icons/react';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as Yup from 'yup';
+
+import InputText from '@components/UI/InputText';
+import Text from '@components/UI/Text';
 
 const ForgotSchema = Yup.object().shape({
   phone: Yup.string().required('Số điện thoại không được để trống'),
@@ -14,22 +14,20 @@ const ForgotSchema = Yup.object().shape({
 
 const ForgotPassword = () => {
   const router = useRouter();
-  const [isSubmitSuccess, setIsSubmitSuccess] = useState(false);
   const {
     formState: { errors },
     control,
-    handleSubmit,
   } = useForm<any>({
     resolver: yupResolver(ForgotSchema),
   });
 
-  const onSubmit = async (values: { email: string }) => {
-    console.log(values, 'values');
-    setIsSubmitSuccess(true);
-  };
+  // const onSubmit = async (values: { email: string }) => {
+  //   console.log(values, 'values');
+  //   setIsSubmitSuccess(true);
+  // };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form>
       <div className='flex flex-col gap-5'>
         <div className='flex items-center gap-2'>
           <Button

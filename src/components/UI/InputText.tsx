@@ -1,8 +1,11 @@
-import { Input } from '@nextui-org/react';
 import React, { ReactNode } from 'react';
-import Text from './Text';
-import { Control, useController, useForm } from 'react-hook-form';
+
+import { Input } from '@nextui-org/react';
 import clsx from 'clsx';
+import { Control, useController } from 'react-hook-form';
+
+import Text from './Text';
+
 
 interface IInputText {
   startContent?: ReactNode;
@@ -67,7 +70,7 @@ const InputText = (props: IInputText) => {
             <Text
               type='font-14-600'
               className={clsx('text-black', {
-                ['none']: !label,
+                none: !label,
               })}
             >
               {label}
@@ -78,8 +81,8 @@ const InputText = (props: IInputText) => {
           inputWrapper: errors?.[name]?.message
             ? ['px-5 border-1 border-solid !border-red-500']
             : [
-                'px-5 border-1 border-solid !border-disable-01 data-[hover=true]:!border-disable group-data-[focus=true]:!border-gray-100',
-              ],
+              'px-5 border-1 border-solid !border-disable-01 data-[hover=true]:!border-disable group-data-[focus=true]:!border-gray-100',
+            ],
         }}
         placeholder={placeholder}
         labelPlacement='outside'

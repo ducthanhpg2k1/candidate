@@ -1,7 +1,7 @@
 import { ReactElement } from 'react';
 
-import AuthLayout from '@layout/AuthLayout';
 import SignIn from '@components/Auth/SignIn';
+import AuthLayout from '@layout/AuthLayout';
 
 const SignInPage = () => {
   return <SignIn />;

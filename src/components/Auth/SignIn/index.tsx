@@ -1,14 +1,15 @@
-import { useRequest } from 'ahooks';
-import { useRouter } from 'next/router';
+import { useState } from 'react';
+
 import { yupResolver } from '@hookform/resolvers/yup';
+import { Button } from '@nextui-org/react';
+import { Eye, EyeSlash } from '@phosphor-icons/react';
+import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import * as Yup from 'yup';
-import { useState } from 'react';
-import Text from '@components/UI/Text';
-import InputText from '@components/UI/InputText';
-import { Eye, EyeSlash } from '@phosphor-icons/react';
+
 import CheckboxCustom from '@components/UI/CheckboxCustom';
-import { Button } from '@nextui-org/react';
+import InputText from '@components/UI/InputText';
+import Text from '@components/UI/Text';
 import { ROUTE_PATH } from '@utils/common';
 
 const SignInSchema = Yup.object().shape({
@@ -17,7 +18,7 @@ const SignInSchema = Yup.object().shape({
     .required('Mật khẩu không được để trống')
     .min(8, 'Mật khẩu phải có ít nhất 8 ký tự')
     .matches(/[A-Z]/, 'Mật khẩu phải chứa ít nhất một chữ cái viết hoa')
-    .matches(/[!@#$%^&*(),.?":{}|<>]/, 'Mật khẩu phải chứa ít nhất một ký tự đặc biệt'),
+    .matches(/[!"#$%&()*,.:<>?@^{|}]/, 'Mật khẩu phải chứa ít nhất một ký tự đặc biệt'),
 });
 
 const SignIn = () => {
@@ -29,27 +30,26 @@ const SignIn = () => {
   const {
     formState: { errors },
     control,
-    handleSubmit,
   } = useForm<any>({
     resolver: yupResolver(SignInSchema),
   });
 
-  const onSubmit = async (values: { email: string; password: string }) => {
-    console.log(values, 'values');
+  // const onSubmit = async (values: { email: string; password: string }) => {
+  //   console.log(values, 'values');
 
-    // try {
-    //   const response = await runAsync(values);
-    //   if (response?.data?.access_token) {
-    //     setAccessToken(response.data.access_token);
-    //     ToastCustom.success("Login successfully");
-    //     router.push(ROUTE_PATH.DASHBOARD);
-    //   }
-    // } catch (error: any) {
-    //   ToastCustom.error(error?.response?.data?.code?.message ?? error?.response?.data?.message);
-    // }
-  };
+  //   try {
+  //     const response = await runAsync(values);
+  //     if (response?.data?.access_token) {
+  //       setAccessToken(response.data.access_token);
+  //       ToastCustom.success("Login successfully");
+  //       router.push(ROUTE_PATH.DASHBOARD);
+  //     }
+  //   } catch (error: any) {
+  //     ToastCustom.error(error?.response?.data?.code?.message ?? error?.response?.data?.message);
+  //   }
+  // };
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form>
       <div className='flex flex-col gap-10'>
         <Text className='text-black text-[32px] font-bold'>Đăng nhập</Text>
 
@@ -77,11 +77,13 @@ const SignIn = () => {
                 type='button'
                 onClick={() => setShowPassword(!showPassword)}
               >
-                {showPassword ? (
-                  <Eye size={20} color='black' />
-                ) : (
-                  <EyeSlash size={20} color='black' />
-                )}
+                {showPassword
+                  ? (
+                    <Eye size={20} color='black' />
+                  )
+                  : (
+                    <EyeSlash size={20} color='black' />
+                  )}
               </button>
             }
             type={showPassword ? 'text' : 'password'}

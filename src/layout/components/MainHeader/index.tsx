@@ -7,9 +7,9 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import Text from '@components/UI/Text';
+import { ROUTE_PATH } from '@utils/common';
 
 import MenuMobile from '../MenuMobile';
-import { ROUTE_PATH } from '@utils/common';
 
 export const MENUS = [
   {
