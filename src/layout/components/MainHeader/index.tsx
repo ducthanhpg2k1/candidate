@@ -9,6 +9,7 @@ import { useRouter } from 'next/router';
 import Text from '@components/UI/Text';
 
 import MenuMobile from '../MenuMobile';
+import { ROUTE_PATH } from '@utils/common';
 
 export const MENUS = [
   {
@@ -79,7 +80,11 @@ const Header = () => {
               })}
             </div>
             <div className='flex items-center gap-2'>
-              <Button radius='full' className='py-[9px] px-6 md:px-[33px] bg-primary'>
+              <Button
+                onClick={() => router.push(ROUTE_PATH.SIGN_IN)}
+                radius='full'
+                className='py-[9px] px-6 md:px-[33px] bg-primary'
+              >
                 <Text type='font-14-600' className='text-white'>
                   Đăng nhập
                 </Text>
