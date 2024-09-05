@@ -26,7 +26,7 @@ const SelectSearch = (props: ISelectSearch) => {
       classNames={{
         popoverContent: ['!text-black bg-none'],
         value: ['!text-black text-[16px] font-normal font-nunito-sans'],
-        selectorIcon: [colorSelectorIcon],
+        selectorIcon: [colorSelectorIcon, 'w-6 h-6'],
         trigger: ['!bg-white !py-0 !px-0 shadow-none font-nunito-sans'],
       }}
       radius='lg'
