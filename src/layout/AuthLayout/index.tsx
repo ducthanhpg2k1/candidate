@@ -1,11 +1,12 @@
 import { ReactNode } from 'react';
 
-import Image from 'next/image';
-import { useRouter } from 'next/router';
-import { ROUTE_PATH } from '@utils/common';
-import Text from '@components/UI/Text';
 import { Button } from '@nextui-org/react';
 import { ArrowLeft } from '@phosphor-icons/react';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+
+import Text from '@components/UI/Text';
+import { ROUTE_PATH } from '@utils/common';
 
 interface AuthLayoutProps {
   children: ReactNode;
