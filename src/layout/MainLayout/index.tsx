@@ -12,7 +12,7 @@ const MainLayout = ({ children }: any) => {
       <MainHeader />
       <div className='w-full flex-1 mt-4 md:mt-[40px]'>
         <SildeBanner />
-        <div className='container px-4 md:px-6 mx-auto py-8 md:py-[40px]'>{children}</div>
+        <div className='max-w-[1200px] px-4 md:px-6 mx-auto py-8 md:py-[40px]'>{children}</div>
       </div>
       <Footer />
     </div>

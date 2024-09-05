@@ -7,8 +7,8 @@ import Text from '@components/UI/Text';
 
 const Footer = () => {
   return (
-    <div className="w-full   min-h-[287px] bg-[url('/static/images/bg-footer.png')]  bg-no-repeat bg-cover">
-      <div className='container px-6 mx-auto flex items-center h-full'>
+    <div className="w-full min-h-[287px] bg-[url('/static/images/bg-footer.png')]  bg-no-repeat bg-cover">
+      <div className='max-w-[1200px] px-6 mx-auto flex items-center h-full'>
         <div className='flex flex-col gap-4'>
           <Image
             src={'/static/images/logo-aeon-recruitment.png'}

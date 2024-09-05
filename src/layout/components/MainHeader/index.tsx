@@ -47,7 +47,7 @@ const Header = () => {
   return (
     <>
       <div className='w-full sticky backdrop-blur transition-all z-50 top-0'>
-        <div className='container px-4 md:px-6 flex justify-between items-center mx-auto py-4'>
+        <div className='max-w-[1200px] px-4 md:px-6 flex justify-between items-center mx-auto py-4'>
           <Image
             src={'/static/images/logo-aeon.png'}
             width={160}

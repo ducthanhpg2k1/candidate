@@ -41,7 +41,7 @@ const SildeBanner = () => {
               currentVisibleSlide={3}
               useGrabCursor
               fadeDistance={0.1}
-              height={isMobile ? 180 : 400}
+              height={isMobile ? 200 : 400}
               swipeSpeed={0.1}
             />
           );
@@ -93,7 +93,7 @@ export const Card = React.memo(function (props: any) {
       className={clsx(
         'w-full h-[400px] relative transition-colors z-10 flex justify-center items-center',
         {
-          'h-[180px]': isMobile,
+          'h-[200px]': isMobile,
         },
       )}
     >

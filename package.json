@@ -21,6 +21,7 @@
     "gen-color": "esno ./scripts/genColorCss.ts"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.9.0",
     "@nextui-org/react": "^2.4.6",
     "@phosphor-icons/react": "^2.1.7",
     "ahooks": "^3.8.1",
@@ -39,11 +40,13 @@
     "react": "^18.3.1",
     "react-device-detect": "^2.2.3",
     "react-dom": "^18.3.1",
+    "react-google-recaptcha": "^3.1.0",
     "react-hook-form": "^7.53.0",
     "react-stacked-center-carousel": "^1.0.14",
     "sharp": "^0.30.7",
     "sonner": "^1.5.0",
-    "umi-request": "^1.4.0"
+    "umi-request": "^1.4.0",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@hunghg255/eslint-config-react": "^0.0.26",
@@ -52,6 +55,7 @@
     "@types/node": "18.7.16",
     "@types/react": "18.0.18",
     "@types/react-dom": "18.0.6",
+    "@types/react-google-recaptcha": "^2.1.9",
     "bumpp": "^9.5.2",
     "cross-env": "^7.0.3",
     "csvgtocss": "^0.1.0",
