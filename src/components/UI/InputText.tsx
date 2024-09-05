@@ -6,7 +6,6 @@ import { Control, useController } from 'react-hook-form';
 
 import Text from './Text';
 
-
 interface IInputText {
   startContent?: ReactNode;
   endContent?: ReactNode;
@@ -81,8 +80,8 @@ const InputText = (props: IInputText) => {
           inputWrapper: errors?.[name]?.message
             ? ['px-5 border-1 border-solid !border-red-500']
             : [
-              'px-5 border-1 border-solid !border-disable-01 data-[hover=true]:!border-disable group-data-[focus=true]:!border-gray-100',
-            ],
+                'px-5 border-1 border-solid !border-disable-01 data-[hover=true]:!border-primary group-data-[focus=true]:!border-primary',
+              ],
         }}
         placeholder={placeholder}
         labelPlacement='outside'
