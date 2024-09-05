@@ -3,13 +3,13 @@
 import { Pagination } from '@nextui-org/react';
 import clsx from 'clsx';
 import Image from 'next/image';
+import { isMobile } from 'react-device-detect';
 
 import SelectSearch from '@components/UI/SelectSearch';
 import Text from '@components/UI/Text';
 
 import FilterJob from './FilterJob';
 import SearchCustom from './SearchCustom';
-import { isMobile } from 'react-device-detect';
 import SearchCustomMobile from './SearchCustomMobile';
 
 const DataJob = [

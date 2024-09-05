@@ -1,9 +1,28 @@
-import Drawer from '@components/UI/Drawer';
-import Text from '@components/UI/Text';
+import { useMemo } from 'react';
+
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
-import { useMemo } from 'react';
-import { MENUS } from '..';
+
+import Drawer from '@components/UI/Drawer';
+import Text from '@components/UI/Text';
+
+export const MENUS = [
+  {
+    id: 1,
+    href: '/',
+    title: 'Việc làm',
+  },
+  {
+    id: 2,
+    href: '/event',
+    title: 'Sự kiện',
+  },
+  {
+    id: 3,
+    href: '/about-us',
+    title: 'Về chúng tôi',
+  },
+];
 
 const MenuMobile = ({
   onClose,

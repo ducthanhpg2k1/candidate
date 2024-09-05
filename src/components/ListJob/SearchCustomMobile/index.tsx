@@ -1,11 +1,14 @@
-import CustomSelect from '@components/UI/CustomSelect';
-import SelectSearch from '@components/UI/SelectSearch';
-import Text from '@components/UI/Text';
-import { Button } from '@nextui-org/react';
-import { Funnel, FunnelSimple } from '@phosphor-icons/react';
-import Image from 'next/image';
-import DrawerFilter from './DrawerFilter';
 import { useState } from 'react';
+
+import { Button } from '@nextui-org/react';
+import { FunnelSimple } from '@phosphor-icons/react';
+import Image from 'next/image';
+
+import CustomSelect from '@components/UI/CustomSelect';
+import Text from '@components/UI/Text';
+
+import DrawerFilter from './DrawerFilter';
+
 
 const SearchCustomMobile = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);

@@ -1,10 +1,11 @@
+import { Button } from '@nextui-org/react';
+import { X } from '@phosphor-icons/react/dist/ssr';
+
 import { DataCity, DataHeadquarters, DataTime } from '@components/ListJob/FilterJob';
 import CheckboxCustom from '@components/UI/CheckboxCustom';
 import CustomSelect from '@components/UI/CustomSelect';
 import Drawer from '@components/UI/Drawer';
 import Text from '@components/UI/Text';
-import { Button } from '@nextui-org/react';
-import { X } from '@phosphor-icons/react/dist/ssr';
 
 const DrawerFilter = ({
   onClose,

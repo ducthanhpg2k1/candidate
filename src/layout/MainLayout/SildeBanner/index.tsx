@@ -3,8 +3,8 @@ import React from 'react';
 
 import { Button, Image } from '@nextui-org/react';
 import clsx from 'clsx';
-import { ResponsiveContainer, StackedCarousel } from 'react-stacked-center-carousel';
 import { isMobile } from 'react-device-detect';
+import { ResponsiveContainer, StackedCarousel } from 'react-stacked-center-carousel';
 
 const data = [
   {
