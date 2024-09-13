@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // import SildeBanner from './SildeBanner';
 
 import { Pagination } from '@nextui-org/react';
@@ -11,6 +12,7 @@ import Text from '@components/UI/Text';
 import FilterJob from './FilterJob';
 import SearchCustom from './SearchCustom';
 import SearchCustomMobile from './SearchCustomMobile';
+import { useGetListJob } from './service';
 
 const DataJob = [
   {
@@ -86,6 +88,10 @@ const DataJob = [
 ];
 
 const ListJob = () => {
+  const { dataListJob } = useGetListJob();
+
+  console.log(dataListJob, 'dataListJob');
+
   return (
     <div className='flex-col gap-8 flex'>
       <div className='flex md:justify-center items-center'>

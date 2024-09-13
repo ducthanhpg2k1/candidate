@@ -1,14 +1,14 @@
 import React, { useMemo, useState } from 'react';
 
-import { Button } from '@nextui-org/react';
+import { Avatar, Popover, PopoverContent, PopoverTrigger } from '@nextui-org/react';
 import { List } from '@phosphor-icons/react';
 import clsx from 'clsx';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import Text from '@components/UI/Text';
-import { ROUTE_PATH } from '@utils/common';
 
+import ContentProfile from './ContentProfile';
 import MenuMobile from '../MenuMobile';
 
 export const MENUS = [
@@ -80,7 +80,16 @@ const Header = () => {
               })}
             </div>
             <div className='flex items-center gap-2'>
-              <Button
+              <Popover placement='bottom-end'>
+                <PopoverTrigger>
+                  <Avatar className='w-10 h-10' />
+                </PopoverTrigger>
+                <PopoverContent className='!p-0'>
+                  <ContentProfile />
+                </PopoverContent>
+              </Popover>
+
+              {/* <Button
                 onClick={() => router.push(ROUTE_PATH.SIGN_IN)}
                 radius='full'
                 className='py-[9px] px-6 md:px-[33px] bg-primary'
@@ -88,7 +97,7 @@ const Header = () => {
                 <Text type='font-14-600' className='text-white'>
                   Đăng nhập
                 </Text>
-              </Button>
+              </Button> */}
               <div onClick={handleClickOpenMenu} className='block md:hidden'>
                 <List size={28} />
               </div>

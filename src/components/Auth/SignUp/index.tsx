@@ -1,10 +1,12 @@
+/* eslint-disable unicorn/consistent-function-scoping */
+/* eslint-disable no-console */
+/* eslint-disable multiline-ternary */
 import { useState } from 'react';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button } from '@nextui-org/react';
 import { Eye, EyeSlash } from '@phosphor-icons/react';
 import { useRouter } from 'next/router';
-import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
 import * as Yup from 'yup';
 
@@ -20,6 +22,9 @@ const SignUpSchema = Yup.object().shape({
     .min(8, 'Mật khẩu phải có ít nhất 8 ký tự')
     .matches(/[A-Z]/, 'Mật khẩu phải chứa ít nhất một chữ cái viết hoa')
     .matches(/[!"#$%&()*,.:<>?@^{|}]/, 'Mật khẩu phải chứa ít nhất một ký tự đặc biệt'),
+  confirm_password: Yup.string()
+    .oneOf([Yup.ref('password'), undefined], 'Mật khẩu xác nhận không khớp')
+    .required('Vui lòng xác nhận mật khẩu'),
 });
 
 const SignUp = () => {
@@ -31,30 +36,20 @@ const SignUp = () => {
   const {
     formState: { errors },
     control,
+    handleSubmit,
   } = useForm<any>({
     resolver: yupResolver(SignUpSchema),
   });
 
-  // const onSubmit = async (values: { email: string; password: string }) => {
-  //   console.log(values, 'values');
-
-  //   // try {
-  //   //   const response = await runAsync(values);
-  //   //   if (response?.data?.access_token) {
-  //   //     setAccessToken(response.data.access_token);
-  //   //     ToastCustom.success("Login successfully");
-  //   //     router.push(ROUTE_PATH.DASHBOARD);
-  //   //   }
-  //   // } catch (error: any) {
-  //   //   ToastCustom.error(error?.response?.data?.code?.message ?? error?.response?.data?.message);
-  //   // }
-  // };
+  const onSubmit = (values: any) => {
+    console.log(values, 'values');
+  };
   // const handleCaptcha = (value: any) => {
   //   console.log('Captcha value:', value);
   // };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div className='flex flex-col gap-10'>
         <Text className='text-black text-[32px] font-bold'>Đăng kí</Text>
 
@@ -92,13 +87,11 @@ const SignUp = () => {
                 type='button'
                 onClick={() => setShowPassword(!showPassword)}
               >
-                {showPassword
-                  ? (
-                    <Eye size={20} color='black' />
-                  )
-                  : (
-                    <EyeSlash size={20} color='black' />
-                  )}
+                {showPassword ? (
+                  <Eye size={20} color='black' />
+                ) : (
+                  <EyeSlash size={20} color='black' />
+                )}
               </button>
             }
             type={showPassword ? 'text' : 'password'}
@@ -117,18 +110,16 @@ const SignUp = () => {
                 type='button'
                 onClick={() => setShowPasswordConfirm(!showPasswordConfirm)}
               >
-                {showPassword
-                  ? (
-                    <Eye size={20} color='black' />
-                  )
-                  : (
-                    <EyeSlash size={20} color='black' />
-                  )}
+                {showPassword ? (
+                  <Eye size={20} color='black' />
+                ) : (
+                  <EyeSlash size={20} color='black' />
+                )}
               </button>
             }
             type={showPassword ? 'text' : 'password'}
           />
-          <ReCAPTCHA className='w-full' sitekey='YOUR_SITE_KEY' />
+          {/* <ReCAPTCHA className='w-full' sitekey='YOUR_SITE_KEY' /> */}
         </div>
         <div className='flex flex-col gap-3 mt-2'>
           <Button type='submit' radius='full' className='bg-primary px-4 py-3 min-h-12'>

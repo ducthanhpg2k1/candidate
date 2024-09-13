@@ -31,7 +31,7 @@ const CustomSelect = (props: ICustomSelect) => {
         popoverContent: ['!text-black bg-none'],
         value: ['!text-black text-[14px] font-normal font-nunito-sans'],
         selectorIcon: ['!text-black w-6 h-6'],
-        trigger: ['!bg-white p-4 font-nunito-sans  border-1 border-gray-100'],
+        trigger: ['!bg-white p-4  font-nunito-sans  border-1 border-gray-100'],
       }}
       label={label}
       // labelPlacement='inside'

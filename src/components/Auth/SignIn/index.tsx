@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable multiline-ternary */
 import { useState } from 'react';
 
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -12,13 +14,13 @@ import InputText from '@components/UI/InputText';
 import Text from '@components/UI/Text';
 import { ROUTE_PATH } from '@utils/common';
 
+import { useLoginEmail } from './service';
+
 const SignInSchema = Yup.object().shape({
-  phone: Yup.string().required('Số điện thoại không được để trống'),
+  username: Yup.string().required('Số điện thoại không được để trống'),
   password: Yup.string()
     .required('Mật khẩu không được để trống')
-    .min(8, 'Mật khẩu phải có ít nhất 8 ký tự')
-    .matches(/[A-Z]/, 'Mật khẩu phải chứa ít nhất một chữ cái viết hoa')
-    .matches(/[!"#$%&()*,.:<>?@^{|}]/, 'Mật khẩu phải chứa ít nhất một ký tự đặc biệt'),
+    .min(8, 'Mật khẩu phải có ít nhất 8 ký tự'),
 });
 
 const SignIn = () => {
@@ -30,33 +32,33 @@ const SignIn = () => {
   const {
     formState: { errors },
     control,
+    handleSubmit,
   } = useForm<any>({
     resolver: yupResolver(SignInSchema),
   });
 
-  // const onSubmit = async (values: { email: string; password: string }) => {
-  //   console.log(values, 'values');
+  const requestLogin = useLoginEmail({
+    onSuccess: (res: any) => {
+      console.log(res, 'res');
+    },
+    onError() {},
+  });
 
-  //   try {
-  //     const response = await runAsync(values);
-  //     if (response?.data?.access_token) {
-  //       setAccessToken(response.data.access_token);
-  //       ToastCustom.success("Login successfully");
-  //       router.push(ROUTE_PATH.DASHBOARD);
-  //     }
-  //   } catch (error: any) {
-  //     ToastCustom.error(error?.response?.data?.code?.message ?? error?.response?.data?.message);
-  //   }
-  // };
+  const onSubmit = (values: { username: number; password: string }) => {
+    requestLogin?.run({
+      username: values.username,
+      password: values.password,
+    });
+  };
   return (
-    <form>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div className='flex flex-col gap-10'>
         <Text className='text-black text-[32px] font-bold'>Đăng nhập</Text>
 
         <div className='flex flex-col gap-6'>
           <InputText
             required
-            name='phone'
+            name='username'
             errors={errors}
             label='Số điện thoại'
             control={control}
@@ -77,13 +79,11 @@ const SignIn = () => {
                 type='button'
                 onClick={() => setShowPassword(!showPassword)}
               >
-                {showPassword
-                  ? (
-                    <Eye size={20} color='black' />
-                  )
-                  : (
-                    <EyeSlash size={20} color='black' />
-                  )}
+                {showPassword ? (
+                  <Eye size={20} color='black' />
+                ) : (
+                  <EyeSlash size={20} color='black' />
+                )}
               </button>
             }
             type={showPassword ? 'text' : 'password'}
@@ -105,7 +105,13 @@ const SignIn = () => {
           </div>
         </div>
         <div className='flex flex-col gap-3 mt-2'>
-          <Button type='submit' radius='full' className='bg-primary px-4 py-3 min-h-12'>
+          <Button
+            color='secondary'
+            isLoading={requestLogin.loading}
+            type='submit'
+            radius='full'
+            className='bg-primary px-4 py-3 min-h-12'
+          >
             <Text className='text-white' type='font-16-700'>
               Đăng nhập
             </Text>
