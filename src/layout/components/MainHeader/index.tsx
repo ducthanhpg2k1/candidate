@@ -82,7 +82,7 @@ const Header = () => {
             <div className='flex items-center gap-2'>
               <Popover placement='bottom-end'>
                 <PopoverTrigger>
-                  <Avatar className='w-10 h-10' />
+                  <Avatar className='w-10 h-10 cursor-pointer' />
                 </PopoverTrigger>
                 <PopoverContent className='!p-0'>
                   <ContentProfile />

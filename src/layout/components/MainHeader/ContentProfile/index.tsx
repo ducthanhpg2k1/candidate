@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { useRouter } from 'next/router';
 
 import Text from '@components/UI/Text';
+import { ROUTE_PATH } from '@utils/common';
 
 const DATA_PROFILE = [
   {
@@ -14,17 +15,17 @@ const DATA_PROFILE = [
   {
     id: 2,
     label: 'Công việc đã ứng tuyển',
-    href: '',
+    href: ROUTE_PATH.APPLIED,
   },
   {
     id: 3,
     label: 'Danh sách CV của bạn',
-    href: '',
+    href: ROUTE_PATH.LIST_CV,
   },
   {
     id: 4,
     label: 'Thay đổi mật khẩu',
-    href: '/change-password',
+    href: ROUTE_PATH.CHANGE_PASSWORD,
   },
   {
     id: 4,

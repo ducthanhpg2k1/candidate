@@ -1,15 +1,14 @@
 /* eslint-disable no-console */
 /* eslint-disable multiline-ternary */
-import { useState } from 'react';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button } from '@nextui-org/react';
-import { Eye, EyeSlash } from '@phosphor-icons/react';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import * as Yup from 'yup';
 
 import CheckboxCustom from '@components/UI/CheckboxCustom';
+import InputPassword from '@components/UI/InputPassword';
 import InputText from '@components/UI/InputText';
 import Text from '@components/UI/Text';
 import { ROUTE_PATH } from '@utils/common';
@@ -24,7 +23,6 @@ const SignInSchema = Yup.object().shape({
 });
 
 const SignIn = () => {
-  const [showPassword, setShowPassword] = useState<boolean>(false);
   // const { setAccessToken } = useAccessToken();
 
   // const { runAsync, loading } = useRequest(serviceLogin, { manual: true });
@@ -65,29 +63,15 @@ const SignIn = () => {
             placeholder='Số điện thoại'
             size='lg'
           />
-          <InputText
-            required
+          <InputPassword
             name='password'
             label='Mật khẩu'
-            errors={errors}
             control={control}
-            placeholder='Mật khẩu'
+            errors={errors}
             size='lg'
-            endContent={
-              <button
-                className='focus:outline-none'
-                type='button'
-                onClick={() => setShowPassword(!showPassword)}
-              >
-                {showPassword ? (
-                  <Eye size={20} color='black' />
-                ) : (
-                  <EyeSlash size={20} color='black' />
-                )}
-              </button>
-            }
-            type={showPassword ? 'text' : 'password'}
+            placeholder='Nhập mật khẩu'
           />
+
           <div className='flex justify-between items-center '>
             <CheckboxCustom radius='sm'>
               <Text className='text-black' type='font-14-400'>

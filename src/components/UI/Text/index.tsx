@@ -17,6 +17,7 @@ interface TextProps {
     | 'font-20-700'
     | 'font-15-700'
     | 'font-15-400'
+    | 'font-12-600'
     | undefined;
   color?: 'text-black' | 'text-primary' | undefined;
   fontFamily?: 'font-lato' | 'font-montserrat' | undefined;

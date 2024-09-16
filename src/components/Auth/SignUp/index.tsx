@@ -1,15 +1,14 @@
 /* eslint-disable unicorn/consistent-function-scoping */
 /* eslint-disable no-console */
 /* eslint-disable multiline-ternary */
-import { useState } from 'react';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button } from '@nextui-org/react';
-import { Eye, EyeSlash } from '@phosphor-icons/react';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import * as Yup from 'yup';
 
+import InputPassword from '@components/UI/InputPassword';
 import InputText from '@components/UI/InputText';
 import Text from '@components/UI/Text';
 import { ROUTE_PATH } from '@utils/common';
@@ -28,9 +27,6 @@ const SignUpSchema = Yup.object().shape({
 });
 
 const SignUp = () => {
-  const [showPassword, setShowPassword] = useState<boolean>(false);
-  const [showPasswordConfirm, setShowPasswordConfirm] = useState<boolean>(false);
-
   // const { runAsync, loading } = useRequest(serviceLogin, { manual: true });
   const router = useRouter();
   const {
@@ -72,53 +68,23 @@ const SignUp = () => {
             placeholder='Họ và tên'
             size='lg'
           />
-
-          <InputText
-            required
+          <InputPassword
             name='password'
             label='Mật khẩu'
-            errors={errors}
             control={control}
-            placeholder='Mật khẩu'
+            errors={errors}
             size='lg'
-            endContent={
-              <button
-                className='focus:outline-none'
-                type='button'
-                onClick={() => setShowPassword(!showPassword)}
-              >
-                {showPassword ? (
-                  <Eye size={20} color='black' />
-                ) : (
-                  <EyeSlash size={20} color='black' />
-                )}
-              </button>
-            }
-            type={showPassword ? 'text' : 'password'}
+            placeholder='Nhập mật khẩu'
           />
-          <InputText
-            required
+          <InputPassword
             name='confirm_password'
             label='Nhập lại mật khẩu'
-            errors={errors}
             control={control}
-            placeholder='Nhập lại Mật khẩu'
+            errors={errors}
             size='lg'
-            endContent={
-              <button
-                className='focus:outline-none'
-                type='button'
-                onClick={() => setShowPasswordConfirm(!showPasswordConfirm)}
-              >
-                {showPassword ? (
-                  <Eye size={20} color='black' />
-                ) : (
-                  <EyeSlash size={20} color='black' />
-                )}
-              </button>
-            }
-            type={showPassword ? 'text' : 'password'}
+            placeholder='Nhập lại mật khẩu'
           />
+
           {/* <ReCAPTCHA className='w-full' sitekey='YOUR_SITE_KEY' /> */}
         </div>
         <div className='flex flex-col gap-3 mt-2'>
