@@ -5,7 +5,7 @@ const NoDataUpload = () => {
     <div className='flex flex-col gap-2 justify-center items-center text-center mt-10'>
       <IconNodata />
       <Text type='font-12-400' className='text-neutral'>
-        No file uploaded yet.
+        Chưa có file nào được tải lên
       </Text>
     </div>
   );
