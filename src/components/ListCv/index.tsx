@@ -110,6 +110,7 @@ const ListCv = () => {
           </Button>
           <Text type='font-20-700'>Danh sách cv của bạn</Text>
         </div>
+
         <DragDropUpload handleDrop={handleDrop} handleFileChange={handleFileChange} />
         {listCvUpload?.length > 0 ? (
           <RadioGroup>

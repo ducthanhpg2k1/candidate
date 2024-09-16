@@ -20,7 +20,8 @@ interface IInputText {
   defaultValue?: any;
   isDisabled?: boolean;
   type?: any;
-  size?: any;
+  radius?: 'none' | 'sm' | 'md' | 'lg' | 'full' | undefined;
+  size?: 'sm' | 'md' | 'lg' | undefined;
 }
 const InputText = (props: IInputText) => {
   const {
@@ -30,6 +31,7 @@ const InputText = (props: IInputText) => {
     errors,
     placeholder,
     type,
+    radius = 'full',
     className = '',
     control,
     readOnly,
@@ -46,7 +48,9 @@ const InputText = (props: IInputText) => {
   });
 
   return (
-    <div className='flex flex-col gap-1'>
+    <div className='flex flex-col gap-2'>
+      {label && <Text type='font-14-600'>{label}</Text>}
+
       <Input
         startContent={startContent}
         endContent={endContent}
@@ -60,28 +64,21 @@ const InputText = (props: IInputText) => {
         readOnly={readOnly}
         defaultValue={defaultValue}
         onChange={field?.onChange}
-        radius='full'
+        radius={radius}
         className={clsx('rounded-full', {
           [className]: !!className,
         })}
-        label={
-          <>
-            <Text
-              type='font-14-600'
-              className={clsx('text-black', {
-                none: !label,
-              })}
-            >
-              {label}
-            </Text>
-          </>
-        }
+        label={''}
         classNames={{
           inputWrapper: errors?.[name]?.message
             ? ['px-5 border-1 border-solid !border-red-500']
+            : isDisabled
+            ? [
+                'px-5 border-1 bg-[#82828240] border-solid !border-disable-01 data-[hover=true]:!border-primary group-data-[focus=true]:!border-primary',
+              ]
             : [
-              'px-5 border-1 border-solid !border-disable-01 data-[hover=true]:!border-primary group-data-[focus=true]:!border-primary',
-            ],
+                'px-5 border-1 border-solid !border-disable-01 data-[hover=true]:!border-primary group-data-[focus=true]:!border-primary',
+              ],
         }}
         placeholder={placeholder}
         labelPlacement='outside'

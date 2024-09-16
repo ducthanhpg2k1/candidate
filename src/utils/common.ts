@@ -6,6 +6,7 @@ export const ROUTE_PATH = {
   CHANGE_PASSWORD: '/change-password',
   LIST_CV: '/list-cv',
   APPLIED: '/applied',
+  PROFILE: '/profile',
 };
 
 export enum STATUS_APPLIED {

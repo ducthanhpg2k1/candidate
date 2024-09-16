@@ -10,7 +10,7 @@ const DATA_PROFILE = [
   {
     id: 1,
     label: 'Hồ sơ cá nhân',
-    href: '',
+    href: ROUTE_PATH.PROFILE,
   },
   {
     id: 2,
