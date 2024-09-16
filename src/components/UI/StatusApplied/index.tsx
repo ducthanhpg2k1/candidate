@@ -7,7 +7,7 @@ import Text from '../Text';
 const StatusApplied = ({ status, labelStatus }: { status: string; labelStatus: string }) => {
   return (
     <div
-      className={clsx('rounded-lg w-max py-1 px-2 flex justify-center items-center', {
+      className={clsx('rounded-lg max-w-[100px]  py-1 px-2 flex justify-center items-center', {
         'bg-[#F0FDF4] border-1 border-solid border-[#DCFCE7]': status === STATUS_APPLIED.RESULT,
         'bg-[#FEF9C3] border-1 border-solid border-[#FDE68A]': status === STATUS_APPLIED.INTERVIEW,
         'bg-[#EFF6FF] border-1 border-solid border-[#DBEAFE]': status === STATUS_APPLIED.APPLY,

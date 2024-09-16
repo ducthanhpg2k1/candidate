@@ -12,6 +12,10 @@ import NoDataTable from './NoDataTable';
 
 const columns = [
   {
+    key: 'status',
+    label: 'Trạng thái ứng tuyển',
+  },
+  {
     key: 'position',
     label: 'Vị trí ứng tuyển',
   },
@@ -26,11 +30,6 @@ const columns = [
   {
     key: 'application_date',
     label: 'Ngày ứng tuyển',
-  },
-
-  {
-    key: 'status',
-    label: 'Trạng thái ứng tuyển',
   },
 ];
 const dataTable = [
@@ -126,9 +125,7 @@ const Applied = () => {
       }
       case 'status': {
         return (
-          <>
-            <StatusApplied status={record?.status} labelStatus={renderTextStatus(record.status)} />
-          </>
+          <StatusApplied status={record?.status} labelStatus={renderTextStatus(record.status)} />
         );
       }
 
