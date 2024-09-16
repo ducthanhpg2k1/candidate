@@ -10,7 +10,7 @@ interface IOptionsRequest {
 
 export const useLoginEmail = (options?: IOptionsRequest) => {
   return useRequest(
-    async ({ username, password }: { username?: number; password?: string; fcm_token?: any }) => {
+    ({ username, password }: { username?: number; password?: string; fcm_token?: any }) => {
       return request.post(API_PATH.AUTH_LOGIN, {
         data: {
           username,

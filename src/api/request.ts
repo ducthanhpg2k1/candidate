@@ -10,8 +10,6 @@ export const isDev = ENV.NODE_ENV === 'development';
 
 export const PREFIX_API = ENV.APP_API_URL;
 
-console.log(PREFIX_API, 'PREFIX_API');
-
 const request = extend({
   prefix: PREFIX_API,
   timeout: REQ_TIMEOUT,
