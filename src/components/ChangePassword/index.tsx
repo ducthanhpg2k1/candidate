@@ -19,7 +19,7 @@ const ChangePassword = () => {
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className='w-6/12 flex flex-col gap-6 mx-auto'>
+      <div className='w-6/12 flex flex-col gap-6 mx-auto mt-[-40px]'>
         <div className='flex items-center gap-2'>
           <Button
             variant='light'

@@ -43,7 +43,7 @@ const DragDropUpload = ({ handleDrop, handleFileChange }: any) => {
             <Text type='font-14-600' className='text-black'>
               Chọn một tập tin{' '}
               <Text element='span' type='font-14-600' className='text-primary'>
-                hoặc kéo và thả nó vào đây
+                hoặc kéo và thả tệp tin vào đây
               </Text>
             </Text>
             <Text type='font-12-400' className='text-disable'>
