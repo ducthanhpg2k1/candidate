@@ -54,15 +54,15 @@ const DatePickerCustom = (props: IDatePicker) => {
         dateInputClassNames={{
           inputWrapper: isDisabled
             ? [
-              'px-3 border-1  bg-[#82828240] border-solid !border-disable-01 transition-all data-[hover=true]:!border-disabled group-data-[focus=true]:!border-accent',
-            ]
-            : (borderNone
-              ? [
-                'px-3 border-none shadow-none  transition-all data-[hover=true]:!border-disabled group-data-[focus=true]:!border-accent',
+                'px-3 border-1  bg-[#82828240] border-solid !border-disable-01 transition-all data-[hover=true]:!border-disabled group-data-[focus=true]:!border-accent',
               ]
-              : [
-                'px-3 border-1 border-solid !border-disable-01 transition-all data-[hover=true]:!border-disabled group-data-[focus=true]:!border-accent',
-              ]),
+            : borderNone
+            ? [
+                'px-3 border-none shadow-none   transition-all data-[hover=true]:!border-disabled group-data-[focus=true]:!border-primary',
+              ]
+            : [
+                'px-3 border-1 border-solid border-disable-01 transition-all hover:!border-primary group-data-[focus=true]:!border-primary',
+              ],
         }}
         className={clsx({
           [className]: !!className,

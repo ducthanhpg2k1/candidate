@@ -42,10 +42,14 @@ const CustomSelect = (props: ICustomSelect) => {
           value: ['!text-black text-[14px] font-normal font-nunito-sans'],
           selectorIcon: borderNone ? ['!text-gray w-5 h-5'] : ['!text-black w-6 h-6'],
           trigger: formApply
-            ? ['!bg-white p-4 font-nunito-sans  border-1 border-disable-01']
-            : (borderNone
-              ? ['!bg-white p-4 font-nunito-sans  border-none shadow-none']
-              : ['!bg-white p-4 font-nunito-sans  border-1 border-gray-100']),
+            ? [
+                '!bg-white p-4 font-nunito-sans  border-1 border-disable-01 data-[hover=true]:!border-primary',
+              ]
+            : borderNone
+            ? ['!bg-white p-4 font-nunito-sans  border-none shadow-none']
+            : [
+                '!bg-white p-4 font-nunito-sans  border-1 border-gray-100 data-[focus-visible=true]:!border-primary data-[hover=true]:!border-primary',
+              ],
         }}
         label={''}
         multiple={multiple}
