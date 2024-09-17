@@ -103,7 +103,7 @@ const ListJob = () => {
           {!isMobile && (
             <div className='flex gap-4 md:justify-between items-center'>
               <div className='border-1 rounded-2xl  border-gray-100 border-solid pl-4 pr-2 py-1 flex gap-3 justify-center items-center'>
-                <Text type='font-15-700' className='font-lato'>
+                <Text type='font-15-700' className='font-nunito-sans'>
                   Bộ lọc:
                 </Text>
                 <SelectSearch
@@ -128,7 +128,7 @@ const ListJob = () => {
               </div>
               <div className='border-1 rounded-2xl border-gray-100 border-solid pl-4 pr-2 py-1 flex gap-3 justify-center items-center'>
                 {!isMobile && (
-                  <Text type='font-15-700' className='font-lato'>
+                  <Text type='font-15-700' className='font-nunito-sans'>
                     Sắp xếp theo:
                   </Text>
                 )}
@@ -153,10 +153,10 @@ const ListJob = () => {
 
           <div className='flex flex-col  border-1 border-solid border-gray-100 rounded-2xl'>
             <div className='p-4 lg:p-5 flex justify-between items-center border-b border-b-gray-100 border-solid'>
-              <Text type='font-20-700' className='text-primary font-lato'>
+              <Text type='font-20-700' className='text-primary font-nunito-sans'>
                 TẤT CẢ VIỆC LÀM
               </Text>
-              <Text type='font-15-600' className='text-primary font-lato'>
+              <Text type='font-15-600' className='text-primary font-nunito-sans'>
                 350 công việc
               </Text>
             </div>
@@ -171,7 +171,7 @@ const ListJob = () => {
                     },
                   )}
                 >
-                  <Text type='font-15-700' className='uppercase text-primary font-lato'>
+                  <Text type='font-15-700' className='uppercase text-primary font-nunito-sans'>
                     {item?.title}
                   </Text>
                   <div className='flex items-center justify-between'>

@@ -19,7 +19,7 @@ const Footer = () => {
           />
           <div className='grid gap-8 grid-cols-8'>
             <div className='flex flex-col gap-3 col-span-5'>
-              <Text className='text-white' type='font-18-700'>
+              <Text className='text-white font-nunito-sans' type='font-18-700'>
                 Văn Phòng Chính
               </Text>
               <div className='flex items-center gap-2'>
@@ -76,7 +76,7 @@ const Footer = () => {
             </div>
 
             <div className='flex flex-col gap-[10px]'>
-              <Text className='text-white w-max' type='font-18-700'>
+              <Text className='text-white w-max font-nunito-sans' type='font-18-700'>
                 Follow Us
               </Text>
               <div className='flex items-center gap-5'>
