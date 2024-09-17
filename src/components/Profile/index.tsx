@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { Button, Radio, RadioGroup } from '@nextui-org/react';
 import { ArrowLeft } from '@phosphor-icons/react';
 import { useRouter } from 'next/router';
@@ -5,7 +7,7 @@ import { Controller, useForm } from 'react-hook-form';
 
 import CustomSelect from '@components/UI/CustomSelect';
 import Text from '@components/UI/Text';
-import { useState } from 'react';
+
 import FormApplyJob from './FormApplyJob';
 
 const Profile = () => {
@@ -15,11 +17,13 @@ const Profile = () => {
   };
   return (
     <>
-      {dataCreateJob?.job ? (
-        <FormApplyJob dataCreateJob={dataCreateJob} />
-      ) : (
-        <ApplicationProfile handleSubmitFormCreateProfile={handleDataCreateJob} />
-      )}
+      {dataCreateJob?.job
+        ? (
+          <FormApplyJob dataCreateJob={dataCreateJob} />
+        )
+        : (
+          <ApplicationProfile handleSubmitFormCreateProfile={handleDataCreateJob} />
+        )}
     </>
   );
 };
@@ -60,8 +64,6 @@ const ApplicationProfile = ({
   ];
 
   const onSubmit = (values: any) => {
-    console.log(values, 'values');
-
     const data = {
       address: DATA_ADDRESS.find((item) => item?.value === values?.address)?.label,
       job: DATAJOB.find((item) => item?.value === values?.job)?.label,

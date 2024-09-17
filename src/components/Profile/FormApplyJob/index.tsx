@@ -1,13 +1,29 @@
-import CustomSelect from '@components/UI/CustomSelect';
-import Text from '@components/UI/Text';
-import { DATA_ADDRESS } from '..';
 import { Button } from '@nextui-org/react';
 import { useForm } from 'react-hook-form';
-import PersonalInformation from './PersonalInformation';
-import JobApplication from './JobApplication';
+
+import CustomSelect from '@components/UI/CustomSelect';
+import Text from '@components/UI/Text';
+
 import ConcernWork from './ConcernWork';
-import RecruitmentInformation from './RecruitmentInformation';
+import JobApplication from './JobApplication';
 import LearningProcess from './LearningProcess';
+import PersonalInformation from './PersonalInformation';
+import RecruitmentInformation from './RecruitmentInformation';
+
+export const DATA_ADDRESS = [
+  {
+    value: '1',
+    label: 'Điểm điểm 1',
+  },
+  {
+    value: '2',
+    label: 'Địa điểm 2',
+  },
+  {
+    value: '3',
+    label: 'Địa điểm 3',
+  },
+];
 
 const FormApplyJob = ({ dataCreateJob }: { dataCreateJob: any }) => {
   const {
@@ -47,7 +63,7 @@ const FormApplyJob = ({ dataCreateJob }: { dataCreateJob: any }) => {
       <LearningProcess />
       <JobApplication errors={errors} control={control} />
       <ConcernWork errors={errors} control={control} />
-      <RecruitmentInformation errors={errors} control={control} />
+      <RecruitmentInformation />
     </div>
   );
 };

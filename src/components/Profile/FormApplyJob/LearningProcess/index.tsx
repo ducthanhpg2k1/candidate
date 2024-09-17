@@ -1,6 +1,7 @@
-import Text from '@components/UI/Text';
-import EditTable from '../EditTable';
 import AccordionCustom from '@components/UI/AccordionCustom';
+import Text from '@components/UI/Text';
+
+import EditTable from '../EditTable';
 
 const LearningProcess = () => {
   return (

@@ -1,9 +1,10 @@
+import { Checkbox, Radio, RadioGroup } from '@nextui-org/react';
+
 import AccordionCustom from '@components/UI/AccordionCustom';
 import CustomSelect from '@components/UI/CustomSelect';
 import DatePickerCustom from '@components/UI/DatePickerCustom';
 import InputText from '@components/UI/InputText';
 import Text from '@components/UI/Text';
-import { Checkbox, Radio, RadioGroup } from '@nextui-org/react';
 
 const dataMaritalStatus = [
   {

@@ -3,6 +3,7 @@ import { ReactNode } from 'react';
 
 import { DatePicker } from '@nextui-org/react';
 import clsx from 'clsx';
+
 import Text from '../Text';
 
 interface IDatePicker {
@@ -37,11 +38,11 @@ const DatePickerCustom = (props: IDatePicker) => {
         dateInputClassNames={{
           inputWrapper: isDisabled
             ? [
-                'px-3 border-1  bg-[#82828240] border-solid !border-disable-01 transition-all data-[hover=true]:!border-disabled group-data-[focus=true]:!border-accent',
-              ]
+              'px-3 border-1  bg-[#82828240] border-solid !border-disable-01 transition-all data-[hover=true]:!border-disabled group-data-[focus=true]:!border-accent',
+            ]
             : [
-                'px-3 border-1 border-solid !border-disable-01 transition-all data-[hover=true]:!border-disabled group-data-[focus=true]:!border-accent',
-              ],
+              'px-3 border-1 border-solid !border-disable-01 transition-all data-[hover=true]:!border-disabled group-data-[focus=true]:!border-accent',
+            ],
         }}
         className={clsx({
           [className]: !!className,

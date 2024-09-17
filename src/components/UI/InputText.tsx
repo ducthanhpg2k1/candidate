@@ -72,13 +72,13 @@ const InputText = (props: IInputText) => {
         classNames={{
           inputWrapper: errors?.[name]?.message
             ? ['px-5 border-1 border-solid !border-red-500']
-            : isDisabled
-            ? [
+            : (isDisabled
+              ? [
                 'px-5 border-1 bg-[#82828240] border-solid !border-disable-01 data-[hover=true]:!border-primary group-data-[focus=true]:!border-primary',
               ]
-            : [
+              : [
                 'px-5 border-1 border-solid !border-disable-01 data-[hover=true]:!border-primary group-data-[focus=true]:!border-primary',
-              ],
+              ]),
         }}
         placeholder={placeholder}
         labelPlacement='outside'

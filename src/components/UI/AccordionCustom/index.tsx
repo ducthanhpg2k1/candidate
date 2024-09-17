@@ -1,5 +1,6 @@
-import { Accordion, AccordionItem } from '@nextui-org/react';
 import { ReactNode } from 'react';
+
+import { Accordion, AccordionItem } from '@nextui-org/react';
 
 const AccordionCustom = ({ children, title }: { title: any; children: ReactNode }) => {
   return (
