@@ -1,24 +1,26 @@
-import { Checkbox } from '@nextui-org/react';
+import { Checkbox, Radio, RadioGroup } from '@nextui-org/react';
 
 import AccordionCustom from '@components/UI/AccordionCustom';
 import CustomSelect from '@components/UI/CustomSelect';
 import InputText from '@components/UI/InputText';
 import Text from '@components/UI/Text';
 
-const JobApplication = ({ errors, control }: any) => {
+const ImportantFactorsAffecting = ({ errors, control }: any) => {
   return (
-    <AccordionCustom
-      title={<Text type='font-16-700'>Công việc ứng tuyển, kinh nghiệm làm việc</Text>}
-    >
+    <AccordionCustom title={<Text type='font-16-700'>Important factors affecting your work</Text>}>
       <div className='px-3 pb-4 flex flex-col gap-4'>
-        <div className='grid grid-cols-3 gap-6'>
+        <Text type='font-14-400' className='text-warning mb-2'>
+          Please select 10 most important factors and rank them in order of preference from 1 to 10.
+          (1 as most important and 10 as least important)
+        </Text>
+        <div className='grid grid-cols-4 gap-6'>
           <CustomSelect
             className='w-full'
             radius='md'
-            label='Ưu tiên 1'
+            label='Factor 1'
             formApply
             size='lg'
-            placeholder='Ưu tiên 1'
+            placeholder='Factor 1 '
             options={[
               {
                 value: 1,
@@ -37,10 +39,33 @@ const JobApplication = ({ errors, control }: any) => {
           <CustomSelect
             className='w-full'
             radius='md'
-            label='Ưu tiên 2'
+            label='Factor 2'
             formApply
             size='lg'
-            placeholder='Ưu tiên 2'
+            placeholder='Factor 2'
+            options={[
+              {
+                value: 1,
+                label: 'Điểm điểm 1',
+              },
+              {
+                value: 2,
+                label: 'Địa điểm 2',
+              },
+              {
+                value: 3,
+                label: 'Địa điểm 3',
+              },
+            ]}
+          />
+
+          <CustomSelect
+            className='w-full'
+            radius='md'
+            label='Factor 3'
+            formApply
+            size='lg'
+            placeholder='Factor 3'
             options={[
               {
                 value: 1,
@@ -59,78 +84,10 @@ const JobApplication = ({ errors, control }: any) => {
           <CustomSelect
             className='w-full'
             radius='md'
-            label='Ưu tiên 3'
+            label='Factor 4'
             formApply
             size='lg'
-            placeholder='Ưu tiên 3'
-            options={[
-              {
-                value: 1,
-                label: 'Điểm điểm 1',
-              },
-              {
-                value: 2,
-                label: 'Địa điểm 2',
-              },
-              {
-                value: 3,
-                label: 'Địa điểm 3',
-              },
-            ]}
-          />
-        </div>
-        <div className='grid grid-cols-3 gap-6'>
-          <CustomSelect
-            className='w-full'
-            radius='md'
-            label='Thời gian làm việc'
-            formApply
-            size='lg'
-            placeholder='Thời gian làm việc'
-            options={[
-              {
-                value: 1,
-                label: 'Điểm điểm 1',
-              },
-              {
-                value: 2,
-                label: 'Địa điểm 2',
-              },
-              {
-                value: 3,
-                label: 'Địa điểm 3',
-              },
-            ]}
-          />
-          <CustomSelect
-            className='w-full'
-            radius='md'
-            label='Kinh nghiệm làm việc toàn thời gian'
-            formApply
-            size='lg'
-            placeholder='Kinh nghiệm làm việc toàn thời gian'
-            options={[
-              {
-                value: 1,
-                label: 'Điểm điểm 1',
-              },
-              {
-                value: 2,
-                label: 'Địa điểm 2',
-              },
-              {
-                value: 3,
-                label: 'Địa điểm 3',
-              },
-            ]}
-          />
-          <CustomSelect
-            className='w-full'
-            radius='md'
-            label='Ngày có thể bắt đầu làm việc nếu trúng tuyển '
-            formApply
-            size='lg'
-            placeholder='Ngày có thể bắt đầu làm việc nếu trúng tuyển '
+            placeholder='Factor 4'
             options={[
               {
                 value: 1,
@@ -147,58 +104,14 @@ const JobApplication = ({ errors, control }: any) => {
             ]}
           />
         </div>
-        <div className='grid grid-cols-6 gap-8 items-center'>
-          <div className='col-span-2'>
-            <Text type='font-14-600'>Kinh nghiệm làm việc theo ca xoay</Text>
-          </div>
-          <div className='col-span-4'>
-            <Checkbox radius='sm' defaultSelected />
-          </div>
-        </div>
-        <div className='grid grid-cols-6 gap-8 items-center'>
-          <div className='col-span-2'>
-            <Text type='font-14-600'>Kinh nghiệm bán lẻ</Text>
-          </div>
-          <div className='col-span-4'>
-            <Checkbox radius='sm' defaultSelected />
-          </div>
-        </div>
-        <div className='grid grid-cols-6 gap-8 items-center'>
-          <div className='col-span-2'>
-            <Text type='font-14-600'>Kinh nghiệm làm việc đứng & đi lại nhiều</Text>
-          </div>
-          <div className='col-span-4'>
-            <Checkbox radius='sm' defaultSelected />
-          </div>
-        </div>
-        <div className='grid grid-cols-6 gap-8 items-center'>
-          <div className='col-span-2'>
-            <Text type='font-14-600'>
-              Có thể làm ca sớm (bắt đầu lúc 5h) hoặc làm ca tối (kết thúc lúc 23h)
-            </Text>
-          </div>
-          <div className='col-span-4'>
-            <Checkbox radius='sm' defaultSelected />
-          </div>
-        </div>
-        <div className='grid grid-cols-3 gap-6'>
-          <InputText
-            required
-            name='address'
-            radius='md'
-            errors={errors}
-            label='Kỹ năng (có chứng chỉ) (nếu có)'
-            control={control}
-            placeholder='Kỹ năng'
-            size='lg'
-          />
+        <div className='grid grid-cols-4 gap-6'>
           <CustomSelect
             className='w-full'
             radius='md'
-            label='Ngoại ngữ (nếu có)'
+            label='Factor 5'
             formApply
             size='lg'
-            placeholder='Chọn ngoại ngữ'
+            placeholder='Factor 5 '
             options={[
               {
                 value: 1,
@@ -214,19 +127,122 @@ const JobApplication = ({ errors, control }: any) => {
               },
             ]}
           />
-          <InputText
-            required
-            name='address'
+          <CustomSelect
+            className='w-full'
             radius='md'
-            errors={errors}
-            label='Khả năng (nếu có)'
-            control={control}
-            placeholder='Khả năng'
+            label='Factor 6'
+            formApply
             size='lg'
+            placeholder='Factor 6'
+            options={[
+              {
+                value: 1,
+                label: 'Điểm điểm 1',
+              },
+              {
+                value: 2,
+                label: 'Địa điểm 2',
+              },
+              {
+                value: 3,
+                label: 'Địa điểm 3',
+              },
+            ]}
+          />
+
+          <CustomSelect
+            className='w-full'
+            radius='md'
+            label='Factor 7'
+            formApply
+            size='lg'
+            placeholder='Factor 7'
+            options={[
+              {
+                value: 1,
+                label: 'Điểm điểm 1',
+              },
+              {
+                value: 2,
+                label: 'Địa điểm 2',
+              },
+              {
+                value: 3,
+                label: 'Địa điểm 3',
+              },
+            ]}
+          />
+          <CustomSelect
+            className='w-full'
+            radius='md'
+            label='Factor 8'
+            formApply
+            size='lg'
+            placeholder='Factor 8'
+            options={[
+              {
+                value: 1,
+                label: 'Điểm điểm 1',
+              },
+              {
+                value: 2,
+                label: 'Địa điểm 2',
+              },
+              {
+                value: 3,
+                label: 'Địa điểm 3',
+              },
+            ]}
+          />
+        </div>
+        <div className='grid grid-cols-4 gap-6'>
+          <CustomSelect
+            className='w-full'
+            radius='md'
+            label='Factor 9'
+            formApply
+            size='lg'
+            placeholder='Factor 9 '
+            options={[
+              {
+                value: 1,
+                label: 'Điểm điểm 1',
+              },
+              {
+                value: 2,
+                label: 'Địa điểm 2',
+              },
+              {
+                value: 3,
+                label: 'Địa điểm 3',
+              },
+            ]}
+          />
+          <CustomSelect
+            className='w-full'
+            radius='md'
+            label='Factor 10'
+            formApply
+            size='lg'
+            placeholder='Factor 10'
+            options={[
+              {
+                value: 1,
+                label: 'Điểm điểm 1',
+              },
+              {
+                value: 2,
+                label: 'Địa điểm 2',
+              },
+              {
+                value: 3,
+                label: 'Địa điểm 3',
+              },
+            ]}
           />
         </div>
       </div>
     </AccordionCustom>
   );
 };
-export default JobApplication;
+export default ImportantFactorsAffecting;

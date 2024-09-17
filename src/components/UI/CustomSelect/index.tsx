@@ -16,10 +16,12 @@ interface ICustomSelect {
   label?: string;
   formApply?: boolean;
   multiple?: boolean;
+  borderNone?: boolean;
 }
 const CustomSelect = (props: ICustomSelect) => {
   const {
     options,
+    borderNone,
     label,
     size,
     placeholder,
@@ -38,9 +40,11 @@ const CustomSelect = (props: ICustomSelect) => {
         classNames={{
           popoverContent: ['!text-black bg-none'],
           value: ['!text-black text-[14px] font-normal font-nunito-sans'],
-          selectorIcon: ['!text-black w-6 h-6'],
+          selectorIcon: borderNone ? ['!text-gray w-5 h-5'] : ['!text-black w-6 h-6'],
           trigger: formApply
             ? ['!bg-white p-4 font-nunito-sans  border-1 border-disable-01']
+            : borderNone
+            ? ['!bg-white p-4 font-nunito-sans  border-none shadow-none']
             : ['!bg-white p-4 font-nunito-sans  border-1 border-gray-100'],
         }}
         label={''}

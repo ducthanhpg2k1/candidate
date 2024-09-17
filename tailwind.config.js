@@ -14,6 +14,7 @@ module.exports = {
     extend: {
       fontFamily: {},
       colors: {
+        warning: 'var(--warning)',
         danger: 'var(--danger)',
         primary: 'var(--primary)',
         black: 'var(--black)',

@@ -9,21 +9,28 @@ import CustomSelect from '@components/UI/CustomSelect';
 import Text from '@components/UI/Text';
 
 import FormApplyJob from './FormApplyJob';
+import FormOfficeStaff from './FormOfficeStaff';
 
 const Profile = () => {
   const [dataCreateJob, setDataCreateJob] = useState<any>({});
   const handleDataCreateJob = (data: any) => {
     setDataCreateJob(data);
   };
+  console.log(dataCreateJob, 'dataCreateJob');
+
   return (
     <>
-      {dataCreateJob?.job
-        ? (
-          <FormApplyJob dataCreateJob={dataCreateJob} />
-        )
-        : (
-          <ApplicationProfile handleSubmitFormCreateProfile={handleDataCreateJob} />
-        )}
+      {dataCreateJob?.job ? (
+        <>
+          {dataCreateJob?.job === 'Nhân viên văn phòng (sử dụng tiếng anh)' ? (
+            <FormOfficeStaff dataCreateJob={dataCreateJob} />
+          ) : (
+            <FormApplyJob dataCreateJob={dataCreateJob} />
+          )}
+        </>
+      ) : (
+        <ApplicationProfile handleSubmitFormCreateProfile={handleDataCreateJob} />
+      )}
     </>
   );
 };

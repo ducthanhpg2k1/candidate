@@ -6,117 +6,110 @@ import DatePickerCustom from '@components/UI/DatePickerCustom';
 import InputText from '@components/UI/InputText';
 import Text from '@components/UI/Text';
 
+const dataSex = [
+  {
+    value: 'MALE',
+    label: 'Male',
+  },
+  {
+    value: 'FEMALE',
+    label: 'Female',
+  },
+];
 const dataMaritalStatus = [
   {
-    label: 'Độc thân',
+    label: 'Single',
     value: 'single',
   },
   {
-    label: 'Độc thân',
+    label: 'Married',
     value: 'married',
   },
   {
-    label: 'Độc thân',
+    label: 'Divorced',
     value: 'divorced',
   },
 ];
-const DATA_YES_NO = [
-  {
-    label: 'Không',
-    value: 'NO',
-  },
-  {
-    label: 'Có',
-    value: 'YES',
-  },
-];
 
-const DATA_BODY_TATO = [
-  {
-    label: 'Không',
-    value: 'NO',
-  },
-  {
-    label: 'Có - Có thể che được',
-    value: 'YES',
-  },
-  {
-    label: 'Có - Không thể che được',
-    value: 'YES_OR_NO',
-  },
-];
-
-const PersonalInformation = ({ errors, control }: any) => {
+const PersonalParticulars = ({ errors, control }: any) => {
   return (
-    <AccordionCustom title={<Text type='font-16-700'>Thông tin cá nhân</Text>}>
+    <AccordionCustom title={<Text type='font-16-700'>Personal particulars</Text>}>
       <div className='px-3 pb-4 flex flex-col gap-4'>
-        <div className='grid grid-cols-10 gap-6'>
-          <div className='col-span-4'>
-            <InputText
-              required
-              name='name'
+        <div className='grid grid-cols-8 gap-6'>
+          <div className='col-span-1'>
+            <CustomSelect
+              className='w-full'
               radius='md'
-              errors={errors}
-              label='Họ và tên'
-              control={control}
-              placeholder='Nhập họ và tên'
+              label='Title '
+              formApply
               size='lg'
+              placeholder='Mr.'
+              options={[
+                {
+                  value: 1,
+                  label: 'Điểm điểm 1',
+                },
+                {
+                  value: 2,
+                  label: 'Địa điểm 2',
+                },
+                {
+                  value: 3,
+                  label: 'Địa điểm 3',
+                },
+              ]}
             />
           </div>
           <div className='col-span-3'>
+            <InputText
+              required
+              name='full_name'
+              radius='md'
+              errors={errors}
+              label='Fullname'
+              control={control}
+              placeholder='Fullname'
+              size='lg'
+            />
+          </div>
+          <div className='col-span-2'>
             <DatePickerCustom
-              label='Ngày sinh'
+              label='Date of birth '
               className='w-full'
               radius='md'
               size='lg'
               name='start_date'
             />
           </div>
-          <div className='col-span-2 flex flex-col gap-2'>
-            <Text type='font-14-600'>Giới tính</Text>
-            <RadioGroup
-              className='mt-2'
-              classNames={{
-                wrapper: 'gap-10',
-              }}
-              label=''
-              orientation='horizontal'
-            >
-              <Radio value='male'>Nam</Radio>
-              <Radio value='female'>Nữ</Radio>
-            </RadioGroup>
+          <div className='col-span-2'>
+            <div className='flex flex-col gap-2'>
+              <Text type='font-14-600'>Gender</Text>
+              <RadioGroup
+                classNames={{
+                  wrapper: 'gap-8 mt-2',
+                }}
+                orientation='horizontal'
+                label=''
+              >
+                {dataSex?.map((item) => {
+                  return (
+                    <Radio key={item?.value} value={item?.value}>
+                      {item?.label}
+                    </Radio>
+                  );
+                })}
+              </RadioGroup>
+            </div>
           </div>
         </div>
-        <div className='grid grid-cols-4 gap-6'>
+        <div className='grid grid-cols-3 gap-6'>
           <CustomSelect
             className='w-full'
             radius='md'
-            label='Nguyên quán'
+            label='Position 2'
             formApply
             size='lg'
-            placeholder='Tất cả địa điểm'
-            options={[
-              {
-                value: 1,
-                label: 'Điểm điểm 1',
-              },
-              {
-                value: 2,
-                label: 'Địa điểm 2',
-              },
-              {
-                value: 3,
-                label: 'Địa điểm 3',
-              },
-            ]}
-          />
-          <CustomSelect
-            className='w-full'
-            radius='md'
-            label='Nơi sinh'
-            formApply
-            size='lg'
-            placeholder='Tất cả địa điểm'
+            placeholder='Position 2'
             options={[
               {
                 value: 1,
@@ -134,13 +127,80 @@ const PersonalInformation = ({ errors, control }: any) => {
           />
           <InputText
             required
+            name='email'
+            radius='md'
+            errors={errors}
+            label='Expected Salary (Gross)- VND'
+            control={control}
+            placeholder='Expected Salary (Gross)'
+            size='lg'
+          />
+
+          <InputText
+            required
+            name='email'
+            radius='md'
+            errors={errors}
+            label='Termination Notice for the present job (days)'
+            control={control}
+            placeholder='Quantity of days'
+            size='lg'
+          />
+        </div>
+        <div className='grid grid-cols-4 gap-6'>
+          <CustomSelect
+            className='w-full'
+            radius='md'
+            label='Religion '
+            formApply
+            size='lg'
+            placeholder='Select religion'
+            options={[
+              {
+                value: 1,
+                label: 'Điểm điểm 1',
+              },
+              {
+                value: 2,
+                label: 'Địa điểm 2',
+              },
+              {
+                value: 3,
+                label: 'Địa điểm 3',
+              },
+            ]}
+          />
+          <CustomSelect
+            className='w-full'
+            radius='md'
+            label='Place of birth '
+            formApply
+            size='lg'
+            placeholder='Province/ city'
+            options={[
+              {
+                value: 1,
+                label: 'Điểm điểm 1',
+              },
+              {
+                value: 2,
+                label: 'Địa điểm 2',
+              },
+              {
+                value: 3,
+                label: 'Địa điểm 3',
+              },
+            ]}
+          />
+          <InputText
+            required
+            isDisabled
             name='phone'
             radius='md'
-            isDisabled
             errors={errors}
-            label='Số điện thoại'
+            label='Phone number'
             control={control}
-            placeholder='Nhập số điện thoại'
+            placeholder='Phone number'
             size='lg'
           />
           <InputText
@@ -150,7 +210,7 @@ const PersonalInformation = ({ errors, control }: any) => {
             errors={errors}
             label='Email'
             control={control}
-            placeholder='Nhập email'
+            placeholder='Email'
             size='lg'
           />
         </div>
@@ -158,10 +218,10 @@ const PersonalInformation = ({ errors, control }: any) => {
           <CustomSelect
             className='w-full'
             radius='md'
-            label='Loại giấy tờ'
+            label='Card Type '
             formApply
             size='lg'
-            placeholder='Tất cả địa điểm'
+            placeholder='Select card type '
             options={[
               {
                 value: 1,
@@ -179,29 +239,32 @@ const PersonalInformation = ({ errors, control }: any) => {
           />
           <InputText
             required
-            name='cccd/cmnd'
+            name='cccd'
             radius='md'
             errors={errors}
-            label='Số CCCD/CMND'
+            label='ID No. (CCCD/ CMND)'
             control={control}
-            placeholder='Nhập email'
+            placeholder='ID No. (CCCD/ CMND)'
             size='lg'
           />
-          <DatePickerCustom
+          <InputText
+            required
             isDisabled
-            label='Ngày cấp'
-            className='w-full'
+            name='date_issue'
             radius='md'
+            errors={errors}
+            label='Date of issue'
+            control={control}
+            placeholder='DD/MM/YYYY'
             size='lg'
-            name='start_date'
           />
           <CustomSelect
             className='w-full'
             radius='md'
-            label='Nơi cấp'
+            label='Place of issue'
             formApply
             size='lg'
-            placeholder='Tất cả địa điểm'
+            placeholder='Province/ city'
             options={[
               {
                 value: 1,
@@ -218,16 +281,16 @@ const PersonalInformation = ({ errors, control }: any) => {
             ]}
           />
         </div>
-        <div className='grid grid-cols-10 gap-8'>
-          <div className='col-span-4'>
+        <div className='grid grid-cols-12 gap-6'>
+          <div className='col-span-6'>
             <InputText
               required
-              name='address'
+              name='permanent'
               radius='md'
               errors={errors}
-              label='Địa chỉ thường trú (Hộ khẩu) *'
+              label='Permanent residence'
               control={control}
-              placeholder='Nhập địa chỉ thường trú (Hộ khẩu) *'
+              placeholder='No and street name'
               size='lg'
             />
           </div>
@@ -235,10 +298,10 @@ const PersonalInformation = ({ errors, control }: any) => {
             <CustomSelect
               className='w-full'
               radius='md'
-              label='Tỉnh / TP'
+              label='Province/ city'
               formApply
               size='lg'
-              placeholder='Tất cả địa điểm'
+              placeholder='Province/ city'
               options={[
                 {
                   value: 1,
@@ -255,15 +318,14 @@ const PersonalInformation = ({ errors, control }: any) => {
               ]}
             />
           </div>
-
           <div className='col-span-2'>
             <CustomSelect
               className='w-full'
               radius='md'
-              label='Quận / Huyện'
+              label='District '
               formApply
               size='lg'
-              placeholder='Tất cả địa điểm'
+              placeholder='District '
               options={[
                 {
                   value: 1,
@@ -280,15 +342,14 @@ const PersonalInformation = ({ errors, control }: any) => {
               ]}
             />
           </div>
-
           <div className='col-span-2'>
             <CustomSelect
               className='w-full'
               radius='md'
-              label='Phường / Xã'
+              label='Ward/ Commune'
               formApply
               size='lg'
-              placeholder='Tất cả địa điểm'
+              placeholder='Ward/ Commune'
               options={[
                 {
                   value: 1,
@@ -306,16 +367,16 @@ const PersonalInformation = ({ errors, control }: any) => {
             />
           </div>
         </div>
-        <div className='grid grid-cols-10 gap-8'>
-          <div className='col-span-4'>
+        <div className='grid grid-cols-12 gap-6'>
+          <div className='col-span-6'>
             <InputText
               required
-              name='address'
+              name='permanent'
               radius='md'
               errors={errors}
-              label='Địa chỉ tạm trú (Nơi ở hiện tại)'
+              label='Contact address'
               control={control}
-              placeholder='Nhập địa chỉ tạm trú (Nơi ở hiện tại)'
+              placeholder='No and street name'
               size='lg'
             />
           </div>
@@ -323,10 +384,10 @@ const PersonalInformation = ({ errors, control }: any) => {
             <CustomSelect
               className='w-full'
               radius='md'
-              label='Tỉnh / TP'
+              label='Province/ city'
               formApply
               size='lg'
-              placeholder='Tất cả địa điểm'
+              placeholder='Province/ city'
               options={[
                 {
                   value: 1,
@@ -343,15 +404,14 @@ const PersonalInformation = ({ errors, control }: any) => {
               ]}
             />
           </div>
-
           <div className='col-span-2'>
             <CustomSelect
               className='w-full'
               radius='md'
-              label='Quận / Huyện'
+              label='District '
               formApply
               size='lg'
-              placeholder='Tất cả địa điểm'
+              placeholder='District '
               options={[
                 {
                   value: 1,
@@ -368,15 +428,14 @@ const PersonalInformation = ({ errors, control }: any) => {
               ]}
             />
           </div>
-
           <div className='col-span-2'>
             <CustomSelect
               className='w-full'
               radius='md'
-              label='Phường / Xã'
+              label='Ward/ Commune'
               formApply
               size='lg'
-              placeholder='Tất cả địa điểm'
+              placeholder='Ward/ Commune'
               options={[
                 {
                   value: 1,
@@ -391,12 +450,38 @@ const PersonalInformation = ({ errors, control }: any) => {
                   label: 'Địa điểm 3',
                 },
               ]}
+            />
+          </div>
+        </div>
+        <div className='grid grid-cols-8 gap-6'>
+          <div className='col-span-2'>
+            <InputText
+              required
+              name='height'
+              radius='md'
+              errors={errors}
+              label='Height (cm)'
+              control={control}
+              placeholder='Height (cm)'
+              size='lg'
+            />
+          </div>
+          <div className='col-span-2'>
+            <InputText
+              required
+              name='weight'
+              radius='md'
+              errors={errors}
+              label='Weight (kg)'
+              control={control}
+              placeholder='Weight (kg)'
+              size='lg'
             />
           </div>
         </div>
         <div className='grid grid-cols-6 gap-8 items-center'>
           <div className='col-span-1'>
-            <Text type='font-14-600'>Tình trạng hôn nhân</Text>
+            <Text type='font-14-600'>Marital status</Text>
           </div>
           <div className='col-span-4'>
             <RadioGroup label='' orientation='horizontal'>
@@ -418,51 +503,7 @@ const PersonalInformation = ({ errors, control }: any) => {
         </div>
         <div className='grid grid-cols-6 gap-8 items-center'>
           <div className='col-span-1'>
-            <Text type='font-14-600'>Đang có thai</Text>
-          </div>
-          <div className='col-span-4'>
-            <RadioGroup label='' orientation='horizontal'>
-              {DATA_YES_NO?.map((item) => {
-                return (
-                  <Radio
-                    classNames={{
-                      label: 'w-[120px]',
-                    }}
-                    key={item?.value}
-                    value={item?.value}
-                  >
-                    {item?.label}
-                  </Radio>
-                );
-              })}
-            </RadioGroup>
-          </div>
-        </div>
-        <div className='grid grid-cols-6 gap-8 items-center'>
-          <div className='col-span-1'>
-            <Text type='font-14-600'>Có con dưới 1 tuổi</Text>
-          </div>
-          <div className='col-span-4'>
-            <RadioGroup label='' orientation='horizontal'>
-              {DATA_YES_NO?.map((item) => {
-                return (
-                  <Radio
-                    classNames={{
-                      label: 'w-[120px]',
-                    }}
-                    key={item?.value}
-                    value={item?.value}
-                  >
-                    {item?.label}
-                  </Radio>
-                );
-              })}
-            </RadioGroup>
-          </div>
-        </div>
-        <div className='grid grid-cols-6 gap-8 items-center'>
-          <div className='col-span-1'>
-            <Text type='font-14-600'>Tiền án</Text>
+            <Text type='font-14-600'>Be pregnant</Text>
           </div>
           <div className='col-span-4'>
             <Checkbox radius='sm' defaultSelected />
@@ -470,7 +511,7 @@ const PersonalInformation = ({ errors, control }: any) => {
         </div>
         <div className='grid grid-cols-6 gap-8 items-center'>
           <div className='col-span-1'>
-            <Text type='font-14-600'>Vấn đề sức khỏe</Text>
+            <Text type='font-14-600'>Children under 12 months</Text>
           </div>
           <div className='col-span-4'>
             <Checkbox radius='sm' defaultSelected />
@@ -478,98 +519,14 @@ const PersonalInformation = ({ errors, control }: any) => {
         </div>
         <div className='grid grid-cols-6 gap-8 items-center'>
           <div className='col-span-1'>
-            <Text type='font-14-600'>Hình xăm trên cơ thể</Text>
-          </div>
-          <div className='col-span-5'>
-            <RadioGroup label='' orientation='horizontal'>
-              {DATA_BODY_TATO?.map((item) => {
-                return (
-                  <Radio
-                    classNames={{
-                      label: 'w-[120px]',
-                    }}
-                    key={item?.value}
-                    value={item?.value}
-                  >
-                    {item?.label}
-                  </Radio>
-                );
-              })}
-            </RadioGroup>
-          </div>
-        </div>
-        <div className='grid grid-cols-6 gap-8 items-center'>
-          <div className='col-span-1'>
-            <Text type='font-14-600'>Người thân ở Aeon</Text>
+            <Text type='font-14-600'>Is foreigner?</Text>
           </div>
           <div className='col-span-4'>
             <Checkbox radius='sm' defaultSelected />
-          </div>
-        </div>
-        <div className='grid grid-cols-11 gap-6'>
-          <div className='col-span-3'>
-            <InputText
-              required
-              name='cccd/cmnd'
-              radius='md'
-              errors={errors}
-              label='Họ và tên người liên hệ khẩn cấp '
-              control={control}
-              placeholder='Họ và tên'
-              size='lg'
-            />
-          </div>
-          <div className='col-span-2'>
-            <CustomSelect
-              className='w-full'
-              radius='md'
-              label='Quan hệ'
-              formApply
-              size='lg'
-              placeholder='Quan hệ'
-              options={[
-                {
-                  value: 1,
-                  label: 'Điểm điểm 1',
-                },
-                {
-                  value: 2,
-                  label: 'Địa điểm 2',
-                },
-                {
-                  value: 3,
-                  label: 'Địa điểm 3',
-                },
-              ]}
-            />
-          </div>
-          <div className='col-span-2'>
-            <InputText
-              required
-              name='cccd/cmnd'
-              radius='md'
-              errors={errors}
-              label='Số điện thoại'
-              control={control}
-              placeholder='Số điện thoại'
-              size='lg'
-            />
-          </div>
-          <div className='col-span-4'>
-            <InputText
-              required
-              name='cccd/cmnd'
-              radius='md'
-              errors={errors}
-              label='Địa chỉ'
-              control={control}
-              placeholder='Địa chỉ'
-              size='lg'
-            />
           </div>
         </div>
       </div>
     </AccordionCustom>
   );
 };
-export default PersonalInformation;
+export default PersonalParticulars;

@@ -138,7 +138,7 @@ const ConcernWork = ({ errors, control }: any) => {
             <Text type='font-14-600'>Từng ứng tuyển tại AEON</Text>
           </div>
           <div className='col-span-4'>
-            <Checkbox radius='md' defaultSelected />
+            <Checkbox radius='sm' defaultSelected />
           </div>
         </div>
         <div className='grid grid-cols-8 gap-6 items-center '>
@@ -172,7 +172,7 @@ const ConcernWork = ({ errors, control }: any) => {
             <Text type='font-14-600'>Đang hưởng lương hưu?</Text>
           </div>
           <div className='col-span-4'>
-            <Checkbox radius='md' defaultSelected />
+            <Checkbox radius='sm' defaultSelected />
           </div>
         </div>
       </div>
