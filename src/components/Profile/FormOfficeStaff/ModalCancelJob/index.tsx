@@ -4,8 +4,8 @@ import { forwardRef, useImperativeHandle, useState } from 'react';
 import { Button, ModalBody } from '@nextui-org/react';
 import { X } from '@phosphor-icons/react';
 
-import Text from '@components/UI/Text';
 import CustomModal from '@components/UI/CustomModal';
+import Text from '@components/UI/Text';
 
 interface IModalCancelJob {
   handleCancelJob: () => void;
@@ -17,7 +17,7 @@ const ModalCancelJob = (props: IModalCancelJob, ref?: any) => {
 
   useImperativeHandle(ref, () => {
     return {
-      onOpen: (id: string) => {
+      onOpen: () => {
         setVisible(true);
       },
       onClose: () => setVisible(false),
