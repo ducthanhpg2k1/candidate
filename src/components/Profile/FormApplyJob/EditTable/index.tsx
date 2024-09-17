@@ -1,3 +1,6 @@
+import Text from '@components/UI/Text';
+import { Button } from '@nextui-org/react';
+import { Plus, TrashSimple } from '@phosphor-icons/react';
 import React, { useState } from 'react';
 
 // Định nghĩa kiểu dữ liệu cho một hàng trong bảng
@@ -28,17 +31,14 @@ const EditTable: React.FC = () => {
     setData(updatedData);
   };
 
-  // Xử lý khi người dùng nhập dữ liệu cho hàng mới
-  const handleNewRowChange = (e: React.ChangeEvent<HTMLInputElement>, field: keyof RowData) => {
-    setNewRow({ ...newRow, [field]: e.target.value });
-  };
-
   // Thêm một hàng mới vào bảng
   const handleAddRow = () => {
-    if (newRow.name && newRow.age && newRow.email) {
-      setData([...data, newRow]);
-      setNewRow({ name: '', age: '', email: '' }); // Reset lại hàng mới sau khi thêm
-    }
+    const newRow = {
+      name: '',
+      age: '',
+      email: '',
+    };
+    setData([...data, newRow]);
   };
 
   // Xóa một hàng khỏi bảng
@@ -51,10 +51,14 @@ const EditTable: React.FC = () => {
     <table>
       <thead>
         <tr>
-          <th className='p-3 border border-disable-01 border-solid rounded-tl-lg'>Name</th>
-          <th className='p-3 border border-disable-01 border-solid'>Age</th>
-          <th className='p-3 border border-disable-01 border-solid'>Email</th>
-          <th className='p-3 border border-disable-01 border-solid'>Actions</th>
+          <th className='p-3 border border-disable-01 border-solid rounded-tl-lg'>
+            Trình độ học vấn
+          </th>
+          <th className='p-3 border border-disable-01 border-solid'>Tên trường</th>
+          <th className='p-3 border border-disable-01 border-solid'>Thời gian bắt đầu</th>
+          <th className='p-3 border border-disable-01 border-solid'>Thời gian kết thúc</th>
+          <th className='p-3 border border-disable-01 border-solid'>Chuyên ngành</th>
+          <th className='p-3 border border-disable-01 border-solid'></th>
         </tr>
       </thead>
       <tbody>
@@ -64,6 +68,7 @@ const EditTable: React.FC = () => {
               <input
                 type='text'
                 value={row.name}
+                placeholder='Trình độ học vấn'
                 onChange={(e) => handleInputChange(e, index, 'name')}
                 className='border p-2 w-full border-none focus:outline-none'
               />
@@ -72,6 +77,7 @@ const EditTable: React.FC = () => {
               <input
                 type='number'
                 value={row.age}
+                placeholder='Tên trường'
                 onChange={(e) => handleInputChange(e, index, 'age')}
                 className='border p-2 w-full border-none focus:outline-none'
               />
@@ -79,22 +85,50 @@ const EditTable: React.FC = () => {
             <td className='border border-disable-01  border-solid p-2'>
               <input
                 type='email'
+                placeholder='Thời gian bắt đầu'
                 value={row.email}
                 onChange={(e) => handleInputChange(e, index, 'email')}
                 className='border p-2 w-full border-none focus:outline-none'
               />
             </td>
             <td className='border border-disable-01  border-solid p-2'>
-              <button
+              <input
+                type='email'
+                placeholder='Thời gian kết thúc'
+                value={row.email}
+                onChange={(e) => handleInputChange(e, index, 'email')}
+                className='border p-2 w-full border-none focus:outline-none'
+              />
+            </td>
+            <td className='border border-disable-01  border-solid p-2'>
+              <input
+                type='email'
+                placeholder='Chuyên ngành'
+                value={row.email}
+                onChange={(e) => handleInputChange(e, index, 'email')}
+                className='border p-2 w-full border-none focus:outline-none'
+              />
+            </td>
+            <td className='border border-disable-01  border-solid p-2 w-14'>
+              <Button
+                radius='full'
+                size='md'
+                isIconOnly
                 onClick={() => handleDeleteRow(index)}
-                className='bg-red-500 text-white px-2 py-1'
+                variant='light'
               >
-                Delete
-              </button>
+                <TrashSimple size={16} weight='fill' color='#b91c1c' />
+              </Button>
             </td>
           </tr>
         ))}
-        <tr>
+        <Button onClick={handleAddRow} className='mt-4' variant='light'>
+          <Plus size={16} weight='light' color='#b31e8d' />
+          <Text type='font-12-600' className='text-primary'>
+            Thêm cơ sở đào tạo
+          </Text>
+        </Button>
+        {/* <tr>
           <td className='border border-disable-01 rounded-lg border-solid p-2'>
             <input
               type='text'
@@ -127,7 +161,7 @@ const EditTable: React.FC = () => {
               Add Row
             </button>
           </td>
-        </tr>
+        </tr> */}
       </tbody>
     </table>
   );

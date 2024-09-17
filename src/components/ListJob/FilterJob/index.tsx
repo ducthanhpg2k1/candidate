@@ -59,12 +59,12 @@ const FilterJob = () => {
   return (
     <div className='flex flex-col w-full'>
       <div className='p-4 bg-primary border-b-0 rounded-b-none rounded-2xl'>
-        <Text type='font-16-700' className='text-white font-lato'>
+        <Text type='font-16-700' className='text-white font-nunito-sans !font-black'>
           Bộ lọc nhanh:
         </Text>
       </div>
       <div className='border-1 border-solid border-gray-100 border-b-0 border-t-0 py-3 px-4 flex flex-col gap-5'>
-        <Text type='font-14-700' className='text-black font-lato'>
+        <Text type='font-14-700' className='text-black font-nunito-sans !font-black'>
           Tỉnh/Thành phố
         </Text>
         <div className='flex flex-col gap-4 ml-2'>
@@ -85,7 +85,7 @@ const FilterJob = () => {
         </div>
       </div>
       <div className='border-1 border-solid border-gray-100 border-b-0 py-3 px-4 flex flex-col gap-5'>
-        <Text type='font-14-700' className='text-black font-lato'>
+        <Text type='font-14-700' className='text-black font-nunito-sans  !font-black'>
           Loại hình
         </Text>
         <div className='flex flex-col gap-4 ml-2'>
@@ -106,7 +106,7 @@ const FilterJob = () => {
         </div>
       </div>
       <div className='border-1 border-solid border-gray-100 rounded-2xl rounded-t-none py-3 px-4 flex flex-col gap-5'>
-        <Text type='font-14-700' className='text-black font-lato'>
+        <Text type='font-14-700' className='text-black font-nunito-sans  !font-black'>
           Trụ sở
         </Text>
         <div className='flex flex-col gap-4 ml-2'>
