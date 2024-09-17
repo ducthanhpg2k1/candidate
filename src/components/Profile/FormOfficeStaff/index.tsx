@@ -17,7 +17,7 @@ import PersonalParticulars from './PersonalParticulars';
 import RecruitmentSource from './RecruitmentSource';
 import { DATA_ADDRESS } from '../FormApplyJob';
 
-const FormOfficeStaff = () => {
+const FormOfficeStaff = ({ handleCancelSubmitForm }: { handleCancelSubmitForm: VoidFunction }) => {
   const {
     formState: { errors },
     control,
@@ -38,7 +38,7 @@ const FormOfficeStaff = () => {
         </div>
 
         <div className='flex gap-2 items-center'>
-          <Button radius='full' size='lg' className='w-full'>
+          <Button onClick={handleCancelSubmitForm} radius='full' size='lg' className='w-full'>
             <Text className='text-black' type='font-14-600'>
               Hủy
             </Text>

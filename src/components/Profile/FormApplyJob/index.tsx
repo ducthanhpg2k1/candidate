@@ -26,7 +26,13 @@ export const DATA_ADDRESS = [
   },
 ];
 
-const FormApplyJob = ({ dataCreateJob }: { dataCreateJob: any }) => {
+const FormApplyJob = ({
+  dataCreateJob,
+  handleCancelSubmitForm,
+}: {
+  dataCreateJob: any;
+  handleCancelSubmitForm: VoidFunction;
+}) => {
   const {
     formState: { errors },
     control,
@@ -48,7 +54,7 @@ const FormApplyJob = ({ dataCreateJob }: { dataCreateJob: any }) => {
         </div>
 
         <div className='flex gap-2 items-center'>
-          <Button radius='full' size='lg' className='w-full'>
+          <Button onClick={handleCancelSubmitForm} radius='full' size='lg' className='w-full'>
             <Text className='text-black' type='font-14-600'>
               Hủy
             </Text>

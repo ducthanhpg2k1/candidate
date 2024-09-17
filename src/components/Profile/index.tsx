@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 import { Button, Radio, RadioGroup } from '@nextui-org/react';
 import { ArrowLeft } from '@phosphor-icons/react';
@@ -10,6 +10,7 @@ import Text from '@components/UI/Text';
 
 import FormApplyJob from './FormApplyJob';
 import FormOfficeStaff from './FormOfficeStaff';
+import ModalCancelJob from './FormOfficeStaff/ModalCancelJob';
 
 const Profile = () => {
   const [dataCreateJob, setDataCreateJob] = useState<any>({});
@@ -17,23 +18,33 @@ const Profile = () => {
     setDataCreateJob(data);
   };
 
+  const refModalCancelJob: any = useRef();
+
+  const handleCancelSubmitForm = () => {
+    refModalCancelJob.current.onOpen();
+  };
+
+  const handleCancelJob = () => {
+    setDataCreateJob({});
+  };
   return (
     <>
-      {dataCreateJob?.job
-        ? (
-          <>
-            {dataCreateJob?.job === 'Nhân viên văn phòng (sử dụng tiếng anh)'
-              ? (
-                <FormOfficeStaff />
-              )
-              : (
-                <FormApplyJob dataCreateJob={dataCreateJob} />
-              )}
-          </>
-        )
-        : (
-          <ApplicationProfile handleSubmitFormCreateProfile={handleDataCreateJob} />
-        )}
+      {dataCreateJob?.job ? (
+        <>
+          {dataCreateJob?.job === 'Nhân viên văn phòng (sử dụng tiếng anh)' ? (
+            <FormOfficeStaff handleCancelSubmitForm={handleCancelSubmitForm} />
+          ) : (
+            <FormApplyJob
+              handleCancelSubmitForm={handleCancelSubmitForm}
+              dataCreateJob={dataCreateJob}
+            />
+          )}
+        </>
+      ) : (
+        <ApplicationProfile handleSubmitFormCreateProfile={handleDataCreateJob} />
+      )}
+
+      <ModalCancelJob handleCancelJob={handleCancelJob} ref={refModalCancelJob} />
     </>
   );
 };
