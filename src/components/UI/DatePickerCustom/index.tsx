@@ -14,10 +14,24 @@ interface IDatePicker {
   className?: string;
   label?: string;
   isDisabled?: boolean;
+  onChange?: any;
+  borderNone?: boolean;
+  placeholder?: string;
 }
 
 const DatePickerCustom = (props: IDatePicker) => {
-  const { radius, startContent, isDisabled, size, label, className = '', ...rest } = props;
+  const {
+    radius,
+    startContent,
+    borderNone,
+    onChange,
+    isDisabled,
+    size,
+    label,
+    placeholder,
+    className = '',
+    ...rest
+  } = props;
 
   return (
     <div className='flex flex-col gap-2'>
@@ -28,6 +42,8 @@ const DatePickerCustom = (props: IDatePicker) => {
         size={size}
         radius={radius}
         color='secondary'
+        onChange={onChange}
+        placeholder={placeholder}
         isDisabled={isDisabled}
         variant='bordered'
         selectorIcon={<IconSelectorDate />}
@@ -40,9 +56,13 @@ const DatePickerCustom = (props: IDatePicker) => {
             ? [
               'px-3 border-1  bg-[#82828240] border-solid !border-disable-01 transition-all data-[hover=true]:!border-disabled group-data-[focus=true]:!border-accent',
             ]
-            : [
-              'px-3 border-1 border-solid !border-disable-01 transition-all data-[hover=true]:!border-disabled group-data-[focus=true]:!border-accent',
-            ],
+            : (borderNone
+              ? [
+                'px-3 border-none shadow-none  transition-all data-[hover=true]:!border-disabled group-data-[focus=true]:!border-accent',
+              ]
+              : [
+                'px-3 border-1 border-solid !border-disable-01 transition-all data-[hover=true]:!border-disabled group-data-[focus=true]:!border-accent',
+              ]),
         }}
         className={clsx({
           [className]: !!className,

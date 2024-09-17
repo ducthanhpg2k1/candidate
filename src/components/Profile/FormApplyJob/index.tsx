@@ -9,6 +9,7 @@ import JobApplication from './JobApplication';
 import LearningProcess from './LearningProcess';
 import PersonalInformation from './PersonalInformation';
 import RecruitmentInformation from './RecruitmentInformation';
+import WorkingProcess from './WorkingProcess';
 
 export const DATA_ADDRESS = [
   {
@@ -52,15 +53,17 @@ const FormApplyJob = ({ dataCreateJob }: { dataCreateJob: any }) => {
               Hủy
             </Text>
           </Button>
-          <Button type='submit' radius='full' size='lg' className='bg-primary w-full'>
+          <Button type='submit' radius='full' size='lg' className='bg-primary w-full min-w-[130px]'>
             <Text className='text-white' type='font-14-600'>
-              Xác nhận
+              Hoàn thành
             </Text>
           </Button>
         </div>
       </div>
       <PersonalInformation errors={errors} control={control} />
       <LearningProcess />
+      <WorkingProcess />
+
       <JobApplication errors={errors} control={control} />
       <ConcernWork errors={errors} control={control} />
       <RecruitmentInformation />

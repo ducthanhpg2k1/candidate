@@ -11,7 +11,7 @@ import Text from '@components/UI/Text';
 import FormApplyJob from './FormApplyJob';
 
 const Profile = () => {
-  const [dataCreateJob, setDataCreateJob] = useState<any>({ job: '1' });
+  const [dataCreateJob, setDataCreateJob] = useState<any>({});
   const handleDataCreateJob = (data: any) => {
     setDataCreateJob(data);
   };
