@@ -1,7 +1,9 @@
+import { Checkbox, Radio, RadioGroup } from '@nextui-org/react';
+
 import AccordionCustom from '@components/UI/AccordionCustom';
 import CustomSelect from '@components/UI/CustomSelect';
 import Text from '@components/UI/Text';
-import { Checkbox, Radio, RadioGroup } from '@nextui-org/react';
+
 const dataMaritalStatus = [
   {
     label: 'No',
@@ -16,7 +18,7 @@ const dataMaritalStatus = [
     value: 'Yes - Can not be hidden',
   },
 ];
-const OtherInformation = ({ errors, control }: any) => {
+const OtherInformation = () => {
   return (
     <AccordionCustom title={<Text type='font-16-700'>Personal particulars</Text>}>
       <div className='px-3 pb-4 flex flex-col gap-4'>

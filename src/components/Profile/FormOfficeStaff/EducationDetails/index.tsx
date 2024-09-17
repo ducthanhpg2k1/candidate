@@ -1,5 +1,6 @@
 import AccordionCustom from '@components/UI/AccordionCustom';
 import Text from '@components/UI/Text';
+
 import EditTableEducationDetails from '../EditTableEducationDetails';
 
 const EducationDetails = () => {

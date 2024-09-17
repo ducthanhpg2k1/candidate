@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import { Button } from '@nextui-org/react';
 import { Plus, TrashSimple } from '@phosphor-icons/react';
 
-import Text from '@components/UI/Text';
 import CustomSelect from '@components/UI/CustomSelect';
+import Text from '@components/UI/Text';
 
 // Định nghĩa kiểu dữ liệu cho một hàng trong bảng
 interface RowData {
@@ -31,16 +31,16 @@ const EditTableLanguageProficiency: React.FC = () => {
     },
   ]);
 
-  // Xử lý khi người dùng nhập dữ liệu cho ô trong bảng
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    index: number,
-    field: keyof RowData,
-  ) => {
-    const updatedData: any = [...data];
-    updatedData[index][field] = e.target.value;
-    setData(updatedData);
-  };
+  // // Xử lý khi người dùng nhập dữ liệu cho ô trong bảng
+  // const handleInputChange = (
+  //   e: React.ChangeEvent<HTMLInputElement>,
+  //   index: number,
+  //   field: keyof RowData,
+  // ) => {
+  //   const updatedData: any = [...data];
+  //   updatedData[index][field] = e.target.value;
+  //   setData(updatedData);
+  // };
 
   // Thêm một hàng mới vào bảng
   const handleAddRow = () => {

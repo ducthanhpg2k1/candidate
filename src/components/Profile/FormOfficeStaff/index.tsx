@@ -1,21 +1,23 @@
+import { Button } from '@nextui-org/react';
+import { useForm } from 'react-hook-form';
+
 import CustomSelect from '@components/UI/CustomSelect';
 import Text from '@components/UI/Text';
-import { DATA_ADDRESS } from '../FormApplyJob';
-import { Button } from '@nextui-org/react';
+
 import AppliedPosition from './AppliedPosition';
-import { useForm } from 'react-hook-form';
-import PersonalParticulars from './PersonalParticulars';
-import OtherInformation from './OtherInformation';
-import ImportantFactorsAffecting from './ImportantFactorsAffecting';
-import RecruitmentSource from './RecruitmentSource';
-import ParticularsImmediateFamily from './ParticularsImmediateFamily';
+import CharacterReferees from './CharacterReferees';
 import EducationDetails from './EducationDetails';
 import EmploymentHistory from './EmploymentHistory';
-import CharacterReferees from './CharacterReferees';
 import FamilyRelativesCompany from './FamilyRelativesCompany';
+import ImportantFactorsAffecting from './ImportantFactorsAffecting';
 import LanguageProficiency from './LanguageProficiency';
+import OtherInformation from './OtherInformation';
+import ParticularsImmediateFamily from './ParticularsImmediateFamily';
+import PersonalParticulars from './PersonalParticulars';
+import RecruitmentSource from './RecruitmentSource';
+import { DATA_ADDRESS } from '../FormApplyJob';
 
-const FormOfficeStaff = ({ dataCreateJob }: { dataCreateJob: any }) => {
+const FormOfficeStaff = () => {
   const {
     formState: { errors },
     control,
@@ -24,7 +26,7 @@ const FormOfficeStaff = ({ dataCreateJob }: { dataCreateJob: any }) => {
     <div className='flex flex-col gap-6 mt-[-40px]'>
       <div className='flex justify-between items-center gap-3 px-3'>
         <div className='flex flex-col gap-3'>
-          <Text type='font-20-700'>{`Application form for: Back office`}</Text>
+          <Text type='font-20-700'>{'Application form for: Back office'}</Text>
           <CustomSelect
             className='max-w-[250px]'
             radius='md'
@@ -57,8 +59,8 @@ const FormOfficeStaff = ({ dataCreateJob }: { dataCreateJob: any }) => {
       <FamilyRelativesCompany />
       <LanguageProficiency />
 
-      <OtherInformation errors={errors} control={control} />
-      <ImportantFactorsAffecting errors={errors} control={control} />
+      <OtherInformation />
+      <ImportantFactorsAffecting />
       <RecruitmentSource errors={errors} control={control} />
     </div>
   );

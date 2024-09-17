@@ -1,6 +1,6 @@
 import AccordionCustom from '@components/UI/AccordionCustom';
 import Text from '@components/UI/Text';
-import EditTableEmploymentHistory from '../EditTableEmploymentHistory';
+
 import EditTableCharacterReferees from '../EditTableCharacterReferees';
 
 const CharacterReferees = () => {

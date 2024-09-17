@@ -1,5 +1,4 @@
 import AccordionCustom from '@components/UI/AccordionCustom';
-import CustomSelect from '@components/UI/CustomSelect';
 import InputText from '@components/UI/InputText';
 import Text from '@components/UI/Text';
 

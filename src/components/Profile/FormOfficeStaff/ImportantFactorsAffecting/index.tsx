@@ -1,11 +1,8 @@
-import { Checkbox, Radio, RadioGroup } from '@nextui-org/react';
-
 import AccordionCustom from '@components/UI/AccordionCustom';
 import CustomSelect from '@components/UI/CustomSelect';
-import InputText from '@components/UI/InputText';
 import Text from '@components/UI/Text';
 
-const ImportantFactorsAffecting = ({ errors, control }: any) => {
+const ImportantFactorsAffecting = () => {
   return (
     <AccordionCustom title={<Text type='font-16-700'>Important factors affecting your work</Text>}>
       <div className='px-3 pb-4 flex flex-col gap-4'>

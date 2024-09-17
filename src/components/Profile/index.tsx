@@ -16,21 +16,24 @@ const Profile = () => {
   const handleDataCreateJob = (data: any) => {
     setDataCreateJob(data);
   };
-  console.log(dataCreateJob, 'dataCreateJob');
 
   return (
     <>
-      {dataCreateJob?.job ? (
-        <>
-          {dataCreateJob?.job === 'Nhân viên văn phòng (sử dụng tiếng anh)' ? (
-            <FormOfficeStaff dataCreateJob={dataCreateJob} />
-          ) : (
-            <FormApplyJob dataCreateJob={dataCreateJob} />
-          )}
-        </>
-      ) : (
-        <ApplicationProfile handleSubmitFormCreateProfile={handleDataCreateJob} />
-      )}
+      {dataCreateJob?.job
+        ? (
+          <>
+            {dataCreateJob?.job === 'Nhân viên văn phòng (sử dụng tiếng anh)'
+              ? (
+                <FormOfficeStaff />
+              )
+              : (
+                <FormApplyJob dataCreateJob={dataCreateJob} />
+              )}
+          </>
+        )
+        : (
+          <ApplicationProfile handleSubmitFormCreateProfile={handleDataCreateJob} />
+        )}
     </>
   );
 };

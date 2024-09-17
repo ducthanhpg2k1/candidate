@@ -1,4 +1,3 @@
-import { Checkbox, Radio, RadioGroup } from '@nextui-org/react';
 
 import AccordionCustom from '@components/UI/AccordionCustom';
 import CustomSelect from '@components/UI/CustomSelect';

@@ -3,9 +3,7 @@ import React, { useState } from 'react';
 import { Button } from '@nextui-org/react';
 import { Plus, TrashSimple } from '@phosphor-icons/react';
 
-import DatePickerCustom from '@components/UI/DatePickerCustom';
 import Text from '@components/UI/Text';
-import CustomSelect from '@components/UI/CustomSelect';
 
 // Định nghĩa kiểu dữ liệu cho một hàng trong bảng
 interface RowData {

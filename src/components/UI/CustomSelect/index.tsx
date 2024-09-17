@@ -43,9 +43,9 @@ const CustomSelect = (props: ICustomSelect) => {
           selectorIcon: borderNone ? ['!text-gray w-5 h-5'] : ['!text-black w-6 h-6'],
           trigger: formApply
             ? ['!bg-white p-4 font-nunito-sans  border-1 border-disable-01']
-            : borderNone
-            ? ['!bg-white p-4 font-nunito-sans  border-none shadow-none']
-            : ['!bg-white p-4 font-nunito-sans  border-1 border-gray-100'],
+            : (borderNone
+              ? ['!bg-white p-4 font-nunito-sans  border-none shadow-none']
+              : ['!bg-white p-4 font-nunito-sans  border-1 border-gray-100']),
         }}
         label={''}
         multiple={multiple}
