@@ -172,7 +172,7 @@ const ListJob = () => {
                   )}
                 >
                   <Text
-                    type='font-15-700'
+                    type='font-16-700'
                     className='uppercase text-primary  !font-black font-nunito-sans'
                   >
                     {item?.title}
