@@ -103,7 +103,9 @@ const ListJob = () => {
           {!isMobile && (
             <div className='flex gap-4 md:justify-between items-center'>
               <div className='border-1 rounded-2xl  border-gray-100 border-solid pl-4 pr-2 py-1 flex gap-3 justify-center items-center'>
-                <Text type='font-15-700'>Bộ lọc:</Text>
+                <Text type='font-15-700' className='font-lato'>
+                  Bộ lọc:
+                </Text>
                 <SelectSearch
                   colorSelectorIcon='text-black'
                   className='min-w-[200px] w-max'
@@ -125,7 +127,11 @@ const ListJob = () => {
                 />
               </div>
               <div className='border-1 rounded-2xl border-gray-100 border-solid pl-4 pr-2 py-1 flex gap-3 justify-center items-center'>
-                {!isMobile && <Text type='font-15-700'>Sắp xếp theo:</Text>}
+                {!isMobile && (
+                  <Text type='font-15-700' className='font-lato'>
+                    Sắp xếp theo:
+                  </Text>
+                )}
                 <SelectSearch
                   colorSelectorIcon='text-black'
                   className='min-w-[200px] w-max'
@@ -147,10 +153,10 @@ const ListJob = () => {
 
           <div className='flex flex-col  border-1 border-solid border-gray-100 rounded-2xl'>
             <div className='p-4 lg:p-5 flex justify-between items-center border-b border-b-gray-100 border-solid'>
-              <Text type='font-20-700' className='text-primary'>
+              <Text type='font-20-700' className='text-primary font-lato'>
                 TẤT CẢ VIỆC LÀM
               </Text>
-              <Text type='font-15-600' className='text-primary'>
+              <Text type='font-15-600' className='text-primary font-lato'>
                 350 công việc
               </Text>
             </div>
@@ -165,7 +171,7 @@ const ListJob = () => {
                     },
                   )}
                 >
-                  <Text type='font-15-700' className='uppercase text-primary'>
+                  <Text type='font-15-700' className='uppercase text-primary font-lato'>
                     {item?.title}
                   </Text>
                   <div className='flex items-center justify-between'>

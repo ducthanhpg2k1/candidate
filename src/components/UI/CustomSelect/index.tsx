@@ -15,6 +15,7 @@ interface ICustomSelect {
   size?: 'sm' | 'md' | 'lg' | undefined;
   label?: string;
   formApply?: boolean;
+  multiple?: boolean;
 }
 const CustomSelect = (props: ICustomSelect) => {
   const {
@@ -22,9 +23,10 @@ const CustomSelect = (props: ICustomSelect) => {
     label,
     size,
     placeholder,
-    selectionMode,
     radius,
     formApply,
+    selectionMode,
+    multiple,
     className = '',
     ...rest
   } = props;
@@ -42,9 +44,10 @@ const CustomSelect = (props: ICustomSelect) => {
             : ['!bg-white p-4 font-nunito-sans  border-1 border-gray-100'],
         }}
         label={''}
+        multiple={multiple}
+        selectionMode={selectionMode}
         radius={radius}
         size={size}
-        selectionMode={selectionMode}
         className={className}
         placeholder={placeholder}
         {...rest}

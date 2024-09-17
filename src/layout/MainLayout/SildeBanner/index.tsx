@@ -1,5 +1,5 @@
 /* eslint-disable react/display-name */
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { Button, Image } from '@nextui-org/react';
 import clsx from 'clsx';
@@ -23,6 +23,14 @@ const data = [
 
 const SildeBanner = () => {
   const ref = React.useRef<any>(null);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      ref.current?.goNext(); // Automatically move to the next slide
+    }, 2500); // Change slide every 2.5 seconds
+
+    return () => clearInterval(intervalId); // Clean up the interval on component unmount
+  }, []);
 
   return (
     <div className='flex justify-center items-center relative z-10'>
