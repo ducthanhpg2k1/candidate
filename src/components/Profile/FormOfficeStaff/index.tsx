@@ -31,7 +31,7 @@ const FormOfficeStaff = ({ handleCancelSubmitForm }: { handleCancelSubmitForm: V
         <div className='flex items-center justify-between'>
           <div className='border-1 hover:border-primary w-max rounded-2xl  border-gray-100 border-solid pl-4 pr-2 py-1 flex gap-3 justify-center items-center'>
             <Text type='font-15-700' className='font-nunito-sans !font-black'>
-              Application submission location
+              Application submission location:
             </Text>
             <SelectSearch
               colorSelectorIcon='text-black'
@@ -40,7 +40,7 @@ const FormOfficeStaff = ({ handleCancelSubmitForm }: { handleCancelSubmitForm: V
               options={DATA_ADDRESS}
             />
           </div>
-          <div className='flex gap-2 items-center'>
+          <div className='flex gap-3 items-center'>
             <Button onClick={handleCancelSubmitForm} radius='full' size='lg' className='w-full'>
               <Text className='text-black' type='font-14-600'>
                 Cancel
@@ -66,6 +66,13 @@ const FormOfficeStaff = ({ handleCancelSubmitForm }: { handleCancelSubmitForm: V
       <OtherInformation />
       <ImportantFactorsAffecting />
       <RecruitmentSource errors={errors} control={control} />
+      <div className='flex items-end justify-end px-3'>
+        <Button type='submit' radius='full' size='lg' className='bg-primary'>
+          <Text className='text-white' type='font-14-600'>
+            Save
+          </Text>
+        </Button>
+      </div>
     </div>
   );
 };

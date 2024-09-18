@@ -57,7 +57,7 @@ const FormApplyJob = ({
               options={DATA_ADDRESS}
             />
           </div>
-          <div className='flex gap-2 items-center'>
+          <div className='flex gap-3 items-center'>
             <Button onClick={handleCancelSubmitForm} radius='full' size='lg' className='w-full'>
               <Text className='text-black' type='font-14-600'>
                 Hủy
@@ -78,6 +78,13 @@ const FormApplyJob = ({
       <JobApplication errors={errors} control={control} />
       <ConcernWork errors={errors} control={control} />
       <RecruitmentInformation />
+      <div className='flex items-end justify-end px-3'>
+        <Button type='submit' radius='full' size='lg' className='bg-primary'>
+          <Text className='text-white' type='font-14-600'>
+            Hoàn thành
+          </Text>
+        </Button>
+      </div>
     </div>
   );
 };
