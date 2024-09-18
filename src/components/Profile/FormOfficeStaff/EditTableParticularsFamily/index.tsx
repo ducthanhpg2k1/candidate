@@ -168,7 +168,7 @@ const EditTableParticularsFamily: React.FC = () => {
                 onClick={() => handleDeleteRow(index)}
                 variant='light'
               >
-                <TrashSimple size={16} weight='fill' color='#b91c1c' />
+                <TrashSimple size={16} weight='fill' color='#74787C' />
               </Button>
             </td>
           </tr>
