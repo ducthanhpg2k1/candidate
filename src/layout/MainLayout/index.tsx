@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 
 import { Button } from '@nextui-org/react';
-import { ArrowUp } from '@phosphor-icons/react';
+import { ArrowUp, CaretUp } from '@phosphor-icons/react';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 
 import SildeBanner from './SildeBanner';
+import Text from '@components/UI/Text';
 
 const MainHeader = dynamic(() => import('../components/MainHeader'));
 
@@ -57,15 +58,11 @@ const MainLayout = ({ children }: any) => {
       </div>
       <Footer />
       {isVisible && (
-        <Button
-          onClick={scrollToTop}
-          isIconOnly
-          radius='full'
-          size='lg'
-          className='fixed bottom-10 right-10'
-        >
-          <ArrowUp size={24} weight='light' />
-        </Button>
+        <div className='border-2 shadow-circle border-disable-01 border-solid rounded-full flex flex-col gap-2 fixed bottom-10 right-10'>
+          <Button onClick={scrollToTop} isIconOnly radius='full' size='lg' className='bg-white'>
+            <CaretUp size={24} color='#b31e8d' weight='light' />
+          </Button>
+        </div>
       )}
     </div>
   );
