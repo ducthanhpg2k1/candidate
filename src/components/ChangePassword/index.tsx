@@ -21,7 +21,7 @@ const ChangePassword = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className='w-6/12 flex flex-col gap-6 mx-auto mt-[-40px]'>
         <div className='flex flex-col gap-4'>
-          <div className='border-1 border-solid border-disable-01 shadow-large rounded-[20px] flex flex-col gap-6 p-6'>
+          <div className='border-1 border-solid border-disable-01 shadow-large rounded-[20px] flex flex-col gap-[28px] p-8'>
             <div className='flex items-center gap-2 mb-6'>
               <Button
                 variant='light'

@@ -54,7 +54,7 @@ const ModalViewProcessStatus = (props: IModalViewProcessStatus, ref?: any) => {
       onClose={onVisible}
     >
       <>
-        <ModalBody className='p-4 flex flex-col gap-[28px]'>
+        <ModalBody className='p-8 flex flex-col gap-[28px]'>
           <div className='flex justify-between items-center'>
             <Text type='font-20-700'>Trạng thái ứng tuyển </Text>
             <Button
@@ -69,7 +69,7 @@ const ModalViewProcessStatus = (props: IModalViewProcessStatus, ref?: any) => {
           </div>
           <StepCustom step={activeStep} steps={DATA_STEPS} />
           <div className='flex items-center gap-4 mt-4'>
-            <Button onClick={onVisible} className='w-full bg-primary' radius='sm' size='lg'>
+            <Button onClick={onVisible} className='w-full bg-primary' radius='full' size='lg'>
               <Text type='font-14-600' className='text-white'>
                 Đóng
               </Text>
