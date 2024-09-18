@@ -95,7 +95,7 @@ const ApplicationProfile = ({
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className='flex flex-col gap-6 w-6/12 m-auto mt-[-40px]'>
-        <div className='border-1 flex flex-col gap-[28px] border-solid border-disable-01 p-8 rounded-[20px]'>
+        <div className='border-1 flex flex-col gap-[28px] border-solid shadow-large  border-disable-01 p-8 rounded-[20px]'>
           <div className='flex items-center gap-2'>
             <Button
               variant='light'
