@@ -39,8 +39,14 @@ const ModalCancelJob = (props: IModalCancelJob, ref?: any) => {
         <ModalBody className='p-4 flex flex-col gap-6'>
           <div className='flex justify-between items-center'>
             <Text type='font-20-700'>Hồ sơ chưa được nộp!</Text>
-            <Button onClick={onVisible} isIconOnly radius='full' size='md' variant='light'>
-              <X size={20} weight='light' />
+            <Button
+              onClick={onVisible}
+              isIconOnly
+              className='bg-disable-01'
+              radius='full'
+              size='sm'
+            >
+              <X size={16} weight='light' />
             </Button>
           </div>
           <Text type='font-14-400'>Bạn có muốn trở về màn hình việc làm ?</Text>

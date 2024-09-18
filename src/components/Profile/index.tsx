@@ -29,24 +29,20 @@ const Profile = () => {
   };
   return (
     <>
-      {dataCreateJob?.job
-        ? (
-          <>
-            {dataCreateJob?.job === 'Nhân viên văn phòng (sử dụng tiếng anh)'
-              ? (
-                <FormOfficeStaff handleCancelSubmitForm={handleCancelSubmitForm} />
-              )
-              : (
-                <FormApplyJob
-                  handleCancelSubmitForm={handleCancelSubmitForm}
-                  dataCreateJob={dataCreateJob}
-                />
-              )}
-          </>
-        )
-        : (
-          <ApplicationProfile handleSubmitFormCreateProfile={handleDataCreateJob} />
-        )}
+      {dataCreateJob?.job ? (
+        <>
+          {dataCreateJob?.job === 'Nhân viên văn phòng (sử dụng tiếng anh)' ? (
+            <FormOfficeStaff handleCancelSubmitForm={handleCancelSubmitForm} />
+          ) : (
+            <FormApplyJob
+              handleCancelSubmitForm={handleCancelSubmitForm}
+              dataCreateJob={dataCreateJob}
+            />
+          )}
+        </>
+      ) : (
+        <ApplicationProfile handleSubmitFormCreateProfile={handleDataCreateJob} />
+      )}
 
       <ModalCancelJob handleCancelJob={handleCancelJob} ref={refModalCancelJob} />
     </>
@@ -99,8 +95,8 @@ const ApplicationProfile = ({
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className='flex flex-col gap-6 w-6/12 m-auto mt-[-40px]'>
-        <div className='border-1 flex flex-col gap-6 border-solid border-disable-01 p-6 rounded-lg'>
-          <div className='flex items-center gap-2 mb-2'>
+        <div className='border-1 flex flex-col gap-[28px] border-solid border-disable-01 p-8 rounded-[20px]'>
+          <div className='flex items-center gap-2'>
             <Button
               variant='light'
               size='md'
@@ -153,7 +149,7 @@ const ApplicationProfile = ({
             )}
           />
 
-          <div className='flex items-center gap-6 mt-8'>
+          <div className='flex items-center gap-6'>
             <Button radius='full' size='lg' className='w-full'>
               <Text className='text-black' type='font-14-600'>
                 Hủy

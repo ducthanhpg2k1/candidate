@@ -57,8 +57,14 @@ const ModalViewProcessStatus = (props: IModalViewProcessStatus, ref?: any) => {
         <ModalBody className='p-4 flex flex-col gap-[28px]'>
           <div className='flex justify-between items-center'>
             <Text type='font-20-700'>Trạng thái ứng tuyển </Text>
-            <Button onClick={onVisible} isIconOnly radius='full' size='md' variant='light'>
-              <X size={20} weight='light' />
+            <Button
+              onClick={onVisible}
+              isIconOnly
+              className='bg-disable-01'
+              radius='full'
+              size='sm'
+            >
+              <X size={16} weight='light' />
             </Button>
           </div>
           <StepCustom step={activeStep} steps={DATA_STEPS} />
