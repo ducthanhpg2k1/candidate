@@ -1,10 +1,11 @@
+import { useEffect, useRef, useState } from 'react';
+
+import { Button } from '@nextui-org/react';
+import { ArrowUp } from '@phosphor-icons/react';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 
 import SildeBanner from './SildeBanner';
-import { useEffect, useRef, useState } from 'react';
-import { Button } from '@nextui-org/react';
-import { ArrowUp } from '@phosphor-icons/react';
 
 const MainHeader = dynamic(() => import('../components/MainHeader'));
 

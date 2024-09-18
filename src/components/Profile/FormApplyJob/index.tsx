@@ -1,7 +1,7 @@
 import { Button } from '@nextui-org/react';
 import { useForm } from 'react-hook-form';
 
-import CustomSelect from '@components/UI/CustomSelect';
+import SelectSearch from '@components/UI/SelectSearch';
 import Text from '@components/UI/Text';
 
 import ConcernWork from './ConcernWork';
@@ -10,7 +10,7 @@ import LearningProcess from './LearningProcess';
 import PersonalInformation from './PersonalInformation';
 import RecruitmentInformation from './RecruitmentInformation';
 import WorkingProcess from './WorkingProcess';
-import SelectSearch from '@components/UI/SelectSearch';
+
 
 export const DATA_ADDRESS = [
   {

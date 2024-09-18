@@ -1,6 +1,8 @@
 /* eslint-disable no-console */
 // import SildeBanner from './SildeBanner';
 
+import { useRef } from 'react';
+
 import { Pagination } from '@nextui-org/react';
 import clsx from 'clsx';
 import Image from 'next/image';
@@ -12,8 +14,6 @@ import Text from '@components/UI/Text';
 import FilterJob from './FilterJob';
 import SearchCustom from './SearchCustom';
 import SearchCustomMobile from './SearchCustomMobile';
-import { useGetListJob } from './service';
-import { useRef } from 'react';
 
 const DataJob = [
   {
@@ -89,8 +89,6 @@ const DataJob = [
 ];
 
 const ListJob = () => {
-  const { dataListJob } = useGetListJob();
-
   const divRef: any = useRef();
 
   const scrollToDiv = () => {

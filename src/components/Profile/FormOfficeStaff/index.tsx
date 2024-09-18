@@ -1,7 +1,7 @@
 import { Button } from '@nextui-org/react';
 import { useForm } from 'react-hook-form';
 
-import CustomSelect from '@components/UI/CustomSelect';
+import SelectSearch from '@components/UI/SelectSearch';
 import Text from '@components/UI/Text';
 
 import AppliedPosition from './AppliedPosition';
@@ -16,7 +16,7 @@ import ParticularsImmediateFamily from './ParticularsImmediateFamily';
 import PersonalParticulars from './PersonalParticulars';
 import RecruitmentSource from './RecruitmentSource';
 import { DATA_ADDRESS } from '../FormApplyJob';
-import SelectSearch from '@components/UI/SelectSearch';
+
 
 const FormOfficeStaff = ({ handleCancelSubmitForm }: { handleCancelSubmitForm: VoidFunction }) => {
   const {
