@@ -29,24 +29,20 @@ const Profile = () => {
   };
   return (
     <>
-      {dataCreateJob?.job
-        ? (
-          <>
-            {dataCreateJob?.job === 'Nhân viên văn phòng (sử dụng tiếng anh)'
-              ? (
-                <FormOfficeStaff handleCancelSubmitForm={handleCancelSubmitForm} />
-              )
-              : (
-                <FormApplyJob
-                  handleCancelSubmitForm={handleCancelSubmitForm}
-                  dataCreateJob={dataCreateJob}
-                />
-              )}
-          </>
-        )
-        : (
-          <ApplicationProfile handleSubmitFormCreateProfile={handleDataCreateJob} />
-        )}
+      {dataCreateJob?.job ? (
+        <>
+          {dataCreateJob?.job === 'Nhân viên văn phòng (sử dụng tiếng anh)' ? (
+            <FormOfficeStaff handleCancelSubmitForm={handleCancelSubmitForm} />
+          ) : (
+            <FormApplyJob
+              handleCancelSubmitForm={handleCancelSubmitForm}
+              dataCreateJob={dataCreateJob}
+            />
+          )}
+        </>
+      ) : (
+        <ApplicationProfile handleSubmitFormCreateProfile={handleDataCreateJob} />
+      )}
 
       <ModalCancelJob handleCancelJob={handleCancelJob} ref={refModalCancelJob} />
     </>
@@ -113,7 +109,6 @@ const ApplicationProfile = ({
             <Text type='font-20-700'>Hồ sơ ứng tuyển</Text>
           </div>
           <div className='flex flex-col gap-2'>
-            <Text type='font-14-600'>Công việc</Text>
             <Controller
               name='job'
               control={control}
@@ -146,7 +141,6 @@ const ApplicationProfile = ({
                 className='w-full'
                 radius='lg'
                 size='lg'
-                label='Địa điểm làm việc'
                 placeholder='Chọn địa điểm nộp đơn'
                 options={DATA_ADDRESS}
               />
