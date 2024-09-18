@@ -55,7 +55,7 @@ const ChangePassword = () => {
               placeholder='Nhập lại mật khẩu mới'
               size='lg'
             />
-            <Button type='submit' radius='md' size='lg' className='bg-black w-max'>
+            <Button type='submit' radius='md' size='lg' className='bg-primary w-max mt-6'>
               <Text type='font-14-600' className='text-white'>
                 Thay đổi mật khẩu
               </Text>

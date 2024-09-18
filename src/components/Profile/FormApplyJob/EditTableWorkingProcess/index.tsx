@@ -6,7 +6,6 @@ import { Plus, TrashSimple } from '@phosphor-icons/react';
 import DatePickerCustom from '@components/UI/DatePickerCustom';
 import Text from '@components/UI/Text';
 
-
 // Định nghĩa kiểu dữ liệu cho một hàng trong bảng
 interface RowData {
   company: string;
@@ -78,37 +77,37 @@ const EditTableLearningProcess: React.FC = () => {
     <table>
       <thead>
         <tr>
-          <th className='p-3 bg-primary border-1 border-disable-01 border-solid'>
-            <Text type='font-14-600' className='text-white'>
+          <th className='p-3 bg-[#f3f3f3] border-1 border-disable-01 border-solid'>
+            <Text type='font-14-600' className='text-black'>
               Công ty
             </Text>
           </th>
-          <th className='p-3 border border-disable-01  bg-primary border-solid'>
-            <Text type='font-14-600' className='text-white'>
+          <th className='p-3 border border-disable-01  bg-[#f3f3f3] border-solid'>
+            <Text type='font-14-600' className='text-black'>
               Vị trí công ty
             </Text>
           </th>
-          <th className='p-3 border border-disable-01  bg-primary border-solid'>
-            <Text type='font-14-600' className='text-white'>
+          <th className='p-3 border border-disable-01  bg-[#f3f3f3] border-solid'>
+            <Text type='font-14-600' className='text-black'>
               Mức thu nhập
             </Text>
           </th>
-          <th className='p-3 border border-disable-01  bg-primary border-solid'>
-            <Text type='font-14-600' className='text-white'>
+          <th className='p-3 border border-disable-01  bg-[#f3f3f3] border-solid'>
+            <Text type='font-14-600' className='text-black'>
               Thời gian bắt đầu
             </Text>
           </th>
-          <th className='p-3 border border-disable-01  bg-primary border-solid'>
-            <Text type='font-14-600' className='text-white'>
+          <th className='p-3 border border-disable-01  bg-[#f3f3f3] border-solid'>
+            <Text type='font-14-600' className='text-black'>
               Thời gian kết thúc
             </Text>
           </th>
-          <th className='p-3 border border-disable-01  bg-primary border-solid'>
-            <Text type='font-14-600' className='text-white'>
+          <th className='p-3 border border-disable-01  bg-[#f3f3f3] border-solid'>
+            <Text type='font-14-600' className='text-black'>
               Lí do nghỉ việc
             </Text>
           </th>
-          <th className='p-3 border border-disable-01  bg-primary border-solid'></th>
+          <th className='p-3 border border-disable-01  bg-[#f3f3f3] border-solid'></th>
         </tr>
       </thead>
       <tbody>
@@ -187,7 +186,7 @@ const EditTableLearningProcess: React.FC = () => {
         ))}
         <Button onClick={handleAddRow} className='mt-4' variant='light'>
           <Plus size={16} weight='light' color='#b31e8d' />
-          <Text type='font-12-600' className='text-primary'>
+          <Text type='font-13-600' className='text-primary'>
             Thêm quá trình làm việc
           </Text>
         </Button>

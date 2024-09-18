@@ -17,11 +17,20 @@ const Footer = () => {
             alt='logo'
             className='w-[122px] h-[59px]'
           />
-          <div className='grid gap-8 grid-cols-8'>
-            <div className='flex flex-col gap-3 col-span-5'>
+          <div className='grid gap-14 grid-cols-10'>
+            <div className='flex flex-col gap-3 col-span-8'>
               <Text className='text-white font-nunito-sans' type='font-18-700'>
                 Văn Phòng Chính
               </Text>
+            </div>
+            <div className='flex flex-col gap-3 col-span-2'>
+              <Text className='text-white w-max font-nunito-sans' type='font-18-700'>
+                Follow Us
+              </Text>
+            </div>
+          </div>
+          <div className='grid gap-14 grid-cols-10'>
+            <div className='flex flex-col gap-3 col-span-8'>
               <div className='flex items-center gap-2'>
                 <Image
                   src={'/static/icons/ic-location.svg'}
@@ -74,11 +83,7 @@ const Footer = () => {
                 </Text>
               </div>
             </div>
-
-            <div className='flex flex-col gap-[10px]'>
-              <Text className='text-white w-max font-nunito-sans' type='font-18-700'>
-                Follow Us
-              </Text>
+            <div className='flex flex-col gap-3 col-span-2'>
               <div className='flex items-center gap-5'>
                 <Button isIconOnly size='md' radius='full' variant='light'>
                   <Image

@@ -13,6 +13,7 @@ import FilterJob from './FilterJob';
 import SearchCustom from './SearchCustom';
 import SearchCustomMobile from './SearchCustomMobile';
 import { useGetListJob } from './service';
+import { useRef } from 'react';
 
 const DataJob = [
   {
@@ -90,10 +91,19 @@ const DataJob = [
 const ListJob = () => {
   const { dataListJob } = useGetListJob();
 
-  console.log(dataListJob, 'dataListJob');
+  const divRef: any = useRef();
+
+  const scrollToDiv = () => {
+    if (divRef.current) {
+      divRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  };
 
   return (
-    <div className='flex-col gap-8 flex'>
+    <div className='flex-col gap-8 flex' ref={divRef}>
       <div className='flex md:justify-center items-center'>
         {isMobile ? <SearchCustomMobile /> : <SearchCustom />}
       </div>
@@ -244,6 +254,9 @@ const ListJob = () => {
             <Pagination
               classNames={{
                 cursor: ['bg-primary'],
+              }}
+              onChange={() => {
+                scrollToDiv();
               }}
               size='lg'
               showControls

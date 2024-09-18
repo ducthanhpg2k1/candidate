@@ -63,8 +63,10 @@ const ModalViewProcessStatus = (props: IModalViewProcessStatus, ref?: any) => {
           </div>
           <StepCustom step={activeStep} steps={DATA_STEPS} />
           <div className='flex items-center gap-4 mt-4'>
-            <Button onClick={onVisible} className='w-full' color='default' radius='sm' size='lg'>
-              <Text type='font-14-600'>Cancel</Text>
+            <Button onClick={onVisible} className='w-full bg-primary' radius='sm' size='lg'>
+              <Text type='font-14-600' className='text-white'>
+                Cancel
+              </Text>
             </Button>
           </div>
         </ModalBody>

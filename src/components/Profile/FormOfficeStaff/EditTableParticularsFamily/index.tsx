@@ -70,37 +70,37 @@ const EditTableParticularsFamily: React.FC = () => {
     <table>
       <thead>
         <tr>
-          <th className='p-3 bg-primary border-1 border-disable-01 border-solid'>
-            <Text type='font-14-600' className='text-white'>
+          <th className='p-3 bg-[#f3f3f3] border-1 border-disable-01 border-solid'>
+            <Text type='font-14-600' className='text-black'>
               Name
             </Text>
           </th>
-          <th className='p-3 border border-disable-01  bg-primary border-solid'>
-            <Text type='font-14-600' className='text-white'>
+          <th className='p-3 border border-disable-01 bg-[#f3f3f3] border-solid'>
+            <Text type='font-14-600' className='text-black'>
               Age
             </Text>
           </th>
-          <th className='p-3 border border-disable-01  bg-primary border-solid'>
-            <Text type='font-14-600' className='text-white'>
+          <th className='p-3 border border-disable-01 bg-[#f3f3f3] border-solid'>
+            <Text type='font-14-600' className='text-black'>
               Relationship
             </Text>
           </th>
-          <th className='p-3 border border-disable-01  bg-primary border-solid'>
-            <Text type='font-14-600' className='text-white'>
+          <th className='p-3 border border-disable-01 bg-[#f3f3f3] border-solid'>
+            <Text type='font-14-600' className='text-black'>
               Contact number
             </Text>
           </th>
-          <th className='p-3 border border-disable-01  bg-primary border-solid'>
-            <Text type='font-14-600' className='text-white'>
+          <th className='p-3 border border-disable-01 bg-[#f3f3f3] border-solid'>
+            <Text type='font-14-600' className='text-black'>
               Occupation
             </Text>
           </th>
-          <th className='p-3 border border-disable-01  bg-primary border-solid'>
-            <Text type='font-14-600' className='text-white'>
+          <th className='p-3 border border-disable-01 bg-[#f3f3f3] border-solid'>
+            <Text type='font-14-600' className='text-black'>
               Place of occupation
             </Text>
           </th>
-          <th className='p-3 border border-disable-01  bg-primary border-solid'></th>
+          <th className='p-3 border border-disable-01 bg-[#f3f3f3] border-solid'></th>
         </tr>
       </thead>
       <tbody>
@@ -175,7 +175,7 @@ const EditTableParticularsFamily: React.FC = () => {
         ))}
         <Button onClick={handleAddRow} className='mt-4' variant='light'>
           <Plus size={16} weight='light' color='#b31e8d' />
-          <Text type='font-12-600' className='text-primary'>
+          <Text type='font-13-600' className='text-primary'>
             Add person
           </Text>
         </Button>

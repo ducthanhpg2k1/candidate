@@ -10,6 +10,7 @@ import LearningProcess from './LearningProcess';
 import PersonalInformation from './PersonalInformation';
 import RecruitmentInformation from './RecruitmentInformation';
 import WorkingProcess from './WorkingProcess';
+import SelectSearch from '@components/UI/SelectSearch';
 
 export const DATA_ADDRESS = [
   {
@@ -41,16 +42,23 @@ const FormApplyJob = ({
   return (
     <div className='flex flex-col gap-6 mt-[-40px]'>
       <div className='flex justify-between items-center gap-3 px-3'>
-        <div className='flex flex-col gap-3'>
-          <Text type='font-20-700'>{`Hồ sơ ứng tuyển cho vị trí: ${dataCreateJob.job}`}</Text>
-          <CustomSelect
-            className='max-w-[250px]'
-            radius='md'
-            size='lg'
-            label='Địa điểm làm việc'
-            placeholder='Chọn địa điểm nộp đơn'
-            options={DATA_ADDRESS}
-          />
+        <div className='flex flex-col gap-6'>
+          <Text
+            type='font-20-700'
+            className='text-primary'
+          >{`Hồ sơ ứng tuyển cho vị trí: ${dataCreateJob.job}`}</Text>
+
+          <div className='border-1 hover:border-primary w-max rounded-2xl  border-gray-100 border-solid pl-4 pr-2 py-1 flex gap-3 justify-center items-center'>
+            <Text type='font-15-700' className='font-nunito-sans !font-black'>
+              Địa điểm làm việc
+            </Text>
+            <SelectSearch
+              colorSelectorIcon='text-black'
+              className='min-w-[150px] w-max'
+              placeholder='Tất cả vị trí công việc'
+              options={DATA_ADDRESS}
+            />
+          </div>
         </div>
 
         <div className='flex gap-2 items-center'>
@@ -59,7 +67,7 @@ const FormApplyJob = ({
               Hủy
             </Text>
           </Button>
-          <Button type='submit' radius='full' size='lg' className='bg-primary w-full min-w-[130px]'>
+          <Button type='submit' radius='full' size='lg' className='bg-primary w-full'>
             <Text className='text-white' type='font-14-600'>
               Hoàn thành
             </Text>
