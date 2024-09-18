@@ -54,7 +54,7 @@ const ModalViewProcessStatus = (props: IModalViewProcessStatus, ref?: any) => {
       onClose={onVisible}
     >
       <>
-        <ModalBody className='p-4 flex flex-col gap-8'>
+        <ModalBody className='p-4 flex flex-col gap-[28px]'>
           <div className='flex justify-between items-center'>
             <Text type='font-20-700'>Trạng thái ứng tuyển </Text>
             <Button onClick={onVisible} isIconOnly radius='full' size='md' variant='light'>
