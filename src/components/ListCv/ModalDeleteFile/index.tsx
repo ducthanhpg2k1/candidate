@@ -51,7 +51,7 @@ const ModalDeleteFile = (props: IModalDeleteFile, ref?: any) => {
           </Text>
           <div className='flex items-center gap-4 mt-4'>
             <Button onClick={onVisible} className='w-full' color='default' radius='sm' size='lg'>
-              <Text type='font-14-600'>Cancel</Text>
+              <Text type='font-14-600'>Đóng</Text>
             </Button>
             <Button
               onClick={() => {

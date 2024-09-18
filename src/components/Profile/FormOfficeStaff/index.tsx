@@ -43,7 +43,7 @@ const FormOfficeStaff = ({ handleCancelSubmitForm }: { handleCancelSubmitForm: V
           <div className='flex gap-3 items-center'>
             <Button onClick={handleCancelSubmitForm} radius='full' size='lg' className='w-full'>
               <Text className='text-black' type='font-14-600'>
-                Cancel
+                Đóng
               </Text>
             </Button>
             <Button type='submit' radius='full' size='lg' className='bg-primary w-full'>
