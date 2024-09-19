@@ -14,7 +14,7 @@ const CheckboxCustom = (props: CheckboxProps) => {
     <Checkbox
       classNames={{
         wrapper:
-          'before:border-[#868686] before:border-1  group-data-[hover=true]:before:bg-transparent group-data-[selected=true]:after:bg-primary',
+          'before:border-[#868686] before:border-1 group-data-[hover=true]:before:border-primary  group-data-[hover=true]:before:bg-transparent group-data-[selected=true]:after:bg-primary',
       }}
       size={size}
       radius={radius}

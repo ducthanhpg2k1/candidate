@@ -20,12 +20,17 @@ const ListViewDetailJob = () => {
               key={item?.id}
               onClick={() => handleViewDetailJob(item)}
               className={clsx(
-                'cursor-pointer p-4 transition-all rounded-xl bg-white shadow-large flex flex-col gap-3',
+                'duration-300 ease-in-out hover:scale-105 group cursor-pointer p-4  transition-all relative rounded-xl bg-white shadow-large flex flex-col gap-3',
                 {
-                  'bg-[#ecf5ff] ': item?.id === dataViewDetail?.id,
+                  'bg-[#ecf5ff] border-1.5 border-solid border-primary':
+                    item?.id === dataViewDetail?.id,
                 },
               )}
             >
+              {item?.id === dataViewDetail?.id && (
+                <div className='w-1 h-[110px] bottom-3 left-[0px] absolute bg-primary rounded-full' />
+              )}
+
               <Text
                 type='font-14-700'
                 className='uppercase text-primary  !font-extrabold font-nunito-sans'
@@ -53,8 +58,8 @@ const ListViewDetailJob = () => {
           );
         })}
       </div>
-      <div className='col-span-4 h-full '>
-        <div className='p-6 flex flex-col gap-8 rounded-xl bg-white shadow-large  h-full'>
+      <div className='col-span-4 h-full'>
+        <div className='p-6 flex flex-col gap-8 rounded-xl bg-white shadow-large  overflow-auto  h-full'>
           <div className='flex flex-col gap-3'>
             <Text
               type='font-16-700'

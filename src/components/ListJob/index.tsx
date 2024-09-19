@@ -43,7 +43,7 @@ const ListJob = () => {
         <div className='col-span-4 lg:col-span-3 w-full flex flex-col gap-6'>
           {!isMobile && (
             <div className='flex gap-4 md:justify-between items-center'>
-              <div className='border-1 rounded-2xl  border-gray-100 border-solid pl-4 pr-2 py-1 flex gap-3 justify-center items-center'>
+              <div className='border-1 transition-all hover:border-primary rounded-2xl  border-gray-100 border-solid pl-4 pr-2 py-1 flex gap-3 justify-center items-center'>
                 <Text type='font-15-700' className='font-nunito-sans !font-black'>
                   Bộ lọc:
                 </Text>
@@ -68,7 +68,7 @@ const ListJob = () => {
                 />
               </div>
               <div className='flex items-center gap-2'>
-                <div className='border-1 rounded-2xl border-gray-100 border-solid pl-4 pr-2 py-1 flex gap-3 justify-center items-center'>
+                <div className='border-1 transition-all hover:border-primary rounded-2xl border-gray-100 border-solid pl-4 pr-2 py-1 flex gap-3 justify-center items-center'>
                   {!isMobile && (
                     <Text type='font-15-700' className='font-nunito-sans !font-black'>
                       Sắp xếp theo:

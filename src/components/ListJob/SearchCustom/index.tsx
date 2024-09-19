@@ -6,7 +6,7 @@ import Text from '@components/UI/Text';
 
 const SearchCustom = () => {
   return (
-    <div className='flex items-center bg-white rounded-full min-h-[58px] w-8/12 border-3 border-solid border-primary'>
+    <div className='flex items-center bg-white hover:opacity-90 rounded-full min-h-[58px] w-8/12 border-3 border-solid border-primary'>
       <div className='flex items-center gap-3 flex-grow px-6'>
         <Image
           src={'/static/icons/ic-search.svg'}
