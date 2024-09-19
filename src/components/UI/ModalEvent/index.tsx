@@ -41,7 +41,7 @@ const ModalEvent = (props: IModalEvent, ref?: any) => {
         placementMoblie='center'
         placement='center'
         className='rounded-3xl'
-        size='2xl'
+        size='5xl'
         isOpen={visible}
         onClose={onVisible}
       >
@@ -53,14 +53,14 @@ const ModalEvent = (props: IModalEvent, ref?: any) => {
                 width={500}
                 height={207}
                 alt=''
-                className='w-full h-[207px] shadow-lg rounded-xl'
+                className='w-full h-[300px] shadow-lg rounded-xl object-cover'
               />
               <Button
-                className='min-w-[250px] mt-4 min-h-[50px] buttonEvent'
+                className='min-w-[300px] mt-4 min-h-[60px] buttonEvent'
                 radius='full'
                 size='lg'
               >
-                <Text type='font-20-700' className='text-white uppercase'>
+                <Text type='font-20-700' className='text-white uppercase font-rock text-[32px]'>
                   Xem ngay
                 </Text>
                 <Image src={'/img-hand.gif'} width={32} height={32} alt='' className='w-8 h-8' />

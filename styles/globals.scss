@@ -18,6 +18,23 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+@font-face {
+  font-family: 'Rock';
+  src: url('/font/ROCK.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Rock';
+  src: url('/font/Rockwell-Bold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+.font-rock {
+  font-family: 'Rock', sans-serif;
+}
+
 .box-shadow-banner {
   box-shadow: 0px 0px 4.312px 0.862px rgba(0, 0, 0, 0.1);
 }
