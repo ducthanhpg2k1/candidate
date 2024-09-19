@@ -15,10 +15,12 @@ import ListViewDetailJob from './ListViewDetailJob';
 import ListViewJob from './ListViewJob';
 import SearchCustom from './SearchCustom';
 import SearchCustomMobile from './SearchCustomMobile';
+import { useGetListJob } from './service';
 
 const ListJob = () => {
   const divRef: any = useRef();
   const [tab, setTab] = useState('list');
+  const { dataListJob, onChange } = useGetListJob();
 
   const scrollToDiv = () => {
     if (divRef.current) {
@@ -129,20 +131,28 @@ const ListJob = () => {
               </div>
             </div>
           )}
-          {tab === 'list' ? <ListViewJob /> : <ListViewDetailJob />}
+          {tab === 'list'
+            ? (
+              <ListViewJob dataListJob={dataListJob} />
+            )
+            : (
+              <ListViewDetailJob dataListJob={dataListJob} />
+            )}
 
           <div className='flex justify-center items-center'>
             <Pagination
               classNames={{
                 cursor: ['bg-primary'],
               }}
-              onChange={() => {
+              onChange={(page: number) => {
                 scrollToDiv();
+                onChange(page);
               }}
               size='lg'
               showControls
-              total={10}
               initialPage={1}
+              total={dataListJob?.data?.pagination?.per_page}
+              page={dataListJob?.data?.pagination?.current_page}
             />
           </div>
         </div>

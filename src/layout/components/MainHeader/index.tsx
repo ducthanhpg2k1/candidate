@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 
 import { Avatar, Popover, PopoverContent, PopoverTrigger } from '@nextui-org/react';
 import { List } from '@phosphor-icons/react';
@@ -6,6 +6,7 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
+import ModalEvent from '@components/UI/ModalEvent';
 import Text from '@components/UI/Text';
 
 import ContentProfile from './ContentProfile';
@@ -32,6 +33,7 @@ export const MENUS = [
 const Header = () => {
   const router = useRouter();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const refModalEvent: any = useRef();
 
   const pathName = useMemo(() => {
     return router.pathname;
@@ -44,6 +46,10 @@ const Header = () => {
   const handleClickOpenMenu = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
+
+  useEffect(() => {
+    refModalEvent.current.onOpen();
+  }, []);
 
   return (
     <>
@@ -106,6 +112,7 @@ const Header = () => {
         </div>
       </div>
       <MenuMobile onClose={() => setIsDrawerOpen(false)} isDrawerOpen={isDrawerOpen} />
+      <ModalEvent ref={refModalEvent} />
     </>
   );
 };

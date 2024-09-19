@@ -10,10 +10,20 @@ interface ICustomModlaProps {
   className?: string;
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | 'full';
   placementMoblie?: 'bottom' | 'center';
+  placement?: 'auto' | 'top' | 'center' | 'bottom';
 }
 
 const CustomModal = (props: ICustomModlaProps) => {
-  const { isOpen, onClose, size, children, placementMoblie, className = '', ...rest } = props;
+  const {
+    isOpen,
+    onClose,
+    size,
+    children,
+    placement = 'center',
+    placementMoblie,
+    className = '',
+    ...rest
+  } = props;
   return (
     <Modal
       hideCloseButton={true}
@@ -52,7 +62,7 @@ const CustomModal = (props: ICustomModlaProps) => {
       onClose={onClose}
       isDismissable={true}
       isKeyboardDismissDisabled={true}
-      placement={placementMoblie === 'bottom' ? 'bottom' : 'center'}
+      placement={placement}
       {...rest}
     >
       <ModalContent>{() => <>{children}</>}</ModalContent>
