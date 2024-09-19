@@ -48,7 +48,7 @@ const FormApplyJob = ({
         <div className='flex justify-between items-center gap-3 px-3'>
           <div className='border-1 hover:border-primary w-max rounded-2xl  border-gray-100 border-solid pl-4 pr-2 py-1 flex gap-3 justify-center items-center'>
             <Text type='font-15-700' className='font-nunito-sans !font-black'>
-              Địa điểm làm việc
+              Địa điểm làm việc:
             </Text>
             <SelectSearch
               colorSelectorIcon='text-black'
