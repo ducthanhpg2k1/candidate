@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { Button, Radio, RadioGroup } from '@nextui-org/react';
 import { ArrowLeft } from '@phosphor-icons/react';
@@ -17,6 +17,7 @@ const Profile = () => {
   const handleDataCreateJob = (data: any) => {
     setDataCreateJob(data);
   };
+  const router = useRouter();
 
   const refModalCancelJob: any = useRef();
 
@@ -27,26 +28,32 @@ const Profile = () => {
   const handleCancelJob = () => {
     setDataCreateJob({});
   };
+
+  useEffect(() => {
+    if (router.query.createJob) {
+      if (router.query.createJob === 'form-supermarket') {
+        setDataCreateJob({
+          job: 'Nhân viên văn phòng (sử dụng tiếng anh)',
+        });
+      }
+    }
+  }, [router]);
   return (
     <>
-      {dataCreateJob?.job
-        ? (
-          <>
-            {dataCreateJob?.job === 'Nhân viên văn phòng (sử dụng tiếng anh)'
-              ? (
-                <FormOfficeStaff handleCancelSubmitForm={handleCancelSubmitForm} />
-              )
-              : (
-                <FormApplyJob
-                  handleCancelSubmitForm={handleCancelSubmitForm}
-                  dataCreateJob={dataCreateJob}
-                />
-              )}
-          </>
-        )
-        : (
-          <ApplicationProfile handleSubmitFormCreateProfile={handleDataCreateJob} />
-        )}
+      {dataCreateJob?.job ? (
+        <>
+          {dataCreateJob?.job === 'Nhân viên văn phòng (sử dụng tiếng anh)' ? (
+            <FormOfficeStaff handleCancelSubmitForm={handleCancelSubmitForm} />
+          ) : (
+            <FormApplyJob
+              handleCancelSubmitForm={handleCancelSubmitForm}
+              dataCreateJob={dataCreateJob}
+            />
+          )}
+        </>
+      ) : (
+        <ApplicationProfile handleSubmitFormCreateProfile={handleDataCreateJob} />
+      )}
 
       <ModalCancelJob handleCancelJob={handleCancelJob} ref={refModalCancelJob} />
     </>

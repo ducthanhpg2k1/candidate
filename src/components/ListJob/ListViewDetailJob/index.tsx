@@ -4,13 +4,16 @@ import clsx from 'clsx';
 import Image from 'next/image';
 
 import Text from '@components/UI/Text';
-import { DataJob } from '@utils/common';
+import { DataJob, ROUTE_PATH } from '@utils/common';
+import { Button } from '@nextui-org/react';
+import { useRouter } from 'next/router';
 
 const ListViewDetailJob = () => {
   const [dataViewDetail, setDataViewDetail] = useState<any>(DataJob?.[0]);
   const handleViewDetailJob = (data: any) => {
     setDataViewDetail(data);
   };
+  const router = useRouter();
   return (
     <div className='grid grid-cols-6 gap-3'>
       <div className='col-span-2 flex flex-col gap-3'>
@@ -20,7 +23,7 @@ const ListViewDetailJob = () => {
               key={item?.id}
               onClick={() => handleViewDetailJob(item)}
               className={clsx(
-                'duration-300 ease-in-out hover:scale-105 group cursor-pointer p-4  transition-all relative rounded-xl bg-white shadow-large flex flex-col gap-3',
+                'duration-300 ease-in-out hover:scale-105 group cursor-pointer p-4  transition-all relative rounded-xl shadow-large flex flex-col gap-3',
                 {
                   'bg-[#ecf5ff] border-1.5 border-solid border-primary':
                     item?.id === dataViewDetail?.id,
@@ -61,12 +64,6 @@ const ListViewDetailJob = () => {
       <div className='col-span-4 h-full'>
         <div className='p-6 flex flex-col gap-8 rounded-xl bg-white shadow-large  overflow-auto  h-full'>
           <div className='flex flex-col gap-3'>
-            <Text
-              type='font-16-700'
-              className='uppercase mb-4 text-[#051C3F] !font-extrabold font-nunito-sans'
-            >
-              Chi tiết việc làm
-            </Text>
             <Text
               type='font-16-700'
               className='uppercase text-primary  !font-extrabold font-nunito-sans'
@@ -156,6 +153,22 @@ const ListViewDetailJob = () => {
               Thông tin liên hệ
             </Text>
           </div>
+          <Button
+            onClick={() =>
+              router.push({
+                pathname: ROUTE_PATH.PROFILE,
+                query: { createJob: 'form-supermarket' },
+              })
+            }
+            type='submit'
+            radius='full'
+            className='bg-primary'
+            size='lg'
+          >
+            <Text className='text-white' type='font-16-700'>
+              Ứng tuyển ngay
+            </Text>
+          </Button>
         </div>
       </div>
     </div>
