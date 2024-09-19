@@ -1,8 +1,10 @@
-import Text from '@components/UI/Text';
-import { DataJob } from '..';
-import Image from 'next/image';
 import { useState } from 'react';
+
 import clsx from 'clsx';
+import Image from 'next/image';
+
+import Text from '@components/UI/Text';
+import { DataJob } from '@utils/common';
 
 const ListViewDetailJob = () => {
   const [dataViewDetail, setDataViewDetail] = useState<any>(DataJob?.[0]);
