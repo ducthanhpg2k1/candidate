@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
+import { Button } from '@nextui-org/react';
 import clsx from 'clsx';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 import Text from '@components/UI/Text';
 import { DataJob, ROUTE_PATH } from '@utils/common';
-import { Button } from '@nextui-org/react';
-import { useRouter } from 'next/router';
 
 const ListViewDetailJob = () => {
   const [dataViewDetail, setDataViewDetail] = useState<any>(DataJob?.[0]);

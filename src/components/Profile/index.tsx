@@ -30,30 +30,32 @@ const Profile = () => {
   };
 
   useEffect(() => {
-    if (router.query.createJob) {
-      if (router.query.createJob === 'form-supermarket') {
-        setDataCreateJob({
-          job: 'Nhân viên văn phòng (sử dụng tiếng anh)',
-        });
-      }
+    if (router.query.createJob && router.query.createJob === 'form-supermarket') {
+      setDataCreateJob({
+        job: 'Nhân viên văn phòng (sử dụng tiếng anh)',
+      });
     }
   }, [router]);
   return (
     <>
-      {dataCreateJob?.job ? (
-        <>
-          {dataCreateJob?.job === 'Nhân viên văn phòng (sử dụng tiếng anh)' ? (
-            <FormOfficeStaff handleCancelSubmitForm={handleCancelSubmitForm} />
-          ) : (
-            <FormApplyJob
-              handleCancelSubmitForm={handleCancelSubmitForm}
-              dataCreateJob={dataCreateJob}
-            />
-          )}
-        </>
-      ) : (
-        <ApplicationProfile handleSubmitFormCreateProfile={handleDataCreateJob} />
-      )}
+      {dataCreateJob?.job
+        ? (
+          <>
+            {dataCreateJob?.job === 'Nhân viên văn phòng (sử dụng tiếng anh)'
+              ? (
+                <FormOfficeStaff handleCancelSubmitForm={handleCancelSubmitForm} />
+              )
+              : (
+                <FormApplyJob
+                  handleCancelSubmitForm={handleCancelSubmitForm}
+                  dataCreateJob={dataCreateJob}
+                />
+              )}
+          </>
+        )
+        : (
+          <ApplicationProfile handleSubmitFormCreateProfile={handleDataCreateJob} />
+        )}
 
       <ModalCancelJob handleCancelJob={handleCancelJob} ref={refModalCancelJob} />
     </>
