@@ -36,7 +36,7 @@ const ListViewDetailJob = ({ dataListJob }: { dataListJob: any }) => {
                 'duration-300 ease-in-out hover:scale-105 group cursor-pointer p-4  transition-all relative rounded-xl shadow-large flex flex-col gap-3',
                 {
                   'bg-[#ecf5ff] border-1.5 border-solid border-primary':
-                    item?.id === dataDetailJob?.id,
+                    item?.id === dataDetailJob?.data?.id,
                 },
               )}
             >
