@@ -144,6 +144,12 @@ const ListViewDetailJob = ({ dataListJob }: { dataListJob: any }) => {
             >
               Mô tả công việc
             </Text>
+            <div
+              className='activityJob'
+              dangerouslySetInnerHTML={{
+                __html: dataDetailJob?.data?.key_activity,
+              }}
+            />
           </div>
           <div className='flex flex-col gap-3'>
             <Text
@@ -152,6 +158,12 @@ const ListViewDetailJob = ({ dataListJob }: { dataListJob: any }) => {
             >
               Yêu cầu ứng viên
             </Text>
+            <div
+              className='qualificationRequirementJob'
+              dangerouslySetInnerHTML={{
+                __html: dataDetailJob?.data?.qualification_and_requirement,
+              }}
+            />
           </div>
           <div className='flex flex-col gap-4'>
             <Text
@@ -160,7 +172,10 @@ const ListViewDetailJob = ({ dataListJob }: { dataListJob: any }) => {
             >
               Quyền lợi
             </Text>
-            <div dangerouslySetInnerHTML={{ __html: dataDetailJob?.data?.benefit }} />
+            <div
+              className='benefitJob'
+              dangerouslySetInnerHTML={{ __html: dataDetailJob?.data?.benefit }}
+            />
           </div>
           <div className='flex flex-col gap-6'>
             <Text

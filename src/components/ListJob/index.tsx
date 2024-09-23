@@ -1,3 +1,4 @@
+/* eslint-disable multiline-ternary */
 /* eslint-disable no-console */
 // import SildeBanner from './SildeBanner';
 
@@ -15,12 +16,16 @@ import ListViewDetailJob from './ListViewDetailJob';
 import ListViewJob from './ListViewJob';
 import SearchCustom from './SearchCustom';
 import SearchCustomMobile from './SearchCustomMobile';
-import { useGetListJob } from './service';
+import { useGetJobCategoryPosition, useGetListJob, useGetMasterData } from './service';
 
 const ListJob = () => {
   const divRef: any = useRef();
   const [tab, setTab] = useState('list');
   const { dataListJob, onChange } = useGetListJob();
+  const { masterData } = useGetMasterData();
+  const { dataJobCategory } = useGetJobCategoryPosition();
+
+  console.log(dataJobCategory, 'dataJobCategory');
 
   const scrollToDiv = () => {
     if (divRef.current) {
@@ -38,10 +43,14 @@ const ListJob = () => {
   return (
     <div className='flex-col gap-8 flex' ref={divRef}>
       <div className='flex md:justify-center items-center'>
-        {isMobile ? <SearchCustomMobile /> : <SearchCustom />}
+        {isMobile ? (
+          <SearchCustomMobile />
+        ) : (
+          <SearchCustom onChange={onChange} masterData={masterData} />
+        )}
       </div>
       <div className='grid grid-cols-4 gap-8'>
-        {!isMobile && <FilterJob />}
+        {!isMobile && <FilterJob onChange={onChange} masterData={masterData} />}
         <div className='col-span-4 lg:col-span-3 w-full flex flex-col gap-6'>
           {!isMobile && (
             <div className='flex gap-4 md:justify-between items-center'>
@@ -51,22 +60,17 @@ const ListJob = () => {
                 </Text>
                 <SelectSearch
                   colorSelectorIcon='text-black'
+                  allJob
                   className='min-w-[200px] w-max'
                   placeholder='Tất cả vị trí công việc'
-                  options={[
-                    {
-                      value: 1,
-                      label: 'Kinh doanh',
-                    },
-                    {
-                      value: 2,
-                      label: 'Sales',
-                    },
-                    {
-                      value: 3,
-                      label: 'Bán hàng',
-                    },
-                  ]}
+                  options={
+                    dataJobCategory?.data?.map((item: any) => {
+                      return {
+                        label: item?.name,
+                        value: item?.id,
+                      };
+                    }) || []
+                  }
                 />
               </div>
               <div className='flex items-center gap-2'>
@@ -131,13 +135,11 @@ const ListJob = () => {
               </div>
             </div>
           )}
-          {tab === 'list'
-            ? (
-              <ListViewJob dataListJob={dataListJob} />
-            )
-            : (
-              <ListViewDetailJob dataListJob={dataListJob} />
-            )}
+          {tab === 'list' ? (
+            <ListViewJob dataListJob={dataListJob} />
+          ) : (
+            <ListViewDetailJob dataListJob={dataListJob} />
+          )}
 
           <div className='flex justify-center items-center'>
             <Pagination
