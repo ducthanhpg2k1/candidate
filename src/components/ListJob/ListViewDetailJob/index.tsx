@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-import { Button } from '@nextui-org/react';
+import { Button, Spinner } from '@nextui-org/react';
 import { ClockCountdown } from '@phosphor-icons/react';
 import clsx from 'clsx';
 import Image from 'next/image';
@@ -12,8 +12,13 @@ import { ROUTE_PATH } from '@utils/common';
 import { useGetDetailJob } from './service';
 
 const ListViewDetailJob = ({ dataListJob }: { dataListJob: any }) => {
+  const [loading, setLoading] = useState(false);
   const handleViewDetailJob = (data: any) => {
     runGetDetailJob(data?.id);
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
   };
   const router = useRouter();
 
@@ -72,7 +77,13 @@ const ListViewDetailJob = ({ dataListJob }: { dataListJob: any }) => {
         })}
       </div>
       <div className='col-span-4 h-full'>
-        <div className='p-6 flex flex-col gap-8 rounded-xl bg-white shadow-large  overflow-auto  h-full'>
+        <div
+          className={clsx(
+            'relative p-6 flex flex-col gap-8 rounded-xl bg-white shadow-large  overflow-auto  h-full',
+          )}
+        >
+          {loading && <Spinner className='absolute right-1/2 top-1/4' />}
+
           <div className='flex flex-col gap-3'>
             <Text
               type='font-16-700'
