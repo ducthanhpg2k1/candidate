@@ -1,3 +1,5 @@
+/* eslint-disable unicorn/no-nested-ternary */
+/* eslint-disable indent */
 /* eslint-disable unicorn/consistent-function-scoping */
 import { ReactNode } from 'react';
 
@@ -49,20 +51,20 @@ const DatePickerCustom = (props: IDatePicker) => {
         selectorIcon={<IconSelectorDate />}
         label={''}
         classNames={{
-          calendar: ['! bg-white'],
+          calendar: ['!bg-white z-[10000]'],
         }}
         dateInputClassNames={{
           inputWrapper: isDisabled
             ? [
-              'px-3 border-1  bg-[#82828240] border-solid !border-disable-01 transition-all data-[hover=true]:!border-disabled group-data-[focus=true]:!border-accent',
-            ]
-            : (borderNone
-              ? [
+                'px-3 border-1  bg-[#82828240] border-solid !border-disable-01 transition-all data-[hover=true]:!border-disabled group-data-[focus=true]:!border-accent',
+              ]
+            : borderNone
+            ? [
                 'px-3 border-none shadow-none   transition-all data-[hover=true]:!border-disabled group-data-[focus=true]:!border-primary',
               ]
-              : [
+            : [
                 'px-3 border-1 border-solid border-disable-01 transition-all hover:!border-primary group-data-[focus=true]:!border-primary',
-              ]),
+              ],
         }}
         className={clsx({
           [className]: !!className,

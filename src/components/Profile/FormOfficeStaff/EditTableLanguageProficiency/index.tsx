@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { Button } from '@nextui-org/react';
 import { Plus, TrashSimple } from '@phosphor-icons/react';
+import { isMobile } from 'react-device-detect';
 
 import CustomSelect from '@components/UI/CustomSelect';
 import Text from '@components/UI/Text';
@@ -59,7 +60,120 @@ const EditTableLanguageProficiency: React.FC = () => {
     setData(updatedData);
   };
 
-  return (
+  const renderMobileView = () => (
+    <div className='space-y-4'>
+      {data.map((row, index) => (
+        <div
+          key={index}
+          className='border border-solid border-disable-01 p-4 rounded-lg flex flex-col gap-4'
+        >
+          <div className='flex items-center justify-between'>
+            <Text type='font-14-700' className='text-primary'>{`Person
+            ${index + 1}`}</Text>
+            <TrashSimple
+              onClick={() => handleDeleteRow(index)}
+              size={16}
+              weight='fill'
+              color='#b91c1c'
+            />
+          </div>
+          <div className='flex flex-col gap-3'>
+            <CustomSelect
+              className='w-full'
+              radius='md'
+              size='md'
+              borderDisable
+              placeholder='Select language'
+              options={[
+                {
+                  value: 1,
+                  label: 'Điểm điểm 1',
+                },
+                {
+                  value: 2,
+                  label: 'Địa điểm 2',
+                },
+                {
+                  value: 3,
+                  label: 'Địa điểm 3',
+                },
+              ]}
+            />
+            <CustomSelect
+              className='w-full'
+              radius='md'
+              size='md'
+              borderDisable
+              placeholder='Select level'
+              options={[
+                {
+                  value: 1,
+                  label: 'Điểm điểm 1',
+                },
+                {
+                  value: 2,
+                  label: 'Địa điểm 2',
+                },
+                {
+                  value: 3,
+                  label: 'Địa điểm 3',
+                },
+              ]}
+            />
+            <CustomSelect
+              className='w-full'
+              radius='md'
+              size='md'
+              borderDisable
+              placeholder='Select level'
+              options={[
+                {
+                  value: 1,
+                  label: 'Điểm điểm 1',
+                },
+                {
+                  value: 2,
+                  label: 'Địa điểm 2',
+                },
+                {
+                  value: 3,
+                  label: 'Địa điểm 3',
+                },
+              ]}
+            />
+            <CustomSelect
+              className='w-full'
+              radius='md'
+              size='md'
+              borderDisable
+              placeholder='Select level'
+              options={[
+                {
+                  value: 1,
+                  label: 'Điểm điểm 1',
+                },
+                {
+                  value: 2,
+                  label: 'Địa điểm 2',
+                },
+                {
+                  value: 3,
+                  label: 'Địa điểm 3',
+                },
+              ]}
+            />
+          </div>
+        </div>
+      ))}
+      <Button onClick={handleAddRow} className='w-full' variant='light'>
+        <Plus size={16} weight='light' color='#b31e8d' />
+        <Text type='font-13-600' className='text-primary'>
+          Add person
+        </Text>
+      </Button>
+    </div>
+  );
+  const renderDesktopView = () => (
     <table>
       <thead>
         <tr>
@@ -204,6 +318,8 @@ const EditTableLanguageProficiency: React.FC = () => {
       </tbody>
     </table>
   );
+
+  return <div>{isMobile ? renderMobileView() : renderDesktopView()}</div>;
 };
 
 export default EditTableLanguageProficiency;

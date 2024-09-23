@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 
 import { Button } from '@nextui-org/react';
 import { Plus, TrashSimple } from '@phosphor-icons/react';
+import { isMobile } from 'react-device-detect';
 
 import DatePickerCustom from '@components/UI/DatePickerCustom';
+import InputText from '@components/UI/InputText';
 import Text from '@components/UI/Text';
 
 // Định nghĩa kiểu dữ liệu cho một hàng trong bảng
@@ -72,8 +74,84 @@ const EditTableEmploymentHistory: React.FC = () => {
     const updatedData = data.filter((_, i) => i !== index);
     setData(updatedData);
   };
-
-  return (
+  const renderMobileView = () => (
+    <div className='space-y-4'>
+      {data.map((row, index) => (
+        <div
+          key={index}
+          className='border border-solid border-disable-01 p-4 rounded-lg flex flex-col gap-4'
+        >
+          <div className='flex items-center justify-between'>
+            <Text type='font-14-700' className='text-primary'>{`Company
+            ${index + 1}`}</Text>
+            <TrashSimple
+              onClick={() => handleDeleteRow(index)}
+              size={16}
+              weight='fill'
+              color='#b91c1c'
+            />
+          </div>
+          <div className='flex flex-col gap-3'>
+            <InputText
+              required
+              name='company'
+              radius='md'
+              placeholder='Company'
+              size='md'
+              onChange={(e: any) => handleInputChange(e, index, 'company')}
+            />
+            <InputText
+              required
+              name='job_position'
+              radius='md'
+              placeholder='Job position'
+              size='md'
+              onChange={(e: any) => handleInputChange(e, index, 'job_position')}
+            />
+            <InputText
+              required
+              name='gross_salary'
+              radius='md'
+              placeholder='Gross salary'
+              size='md'
+              onChange={(e: any) => handleInputChange(e, index, 'gross_salary')}
+            />
+            <DatePickerCustom
+              onChange={(e: any) => {
+                handleInputChange(e, index, 'from_date');
+              }}
+              className='w-full'
+              radius='md'
+              size='lg'
+              name='from_date'
+            />
+            <DatePickerCustom
+              onChange={(e: any) => handleInputChange(e, index, 'to_date')}
+              className='w-full'
+              radius='md'
+              size='lg'
+              name='to_date'
+            />
+            <InputText
+              required
+              name='reason'
+              radius='md'
+              placeholder='Reason'
+              size='md'
+              onChange={(e: any) => handleInputChange(e, index, 'reason')}
+            />
+          </div>
+        </div>
+      ))}
+      <Button onClick={handleAddRow} className='w-full' variant='light'>
+        <Plus size={16} weight='light' color='#b31e8d' />
+        <Text type='font-13-600' className='text-primary'>
+          Add company
+        </Text>
+      </Button>
+    </div>
+  );
+  const renderDesktopView = () => (
     <table>
       <thead>
         <tr>
@@ -193,6 +271,7 @@ const EditTableEmploymentHistory: React.FC = () => {
       </tbody>
     </table>
   );
+  return <div>{isMobile ? renderMobileView() : renderDesktopView()}</div>;
 };
 
 export default EditTableEmploymentHistory;

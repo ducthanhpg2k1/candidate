@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 
 import { Button } from '@nextui-org/react';
 import { Plus, TrashSimple } from '@phosphor-icons/react';
+import { isMobile } from 'react-device-detect';
 
+import InputText from '@components/UI/InputText';
 import Text from '@components/UI/Text';
 
 // Định nghĩa kiểu dữ liệu cho một hàng trong bảng
@@ -65,8 +67,84 @@ const EditTableParticularsFamily: React.FC = () => {
     const updatedData = data.filter((_, i) => i !== index);
     setData(updatedData);
   };
-
-  return (
+  const renderMobileView = () => (
+    <div className='space-y-4'>
+      {data.map((row, index) => (
+        <div
+          key={index}
+          className='border border-solid border-disable-01 p-4 rounded-lg flex flex-col gap-4'
+        >
+          <div className='flex items-center justify-between'>
+            <Text type='font-14-700' className='text-primary'>{`Person
+            ${index + 1}`}</Text>
+            <TrashSimple
+              onClick={() => handleDeleteRow(index)}
+              size={16}
+              weight='fill'
+              color='#b91c1c'
+            />
+          </div>
+          <div className='flex flex-col gap-3'>
+            <InputText
+              required
+              name='name'
+              radius='md'
+              placeholder='Name'
+              size='md'
+              onChange={(e: any) => handleInputChange(e, index, 'name')}
+            />
+            <InputText
+              required
+              name='age'
+              radius='md'
+              placeholder='Age'
+              size='md'
+              onChange={(e: any) => handleInputChange(e, index, 'age')}
+            />
+            <InputText
+              required
+              name='relationship'
+              radius='md'
+              placeholder='Relationship'
+              size='md'
+              onChange={(e: any) => handleInputChange(e, index, 'relationship')}
+            />
+            <InputText
+              required
+              name='contact_number'
+              radius='md'
+              placeholder='Contact Number'
+              size='md'
+              onChange={(e: any) => handleInputChange(e, index, 'contact_number')}
+            />
+            <InputText
+              required
+              name='occupation'
+              radius='md'
+              placeholder='Occupation'
+              size='md'
+              onChange={(e: any) => handleInputChange(e, index, 'occupation')}
+            />
+            <InputText
+              required
+              name='place_occupation'
+              radius='md'
+              placeholder='Place of occupation'
+              size='md'
+              onChange={(e: any) => handleInputChange(e, index, 'place_occupation')}
+            />
+          </div>
+        </div>
+      ))}
+      <Button onClick={handleAddRow} className='w-full' variant='light'>
+        <Plus size={16} weight='light' color='#b31e8d' />
+        <Text type='font-13-600' className='text-primary'>
+          Add person
+        </Text>
+      </Button>
+    </div>
+  );
+  const renderDesktopView = () => (
     <table>
       <thead>
         <tr>
@@ -182,6 +260,7 @@ const EditTableParticularsFamily: React.FC = () => {
       </tbody>
     </table>
   );
+  return <div>{isMobile ? renderMobileView() : renderDesktopView()}</div>;
 };
 
 export default EditTableParticularsFamily;

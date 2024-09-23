@@ -10,7 +10,7 @@ const ImportantFactorsAffecting = () => {
           Please select 10 most important factors and rank them in order of preference from 1 to 10.
           (1 as most important and 10 as least important)
         </Text>
-        <div className='grid grid-cols-4 gap-6'>
+        <div className='grid grid-cols-2 md:grid-cols-4 gap-6'>
           <CustomSelect
             className='w-full'
             radius='md'
@@ -101,7 +101,7 @@ const ImportantFactorsAffecting = () => {
             ]}
           />
         </div>
-        <div className='grid grid-cols-4 gap-6'>
+        <div className='grid grid-cols-2 md:grid-cols-4 gap-6'>
           <CustomSelect
             className='w-full'
             radius='md'
@@ -192,7 +192,7 @@ const ImportantFactorsAffecting = () => {
             ]}
           />
         </div>
-        <div className='grid grid-cols-4 gap-6'>
+        <div className='grid grid-cols-2 md:grid-cols-4 gap-6'>
           <CustomSelect
             className='w-full'
             radius='md'

@@ -44,7 +44,7 @@ const OtherInformation = () => {
             },
           ]}
         />
-        <div className='grid grid-cols-8'>
+        <div className='grid grid-cols-1 md:grid-cols-8'>
           <div className='col-span-4'>
             <CustomSelect
               className='w-full'

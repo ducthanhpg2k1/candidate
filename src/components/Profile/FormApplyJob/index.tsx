@@ -45,19 +45,19 @@ const FormApplyJob = ({
           type='font-20-700'
           className='text-primary'
         >{`Hồ sơ ứng tuyển cho vị trí: ${dataCreateJob.job}`}</Text>
-        <div className='flex justify-between items-center gap-3 px-3'>
-          <div className='border-1 hover:border-primary w-max rounded-2xl  border-gray-100 border-solid pl-4 pr-2 py-1 flex gap-3 justify-center items-center'>
+        <div className='flex md:flex-row flex-col md:justify-between items-center gap-3'>
+          <div className='border-1 hover:border-primary w-full md:w-max rounded-2xl  border-gray-100 border-solid pl-4 pr-2 py-1 flex gap-3 justify-center items-center'>
             <Text type='font-15-700' className='font-nunito-sans !font-black'>
               Địa điểm làm việc:
             </Text>
             <SelectSearch
               colorSelectorIcon='text-black'
-              className='min-w-[200px] w-max'
+              className='w-full md:min-w-[200px] md:w-max'
               placeholder='Tất cả vị trí công việc'
               options={DATA_ADDRESS}
             />
           </div>
-          <div className='flex gap-3 items-center'>
+          <div className='flex gap-3 items-center md:w-max w-full'>
             <Button onClick={handleCancelSubmitForm} radius='full' size='lg' className='w-full'>
               <Text className='text-black' type='font-14-600'>
                 Hủy

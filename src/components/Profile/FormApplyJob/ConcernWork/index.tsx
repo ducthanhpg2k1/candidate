@@ -9,7 +9,7 @@ const ConcernWork = ({ errors, control }: any) => {
   return (
     <AccordionCustom title={<Text type='font-16-700'>Mối quan tâm trong công việc</Text>}>
       <div className='px-3 pb-4 flex flex-col gap-4'>
-        <div className='grid grid-cols-3 gap-6'>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
           <CustomSelect
             className='w-full'
             radius='md'
@@ -77,7 +77,7 @@ const ConcernWork = ({ errors, control }: any) => {
             ]}
           />
         </div>
-        <div className='grid grid-cols-3 gap-6'>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
           <CustomSelect
             className='w-full'
             radius='md'
@@ -133,15 +133,15 @@ const ConcernWork = ({ errors, control }: any) => {
             size='lg'
           />
         </div>
-        <div className='grid grid-cols-6 gap-8 items-center'>
-          <div className='col-span-2'>
+        <div className='grid grid-cols-8 md:grid-cols-6 gap-8 items-center'>
+          <div className='col-span-7 md:col-span-2'>
             <Text type='font-14-600'>Từng ứng tuyển tại AEON</Text>
           </div>
-          <div className='col-span-4'>
+          <div className='col-span-1 md:col-span-4'>
             <Checkbox radius='sm' defaultSelected />
           </div>
         </div>
-        <div className='grid grid-cols-8 gap-6 items-center '>
+        <div className='md:grid md:grid-cols-8 md:gap-6 flex flex-col gap-4 md:items-center '>
           <div className='col-span-4 gap-6'>
             <CustomSelect
               className='w-full'
@@ -167,11 +167,11 @@ const ConcernWork = ({ errors, control }: any) => {
             />
           </div>
         </div>
-        <div className='grid grid-cols-6 gap-8 items-center'>
-          <div className='col-span-2'>
+        <div className='grid grid-cols-8 md:grid-cols-6 gap-8 items-center'>
+          <div className='col-span-7 md:col-span-2'>
             <Text type='font-14-600'>Đang hưởng lương hưu?</Text>
           </div>
-          <div className='col-span-4'>
+          <div className='col-span-1 md:col-span-4'>
             <Checkbox radius='sm' defaultSelected />
           </div>
         </div>

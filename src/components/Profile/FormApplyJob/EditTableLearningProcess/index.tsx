@@ -1,12 +1,15 @@
+/* eslint-disable multiline-ternary */
+/* eslint-disable unicorn/no-null */
 import React, { useState } from 'react';
 
 import { Button } from '@nextui-org/react';
 import { Plus, TrashSimple } from '@phosphor-icons/react';
+import { isMobile } from 'react-device-detect';
 
 import DatePickerCustom from '@components/UI/DatePickerCustom';
+import InputText from '@components/UI/InputText';
 import Text from '@components/UI/Text';
 
-// Định nghĩa kiểu dữ liệu cho một hàng trong bảng
 interface RowData {
   education_level: string;
   school_name: string;
@@ -15,19 +18,13 @@ interface RowData {
   specialized: string;
 }
 
-const EditTableLearningProcess: React.FC = () => {
-  // Khởi tạo state cho dữ liệu bảng
+const ResponsiveLearningProcessTable = () => {
   const [data, setData] = useState<RowData[]>([
     { education_level: '', school_name: '', start_time: '', end_time: '', specialized: '' },
     { education_level: '', school_name: '', start_time: '', end_time: '', specialized: '' },
   ]);
 
-  // Xử lý khi người dùng nhập dữ liệu cho ô trong bảng
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    index: number,
-    field: keyof RowData,
-  ) => {
+  const handleInputChange = (e: any, index: number, field: keyof RowData) => {
     if (field === 'start_time' || field === 'end_time') {
       const updatedData: any = [...data];
       updatedData[index][field] = e;
@@ -39,7 +36,6 @@ const EditTableLearningProcess: React.FC = () => {
     }
   };
 
-  // Thêm một hàng mới vào bảng
   const handleAddRow = () => {
     const newRow = {
       education_level: '',
@@ -51,14 +47,79 @@ const EditTableLearningProcess: React.FC = () => {
     setData([...data, newRow]);
   };
 
-  // Xóa một hàng khỏi bảng
   const handleDeleteRow = (index: number) => {
-    const updatedData = data.filter((_, i) => i !== index);
-    setData(updatedData);
+    setData(data.filter((_, i) => i !== index));
   };
 
-  return (
-    <table>
+  const renderMobileView = () => (
+    <div className='space-y-4'>
+      {data.map((row, index) => (
+        <div
+          key={index}
+          className='border border-solid border-disable-01 p-4 rounded-lg flex flex-col gap-4'
+        >
+          <div className='flex items-center justify-between'>
+            <Text type='font-14-700' className='text-primary'>{`Cơ sở đào tạo ${index + 1}`}</Text>
+            <TrashSimple
+              onClick={() => handleDeleteRow(index)}
+              size={16}
+              weight='fill'
+              color='#b91c1c'
+            />
+          </div>
+          <div className='flex flex-col gap-3'>
+            <InputText
+              required
+              name='name'
+              radius='md'
+              placeholder='Trình độ học vấn'
+              size='md'
+              onChange={(e: any) => handleInputChange(e, index, 'education_level')}
+            />
+            <InputText
+              required
+              name='name'
+              radius='md'
+              placeholder='Tên trường'
+              size='md'
+              onChange={(e: any) => handleInputChange(e, index, 'school_name')}
+            />
+            <DatePickerCustom
+              onChange={(e: string) => handleInputChange(e, index, 'start_time')}
+              className='w-full'
+              radius='md'
+              size='md'
+              name='start_time'
+            />
+            <DatePickerCustom
+              onChange={(e: string) => handleInputChange(e, index, 'end_time')}
+              className='w-full'
+              radius='md'
+              size='md'
+              name='end_time'
+            />
+            <InputText
+              required
+              name='name'
+              radius='md'
+              onChange={(e: any) => handleInputChange(e, index, 'specialized')}
+              placeholder='Chuyên ngành'
+              size='md'
+            />
+          </div>
+        </div>
+      ))}
+      <Button onClick={handleAddRow} className='w-full' variant='light'>
+        <Plus size={16} weight='light' color='#b31e8d' />
+        <Text type='font-13-600' className='text-primary'>
+          Thêm cơ sở đào tạo
+        </Text>
+      </Button>
+    </div>
+  );
+
+  const renderDesktopView = () => (
+    <table className='w-full'>
       <thead>
         <tr>
           <th className='p-3 bg-[#f3f3f3] border-1 border-disable-01 border-solid'>
@@ -92,7 +153,7 @@ const EditTableLearningProcess: React.FC = () => {
       <tbody>
         {data.map((row, index) => (
           <tr key={index}>
-            <td className='border border-disable-01  border-solid p-2'>
+            <td className='border border-disable-01 border-solid p-2'>
               <input
                 type='text'
                 value={row.education_level}
@@ -101,7 +162,7 @@ const EditTableLearningProcess: React.FC = () => {
                 className='border p-2 w-full border-none focus:outline-none'
               />
             </td>
-            <td className='border border-disable-01  border-solid p-2'>
+            <td className='border border-disable-01 border-solid p-2'>
               <input
                 value={row.school_name}
                 type='text'
@@ -110,11 +171,9 @@ const EditTableLearningProcess: React.FC = () => {
                 className='border p-2 w-full border-none focus:outline-none'
               />
             </td>
-            <td className='border border-disable-01  border-solid p-2'>
+            <td className='border border-disable-01 border-solid p-2'>
               <DatePickerCustom
-                onChange={(e: any) => {
-                  handleInputChange(e, index, 'start_time');
-                }}
+                onChange={(e: string) => handleInputChange(e, index, 'start_time')}
                 className='w-full'
                 borderNone
                 radius='md'
@@ -122,17 +181,17 @@ const EditTableLearningProcess: React.FC = () => {
                 name='start_time'
               />
             </td>
-            <td className='border border-disable-01  border-solid p-2'>
+            <td className='border border-disable-01 border-solid p-2'>
               <DatePickerCustom
-                onChange={(e: any) => handleInputChange(e, index, 'end_time')}
+                onChange={(e: string) => handleInputChange(e, index, 'end_time')}
                 className='w-full'
                 borderNone
                 radius='md'
                 size='lg'
-                name='start_time'
+                name='end_time'
               />
             </td>
-            <td className='border border-disable-01  border-solid p-2'>
+            <td className='border border-disable-01 border-solid p-2'>
               <input
                 type='text'
                 placeholder='Chuyên ngành'
@@ -141,7 +200,7 @@ const EditTableLearningProcess: React.FC = () => {
                 className='border p-2 w-full border-none focus:outline-none'
               />
             </td>
-            <td className='border border-disable-01  border-solid p-2 w-14'>
+            <td className='border border-disable-01 border-solid p-2 w-14'>
               <Button
                 radius='full'
                 size='md'
@@ -154,15 +213,17 @@ const EditTableLearningProcess: React.FC = () => {
             </td>
           </tr>
         ))}
-        <Button onClick={handleAddRow} className='mt-4' variant='light'>
-          <Plus size={16} weight='light' color='#b31e8d' />
-          <Text type='font-13-600' className='text-primary'>
-            Thêm cơ sở đào tạo
-          </Text>
-        </Button>
       </tbody>
+      <Button onClick={handleAddRow} className='mt-4' variant='light'>
+        <Plus size={16} weight='light' color='#b31e8d' />
+        <Text type='font-13-600' className='text-primary'>
+          Thêm cơ sở đào tạo
+        </Text>
+      </Button>
     </table>
   );
+
+  return <div>{isMobile ? renderMobileView() : renderDesktopView()}</div>;
 };
 
-export default EditTableLearningProcess;
+export default ResponsiveLearningProcessTable;

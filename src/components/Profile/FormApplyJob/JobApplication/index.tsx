@@ -11,7 +11,7 @@ const JobApplication = ({ errors, control }: any) => {
       title={<Text type='font-16-700'>Công việc ứng tuyển, kinh nghiệm làm việc</Text>}
     >
       <div className='px-3 pb-4 flex flex-col gap-4'>
-        <div className='grid grid-cols-3 gap-6'>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
           <CustomSelect
             className='w-full'
             radius='md'
@@ -79,7 +79,7 @@ const JobApplication = ({ errors, control }: any) => {
             ]}
           />
         </div>
-        <div className='grid grid-cols-3 gap-6'>
+        <div className='grid  grid-cols-1 md:grid-cols-3 gap-6'>
           <CustomSelect
             className='w-full'
             radius='md'
@@ -147,41 +147,41 @@ const JobApplication = ({ errors, control }: any) => {
             ]}
           />
         </div>
-        <div className='grid grid-cols-6 gap-8 items-center'>
-          <div className='col-span-2'>
+        <div className='grid grid-cols-8 md:grid-cols-6 gap-8 items-center'>
+          <div className='col-span-7 md:col-span-2'>
             <Text type='font-14-600'>Kinh nghiệm làm việc theo ca xoay</Text>
           </div>
-          <div className='col-span-4'>
+          <div className='col-span-1 md:col-span-4'>
             <Checkbox radius='sm' defaultSelected />
           </div>
         </div>
-        <div className='grid grid-cols-6 gap-8 items-center'>
-          <div className='col-span-2'>
+        <div className='grid grid-cols-8 md:grid-cols-6 gap-8 items-center'>
+          <div className='col-span-7 md:col-span-2'>
             <Text type='font-14-600'>Kinh nghiệm bán lẻ</Text>
           </div>
-          <div className='col-span-4'>
+          <div className='col-span-1 md:col-span-4'>
             <Checkbox radius='sm' defaultSelected />
           </div>
         </div>
-        <div className='grid grid-cols-6 gap-8 items-center'>
-          <div className='col-span-2'>
+        <div className='grid grid-cols-8 md:grid-cols-6 gap-8 items-center'>
+          <div className='col-span-7 md:col-span-2'>
             <Text type='font-14-600'>Kinh nghiệm làm việc đứng & đi lại nhiều</Text>
           </div>
-          <div className='col-span-4'>
+          <div className='col-span-1 md:col-span-4'>
             <Checkbox radius='sm' defaultSelected />
           </div>
         </div>
-        <div className='grid grid-cols-6 gap-8 items-center'>
-          <div className='col-span-2'>
+        <div className='grid grid-cols-8 md:grid-cols-6 gap-8 items-center'>
+          <div className='col-span-7 md:col-span-2'>
             <Text type='font-14-600'>
               Có thể làm ca sớm (bắt đầu lúc 5h) hoặc làm ca tối (kết thúc lúc 23h)
             </Text>
           </div>
-          <div className='col-span-4'>
+          <div className='col-span-1 md:col-span-4'>
             <Checkbox radius='sm' defaultSelected />
           </div>
         </div>
-        <div className='grid grid-cols-3 gap-6'>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
           <InputText
             required
             name='address'

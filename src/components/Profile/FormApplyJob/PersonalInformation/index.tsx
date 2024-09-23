@@ -12,11 +12,11 @@ const dataMaritalStatus = [
     value: 'single',
   },
   {
-    label: 'Độc thân',
+    label: 'Đã kết hôn',
     value: 'married',
   },
   {
-    label: 'Độc thân',
+    label: 'Đã ly dị',
     value: 'divorced',
   },
 ];
@@ -50,7 +50,7 @@ const PersonalInformation = ({ errors, control }: any) => {
   return (
     <AccordionCustom title={<Text type='font-16-700'>Thông tin cá nhân</Text>}>
       <div className='px-3 pb-4 flex flex-col gap-4'>
-        <div className='grid grid-cols-10 gap-6'>
+        <div className='grid grid-cols-4 md:grid-cols-10 gap-6'>
           <div className='col-span-4'>
             <InputText
               required
@@ -63,7 +63,7 @@ const PersonalInformation = ({ errors, control }: any) => {
               size='lg'
             />
           </div>
-          <div className='col-span-3'>
+          <div className='md:col-span-3 col-span-4'>
             <DatePickerCustom
               label='Ngày sinh'
               className='w-full'
@@ -72,7 +72,7 @@ const PersonalInformation = ({ errors, control }: any) => {
               name='start_date'
             />
           </div>
-          <div className='col-span-2 flex flex-col gap-2'>
+          <div className='col-span-4 md:col-span-2 flex flex-col gap-2'>
             <Text type='font-14-600'>Giới tính</Text>
             <RadioGroup
               className='mt-2'
@@ -87,7 +87,7 @@ const PersonalInformation = ({ errors, control }: any) => {
             </RadioGroup>
           </div>
         </div>
-        <div className='grid grid-cols-4 gap-6'>
+        <div className='grid grid-cols-1 md:grid-cols-4 gap-6'>
           <CustomSelect
             className='w-full'
             radius='md'
@@ -154,7 +154,7 @@ const PersonalInformation = ({ errors, control }: any) => {
             size='lg'
           />
         </div>
-        <div className='grid grid-cols-4 gap-6'>
+        <div className='grid  grid-cols-1 md:grid-cols-4 gap-6'>
           <CustomSelect
             className='w-full'
             radius='md'
@@ -218,7 +218,7 @@ const PersonalInformation = ({ errors, control }: any) => {
             ]}
           />
         </div>
-        <div className='grid grid-cols-10 gap-8'>
+        <div className='grid grid-cols-4 md:grid-cols-10 gap-8'>
           <div className='col-span-4'>
             <InputText
               required
@@ -231,7 +231,7 @@ const PersonalInformation = ({ errors, control }: any) => {
               size='lg'
             />
           </div>
-          <div className='col-span-2'>
+          <div className='col-span-4 md:col-span-2'>
             <CustomSelect
               className='w-full'
               radius='md'
@@ -256,7 +256,7 @@ const PersonalInformation = ({ errors, control }: any) => {
             />
           </div>
 
-          <div className='col-span-2'>
+          <div className='col-span-4 md:col-span-2'>
             <CustomSelect
               className='w-full'
               radius='md'
@@ -281,7 +281,7 @@ const PersonalInformation = ({ errors, control }: any) => {
             />
           </div>
 
-          <div className='col-span-2'>
+          <div className='col-span-4 md:col-span-2'>
             <CustomSelect
               className='w-full'
               radius='md'
@@ -306,7 +306,7 @@ const PersonalInformation = ({ errors, control }: any) => {
             />
           </div>
         </div>
-        <div className='grid grid-cols-10 gap-8'>
+        <div className='grid grid-cols-4 md:grid-cols-10 gap-8'>
           <div className='col-span-4'>
             <InputText
               required
@@ -319,7 +319,7 @@ const PersonalInformation = ({ errors, control }: any) => {
               size='lg'
             />
           </div>
-          <div className='col-span-2'>
+          <div className='col-span-4 md:col-span-2'>
             <CustomSelect
               className='w-full'
               radius='md'
@@ -344,7 +344,7 @@ const PersonalInformation = ({ errors, control }: any) => {
             />
           </div>
 
-          <div className='col-span-2'>
+          <div className='col-span-4 md:col-span-2'>
             <CustomSelect
               className='w-full'
               radius='md'
@@ -369,7 +369,7 @@ const PersonalInformation = ({ errors, control }: any) => {
             />
           </div>
 
-          <div className='col-span-2'>
+          <div className='col-span-4 md:col-span-2'>
             <CustomSelect
               className='w-full'
               radius='md'
@@ -394,7 +394,7 @@ const PersonalInformation = ({ errors, control }: any) => {
             />
           </div>
         </div>
-        <div className='grid grid-cols-6 gap-8 items-center'>
+        <div className='md:grid flex flex-col md:grid-cols-6 gap-4 md:gap-8 md:items-center'>
           <div className='col-span-1'>
             <Text type='font-14-600'>Tình trạng hôn nhân</Text>
           </div>
@@ -416,7 +416,7 @@ const PersonalInformation = ({ errors, control }: any) => {
             </RadioGroup>
           </div>
         </div>
-        <div className='grid grid-cols-6 gap-8 items-center'>
+        <div className='md:grid flex flex-col md:grid-cols-6 gap-4 md:gap-8 md:items-center'>
           <div className='col-span-1'>
             <Text type='font-14-600'>Đang có thai</Text>
           </div>
@@ -438,7 +438,7 @@ const PersonalInformation = ({ errors, control }: any) => {
             </RadioGroup>
           </div>
         </div>
-        <div className='grid grid-cols-6 gap-8 items-center'>
+        <div className='md:grid flex flex-col md:grid-cols-6 gap-4 md:gap-8 md:items-center'>
           <div className='col-span-1'>
             <Text type='font-14-600'>Có con dưới 1 tuổi</Text>
           </div>
@@ -460,7 +460,7 @@ const PersonalInformation = ({ errors, control }: any) => {
             </RadioGroup>
           </div>
         </div>
-        <div className='grid grid-cols-6 gap-8 items-center'>
+        <div className='md:grid flex flex-col md:grid-cols-6 gap-4 md:gap-8 md:items-center'>
           <div className='col-span-1'>
             <Text type='font-14-600'>Tiền án</Text>
           </div>
@@ -468,7 +468,7 @@ const PersonalInformation = ({ errors, control }: any) => {
             <Checkbox radius='sm' defaultSelected />
           </div>
         </div>
-        <div className='grid grid-cols-6 gap-8 items-center'>
+        <div className='md:grid flex flex-col md:grid-cols-6 gap-4 md:gap-8 md:items-center'>
           <div className='col-span-1'>
             <Text type='font-14-600'>Vấn đề sức khỏe</Text>
           </div>
@@ -476,7 +476,7 @@ const PersonalInformation = ({ errors, control }: any) => {
             <Checkbox radius='sm' defaultSelected />
           </div>
         </div>
-        <div className='grid grid-cols-6 gap-8 items-center'>
+        <div className='md:grid flex flex-col md:grid-cols-6 gap-4 md:gap-8 md:items-center'>
           <div className='col-span-1'>
             <Text type='font-14-600'>Hình xăm trên cơ thể</Text>
           </div>
@@ -498,7 +498,7 @@ const PersonalInformation = ({ errors, control }: any) => {
             </RadioGroup>
           </div>
         </div>
-        <div className='grid grid-cols-6 gap-8 items-center'>
+        <div className='md:grid flex flex-col md:grid-cols-6 gap-4 md:gap-8 md:items-center'>
           <div className='col-span-1'>
             <Text type='font-14-600'>Người thân ở Aeon</Text>
           </div>
@@ -506,8 +506,8 @@ const PersonalInformation = ({ errors, control }: any) => {
             <Checkbox radius='sm' defaultSelected />
           </div>
         </div>
-        <div className='grid grid-cols-11 gap-6'>
-          <div className='col-span-3'>
+        <div className='grid grid-cols-1 md:grid-cols-11 gap-6'>
+          <div className='col-span-1 md:col-span-3'>
             <InputText
               required
               name='cccd/cmnd'
@@ -519,7 +519,7 @@ const PersonalInformation = ({ errors, control }: any) => {
               size='lg'
             />
           </div>
-          <div className='col-span-2'>
+          <div className='col-span-1 md:col-span-2'>
             <CustomSelect
               className='w-full'
               radius='md'
@@ -543,7 +543,7 @@ const PersonalInformation = ({ errors, control }: any) => {
               ]}
             />
           </div>
-          <div className='col-span-2'>
+          <div className='col-span-1 md:col-span-2'>
             <InputText
               required
               name='cccd/cmnd'
@@ -555,7 +555,7 @@ const PersonalInformation = ({ errors, control }: any) => {
               size='lg'
             />
           </div>
-          <div className='col-span-4'>
+          <div className='col-span-1 md:col-span-4'>
             <InputText
               required
               name='cccd/cmnd'

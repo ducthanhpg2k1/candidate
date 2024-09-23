@@ -35,7 +35,7 @@ const PersonalParticulars = ({ errors, control }: any) => {
   return (
     <AccordionCustom title={<Text type='font-16-700'>Personal particulars</Text>}>
       <div className='px-3 pb-4 flex flex-col gap-4'>
-        <div className='grid grid-cols-8 gap-6'>
+        <div className='grid grid-cols-1 md:grid-cols-8 gap-6'>
           <div className='col-span-1'>
             <CustomSelect
               className='w-full'
@@ -60,7 +60,7 @@ const PersonalParticulars = ({ errors, control }: any) => {
               ]}
             />
           </div>
-          <div className='col-span-3'>
+          <div className='col-span-1 md:col-span-3'>
             <InputText
               required
               name='full_name'
@@ -72,7 +72,7 @@ const PersonalParticulars = ({ errors, control }: any) => {
               size='lg'
             />
           </div>
-          <div className='col-span-2'>
+          <div className='col-span-1 md:col-span-2'>
             <DatePickerCustom
               label='Date of birth '
               className='w-full'
@@ -81,7 +81,7 @@ const PersonalParticulars = ({ errors, control }: any) => {
               name='start_date'
             />
           </div>
-          <div className='col-span-2'>
+          <div className='col-span-1 md:col-span-2'>
             <div className='flex flex-col gap-2'>
               <Text type='font-14-600'>Gender</Text>
               <RadioGroup
@@ -102,7 +102,7 @@ const PersonalParticulars = ({ errors, control }: any) => {
             </div>
           </div>
         </div>
-        <div className='grid grid-cols-3 gap-6'>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
           <CustomSelect
             className='w-full'
             radius='md'
@@ -147,7 +147,7 @@ const PersonalParticulars = ({ errors, control }: any) => {
             size='lg'
           />
         </div>
-        <div className='grid grid-cols-4 gap-6'>
+        <div className='grid grid-cols-1 md:grid-cols-4 gap-6'>
           <CustomSelect
             className='w-full'
             radius='md'
@@ -214,7 +214,7 @@ const PersonalParticulars = ({ errors, control }: any) => {
             size='lg'
           />
         </div>
-        <div className='grid grid-cols-4 gap-6'>
+        <div className='grid grid-cols-1 md:grid-cols-4 gap-6'>
           <CustomSelect
             className='w-full'
             radius='md'
@@ -281,8 +281,8 @@ const PersonalParticulars = ({ errors, control }: any) => {
             ]}
           />
         </div>
-        <div className='grid grid-cols-12 gap-6'>
-          <div className='col-span-6'>
+        <div className='grid grid-cols-1 md:grid-cols-12 gap-6'>
+          <div className='col-span-1 md:col-span-6'>
             <InputText
               required
               name='permanent'
@@ -294,7 +294,7 @@ const PersonalParticulars = ({ errors, control }: any) => {
               size='lg'
             />
           </div>
-          <div className='col-span-2'>
+          <div className='col-span-1 md:col-span-2'>
             <CustomSelect
               className='w-full'
               radius='md'
@@ -318,7 +318,7 @@ const PersonalParticulars = ({ errors, control }: any) => {
               ]}
             />
           </div>
-          <div className='col-span-2'>
+          <div className='col-span-1 md:col-span-2'>
             <CustomSelect
               className='w-full'
               radius='md'
@@ -342,7 +342,7 @@ const PersonalParticulars = ({ errors, control }: any) => {
               ]}
             />
           </div>
-          <div className='col-span-2'>
+          <div className='col-span-1 md:col-span-2'>
             <CustomSelect
               className='w-full'
               radius='md'
@@ -367,8 +367,8 @@ const PersonalParticulars = ({ errors, control }: any) => {
             />
           </div>
         </div>
-        <div className='grid grid-cols-12 gap-6'>
-          <div className='col-span-6'>
+        <div className='grid grid-cols-1 md:grid-cols-12 gap-6'>
+          <div className='col-span-1 md:col-span-6'>
             <InputText
               required
               name='permanent'
@@ -380,7 +380,7 @@ const PersonalParticulars = ({ errors, control }: any) => {
               size='lg'
             />
           </div>
-          <div className='col-span-2'>
+          <div className='col-span-1 md:col-span-2'>
             <CustomSelect
               className='w-full'
               radius='md'
@@ -404,7 +404,7 @@ const PersonalParticulars = ({ errors, control }: any) => {
               ]}
             />
           </div>
-          <div className='col-span-2'>
+          <div className='col-span-1 md:col-span-2'>
             <CustomSelect
               className='w-full'
               radius='md'
@@ -428,7 +428,7 @@ const PersonalParticulars = ({ errors, control }: any) => {
               ]}
             />
           </div>
-          <div className='col-span-2'>
+          <div className='col-span-1 md:col-span-2'>
             <CustomSelect
               className='w-full'
               radius='md'
@@ -453,8 +453,8 @@ const PersonalParticulars = ({ errors, control }: any) => {
             />
           </div>
         </div>
-        <div className='grid grid-cols-8 gap-6'>
-          <div className='col-span-2'>
+        <div className='grid grid-cols-1 md:grid-cols-8 gap-6'>
+          <div className='col-span-1 md:col-span-2'>
             <InputText
               required
               name='height'
@@ -466,7 +466,7 @@ const PersonalParticulars = ({ errors, control }: any) => {
               size='lg'
             />
           </div>
-          <div className='col-span-2'>
+          <div className='col-span-1 md:col-span-2'>
             <InputText
               required
               name='weight'
@@ -479,7 +479,7 @@ const PersonalParticulars = ({ errors, control }: any) => {
             />
           </div>
         </div>
-        <div className='grid grid-cols-6 gap-8 items-center'>
+        <div className='flex flex-col gap-4 md:grid md:grid-cols-6 md:gap-8 md:items-center'>
           <div className='col-span-1'>
             <Text type='font-14-600'>Marital status</Text>
           </div>
@@ -502,26 +502,26 @@ const PersonalParticulars = ({ errors, control }: any) => {
           </div>
         </div>
         <div className='grid grid-cols-6 gap-8 items-center'>
-          <div className='col-span-1'>
+          <div className='col-span-4 md:col-span-1'>
             <Text type='font-14-600'>Be pregnant</Text>
           </div>
-          <div className='col-span-4'>
+          <div className='col-span-2 md:col-span-4'>
             <Checkbox radius='sm' defaultSelected />
           </div>
         </div>
         <div className='grid grid-cols-6 gap-8 items-center'>
-          <div className='col-span-1'>
+          <div className='col-span-4 md:col-span-1'>
             <Text type='font-14-600'>Children under 12 months</Text>
           </div>
-          <div className='col-span-4'>
+          <div className='col-span-2 md:col-span-4'>
             <Checkbox radius='sm' defaultSelected />
           </div>
         </div>
         <div className='grid grid-cols-6 gap-8 items-center'>
-          <div className='col-span-1'>
+          <div className='col-span-4 md:col-span-1'>
             <Text type='font-14-600'>Is foreigner?</Text>
           </div>
-          <div className='col-span-4'>
+          <div className='col-span-2 md:col-span-4'>
             <Checkbox radius='sm' defaultSelected />
           </div>
         </div>

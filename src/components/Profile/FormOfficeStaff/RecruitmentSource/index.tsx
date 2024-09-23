@@ -6,7 +6,7 @@ const RecruitmentSource = ({ errors, control }: any) => {
   return (
     <AccordionCustom title={<Text type='font-16-700'>Recruitment source</Text>}>
       <div className='px-3 pb-4 flex flex-col gap-4'>
-        <div className='grid grid-cols-2'>
+        <div className='grid grid-cols-1 md:grid-cols-2'>
           <InputText
             required
             name='height'
@@ -18,7 +18,7 @@ const RecruitmentSource = ({ errors, control }: any) => {
             size='lg'
           />
         </div>
-        <div className='grid grid-cols-2'>
+        <div className='grid grid-cols-1 md:grid-cols-2'>
           <InputText
             required
             name='height'
@@ -30,7 +30,7 @@ const RecruitmentSource = ({ errors, control }: any) => {
             size='lg'
           />
         </div>
-        <div className='grid grid-cols-2'>
+        <div className='grid grid-cols-1 md:grid-cols-2'>
           <InputText
             required
             name='height'

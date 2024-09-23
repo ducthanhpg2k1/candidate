@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { Button } from '@nextui-org/react';
 import { Plus, TrashSimple } from '@phosphor-icons/react';
+import { isMobile } from 'react-device-detect';
 
 import CustomSelect from '@components/UI/CustomSelect';
 import DatePickerCustom from '@components/UI/DatePickerCustom';
@@ -73,8 +74,115 @@ const EditTableEducationDetails: React.FC = () => {
     const updatedData = data.filter((_, i) => i !== index);
     setData(updatedData);
   };
-
-  return (
+  const renderMobileView = () => (
+    <div className='space-y-4'>
+      {data.map((row, index) => (
+        <div
+          key={index}
+          className='border border-solid border-disable-01 p-4 rounded-lg flex flex-col gap-4'
+        >
+          <div className='flex items-center justify-between'>
+            <Text type='font-14-700' className='text-primary'>{`Degree
+            ${index + 1}`}</Text>
+            <TrashSimple
+              onClick={() => handleDeleteRow(index)}
+              size={16}
+              weight='fill'
+              color='#b91c1c'
+            />
+          </div>
+          <div className='flex flex-col gap-3'>
+            <CustomSelect
+              className='w-full'
+              radius='md'
+              size='md'
+              borderDisable
+              placeholder='Select school level'
+              options={[
+                {
+                  value: 1,
+                  label: 'Điểm điểm 1',
+                },
+                {
+                  value: 2,
+                  label: 'Địa điểm 2',
+                },
+                {
+                  value: 3,
+                  label: 'Địa điểm 3',
+                },
+              ]}
+            />
+            <CustomSelect
+              className='w-full'
+              radius='md'
+              size='md'
+              borderDisable
+              placeholder='School name'
+              options={[
+                {
+                  value: 1,
+                  label: 'Điểm điểm 1',
+                },
+                {
+                  value: 2,
+                  label: 'Địa điểm 2',
+                },
+                {
+                  value: 3,
+                  label: 'Địa điểm 3',
+                },
+              ]}
+            />
+            <CustomSelect
+              className='w-full'
+              radius='md'
+              borderDisable
+              size='md'
+              placeholder='Select major'
+              options={[
+                {
+                  value: 1,
+                  label: 'Điểm điểm 1',
+                },
+                {
+                  value: 2,
+                  label: 'Địa điểm 2',
+                },
+                {
+                  value: 3,
+                  label: 'Địa điểm 3',
+                },
+              ]}
+            />
+            <DatePickerCustom
+              onChange={(e: any) => {
+                handleInputChange(e, index, 'from_date');
+              }}
+              className='w-full'
+              radius='md'
+              size='md'
+              name='from_date'
+            />
+            <DatePickerCustom
+              onChange={(e: any) => handleInputChange(e, index, 'to_date')}
+              className='w-full'
+              radius='md'
+              size='md'
+              name='to_date'
+            />
+          </div>
+        </div>
+      ))}
+      <Button onClick={handleAddRow} className='w-full' variant='light'>
+        <Plus size={16} weight='light' color='#b31e8d' />
+        <Text type='font-13-600' className='text-primary'>
+          Add degree
+        </Text>
+      </Button>
+    </div>
+  );
+  const renderDesktopView = () => (
     <table>
       <thead>
         <tr>
@@ -222,7 +330,7 @@ const EditTableEducationDetails: React.FC = () => {
                 onClick={() => handleDeleteRow(index)}
                 variant='light'
               >
-                <TrashSimple size={16} weight='fill' color='#74787C' />
+                <TrashSimple size={16} weight='fill' color='#b91c1c' />
               </Button>
             </td>
           </tr>
@@ -236,6 +344,8 @@ const EditTableEducationDetails: React.FC = () => {
       </tbody>
     </table>
   );
+
+  return <div>{isMobile ? renderMobileView() : renderDesktopView()}</div>;
 };
 
 export default EditTableEducationDetails;

@@ -19,6 +19,7 @@ interface ICustomSelect {
   formApply?: boolean;
   multiple?: boolean;
   borderNone?: boolean;
+  borderDisable?: boolean;
 }
 const CustomSelect = (props: ICustomSelect) => {
   const {
@@ -31,6 +32,7 @@ const CustomSelect = (props: ICustomSelect) => {
     formApply,
     selectionMode,
     multiple,
+    borderDisable,
     className = '',
     ...rest
   } = props;
@@ -49,6 +51,10 @@ const CustomSelect = (props: ICustomSelect) => {
               ]
             : borderNone
             ? ['!bg-white p-4 font-nunito-sans  border-none shadow-none']
+            : borderDisable
+            ? [
+                '!bg-white p-4 font-nunito-sans  border-1 !border-disable-01 data-[focus-visible=true]:!border-primary data-[hover=true]:!border-primary',
+              ]
             : [
                 '!bg-white p-4 font-nunito-sans  border-1 border-gray-100 data-[focus-visible=true]:!border-primary data-[hover=true]:!border-primary',
               ],

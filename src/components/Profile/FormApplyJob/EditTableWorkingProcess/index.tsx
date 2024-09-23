@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 
 import { Button } from '@nextui-org/react';
 import { Plus, TrashSimple } from '@phosphor-icons/react';
+import { isMobile } from 'react-device-detect';
 
 import DatePickerCustom from '@components/UI/DatePickerCustom';
+import InputText from '@components/UI/InputText';
 import Text from '@components/UI/Text';
 
 // Định nghĩa kiểu dữ liệu cho một hàng trong bảng
@@ -73,7 +75,86 @@ const EditTableLearningProcess: React.FC = () => {
     setData(updatedData);
   };
 
-  return (
+  const renderMobileView = () => (
+    <div className='space-y-4'>
+      {data.map((row, index) => (
+        <div
+          key={index}
+          className='border border-solid border-disable-01 p-4 rounded-lg flex flex-col gap-4'
+        >
+          <div className='flex items-center justify-between'>
+            <Text type='font-14-700' className='text-primary'>{`Quá trình làm việc ${
+              index + 1
+            }`}</Text>
+            <TrashSimple
+              onClick={() => handleDeleteRow(index)}
+              size={16}
+              weight='fill'
+              color='#b91c1c'
+            />
+          </div>
+          <div className='flex flex-col gap-3'>
+            <InputText
+              required
+              name='company'
+              radius='md'
+              placeholder='Nhập tên công ty'
+              size='md'
+              onChange={(e: any) => handleInputChange(e, index, 'company')}
+            />
+            <InputText
+              required
+              name='position'
+              radius='md'
+              placeholder='VD: Sales  Manager'
+              size='md'
+              onChange={(e: any) => handleInputChange(e, index, 'position')}
+            />
+            <InputText
+              required
+              name='income_level'
+              radius='md'
+              placeholder='Mức thu nhập'
+              size='md'
+              onChange={(e: any) => handleInputChange(e, index, 'income_level')}
+            />
+            <DatePickerCustom
+              onChange={(e: any) => {
+                handleInputChange(e, index, 'start_time');
+              }}
+              className='w-full'
+              radius='md'
+              size='md'
+              name='end_time'
+            />
+            <DatePickerCustom
+              onChange={(e: any) => handleInputChange(e, index, 'end_time')}
+              className='w-full'
+              radius='md'
+              size='md'
+              name='start_time'
+            />
+            <InputText
+              required
+              name='leaving_job'
+              radius='md'
+              onChange={(e: any) => handleInputChange(e, index, 'leaving_job')}
+              placeholder='Lý do nghỉ việc'
+              size='md'
+            />
+          </div>
+        </div>
+      ))}
+      <Button onClick={handleAddRow} className='w-full' variant='light'>
+        <Plus size={16} weight='light' color='#b31e8d' />
+        <Text type='font-13-600' className='text-primary'>
+          Thêm quá trình làm việc
+        </Text>
+      </Button>
+    </div>
+  );
+
+  const renderDesktopView = () => (
     <table>
       <thead>
         <tr>
@@ -193,6 +274,8 @@ const EditTableLearningProcess: React.FC = () => {
       </tbody>
     </table>
   );
+
+  return <div>{isMobile ? renderMobileView() : renderDesktopView()}</div>;
 };
 
 export default EditTableLearningProcess;
