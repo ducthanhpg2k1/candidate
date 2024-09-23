@@ -34,6 +34,9 @@ const SelectSearch = (props: ISelectSearch) => {
         trigger: ['!bg-white !py-0 !px-0 shadow-none '],
       }}
       radius='lg'
+      scrollShadowProps={{
+        isEnabled: false,
+      }}
       onChange={onChange}
       selectionMode={selectionMode}
       className={className}
